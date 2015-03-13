@@ -1,0 +1,5 @@
+Extra CMake Modules (ECM) aims to augment CMake with additional
+modules. It serves as both a staging ground for new modules
+before they moved upstream to CMake.
+
+WWW: https://projects.kde.org/projects/kdesupport/extra-cmake-modules
