@@ -1,0 +1,8 @@
+--- src/CMakeLists.txt.orig	2015-02-03 20:18:13 UTC
++++ src/CMakeLists.txt
+@@ -64,4 +64,4 @@ target_link_libraries(lxqt-config qcateg
+ 
+ install(TARGETS lxqt-config RUNTIME DESTINATION bin)
+ install(FILES ${DESKTOP_FILES} DESTINATION "${CMAKE_INSTALL_PREFIX}/share/applications")
+-install(FILES lxqt-config.menu DESTINATION /etc/xdg/menus/)
++install(FILES lxqt-config.menu DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/xdg/menus")
