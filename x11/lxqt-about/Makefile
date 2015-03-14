@@ -14,6 +14,6 @@ LICENSE=	LGPL21
 
 USES=	cmake pkgconfig gettext tar:xz
 USE_QT5=	dbus widgets x11extras
-USE_LXQT=	liblxqt
+USE_LXQT=	lxqt
 
 .include <bsd.port.mk>
