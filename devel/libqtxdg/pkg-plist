@@ -17,9 +17,9 @@ include/qt5xdg/xdgmenu.h
 include/qt5xdg/xdgmenuwidget.h
 include/qt5xdg/xdgmimetype.h
 include/qt5xdg/xmlhelper.h
-%%QT_LIBDIR%%/libQt5Xdg.so
-%%QT_LIBDIR%%/libQt5Xdg.so.1
-%%QT_LIBDIR%%/libQt5Xdg.so.1.0.0
+lib/libQt5Xdg.so
+lib/libQt5Xdg.so.1
+lib/libQt5Xdg.so.1.0.0
 libdata/pkgconfig/Qt5Xdg.pc
 share/cmake/qt5xdg/qt5xdg-config.cmake
 share/cmake/qt5xdg/qt5xdg_use.cmake
