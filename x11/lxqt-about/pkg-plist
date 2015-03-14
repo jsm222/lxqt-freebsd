@@ -1,0 +1,3 @@
+bin/lxqt-about
+share/applications/lxqt-about.desktop
+%%LXQT_SHAREDIR%%/lxqt-about/KF5WindowSystemTargets-%%CMAKE_BUILD_TYPE%%.cmake
