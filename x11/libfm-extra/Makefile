@@ -20,6 +20,7 @@ INSTALL_TARGET=	install-strip
 
 WRKSRC=	${WRKDIR}/libfm-${PORTVERSION}
 
-CONFIGURE_ARGS=--with-extra-only --disable-static
+CONFIGURE_ARGS=--sysconfdir=${PREFIX}/etc --with-extra-only \
+	--disable-static
 
 .include <bsd.port.mk>
