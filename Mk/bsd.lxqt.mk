@@ -16,20 +16,25 @@ MASTER_SITE_SUBDIR?=	lxqt/${LXQT_VERSION}
 PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt/LXQt" \
 	LXQT_SHAREDIR="share/lxqt"
 
-.endif # !defined(_POSTMKINCLUDED) && !defined(Lxqt_Pre_Include)
-
-.if defined(_POSTMKINCLUDED) && !defined(Lxqt_Pre_Include)
-
-Lxqt_Post_Include=	bsd.lxqt.mk
-
 # Available LXQt components are:
 #
 _USE_LXQT_ALL=	lxqt qtxdg
 
-lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/x11/liblxqt
-lxqt_USE_LXQT_REQ=	qtxdg
+# Not part of LXQt project, but LXDE (same developers).
+_USE_LXQT_ALL+=	libfm
 
-qtxdg_LIB_DEPENDS=	libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
+lxqt_LIB_DEPENDS=       liblxqt.so:${PORTSDIR}/x11/liblxqt
+lxqt_USE_LXQT_REQ=      qtxdg
+
+qtxdg_LIB_DEPENDS=      libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
+
+libfm_LIB_DEPENDS=      libfm.so:${PORTSDIR}/x11/libfm
+
+.endif # !defined(_POSTMKINCLUDED) && !defined(Lxqt_Pre_Include)
+
+.if defined(_POSTMKINCLUDED) && !defined(Lxqt_Post_Include)
+
+Lxqt_Post_Include=	bsd.lxqt.mk
 
 .if defined(USE_LXQT)
 # First, expand all USE_LXQT_REQ recursively.
@@ -41,7 +46,7 @@ ${comp}_USE_LXQT_REQ+=${${subcomp}_USE_LXQT_REQ}
 
 # Then, use already expanded USE_LXQT_REQ to expand USE_LXQT.
 . for comp in ${USE_LXQT}
-.  if ${_USE_LXQT_ALL:M${comp}} == ""
+.  if ${_USE_LXQT_ALL:M${comp}}==""
 IGNORE= cannot install: Unknown component ${comp}
 .  endif
 _USE_LXQT+=	${${comp}_USE_LXQT_REQ} ${comp}
@@ -66,4 +71,4 @@ RUN_DEPENDS+=	${${comp}_RUN_DEPENDS}
 
 .endif # defined(USE_LXQT)
 
-.endif # defined(_POSTMKINCLUDED) && !defined(Lxqt_Pre_Include)
+.endif # defined(_POSTMKINCLUDED) && !defined(Lxqt_Post_Include)
