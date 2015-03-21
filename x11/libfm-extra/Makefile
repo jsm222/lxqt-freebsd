@@ -7,7 +7,7 @@ CATEGORIES=	x11
 MASTER_SITES=	SF/pcmanfm/PCManFM%20%2B%20Libfm%20%28tarball%20release%29/LibFM/
 DISTNAME=	libfm-${PORTVERSION}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	horia@racoviceanu.com
 COMMENT=	Core library of PCManFM file manager
 
 LICENSE=	LGPL21
