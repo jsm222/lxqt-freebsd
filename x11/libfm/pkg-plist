@@ -66,12 +66,9 @@ include/libfm/fm-thumbnail.h
 include/libfm/fm-thumbnailer.h
 include/libfm/fm-utils.h
 include/libfm/fm.h
-%%GTK2%%lib/libfm-gtk.so
-%%GTK3%%lib/libfm-gtk3.so
-%%GTK2%%lib/libfm-gtk.so.4
-%%GTK3%%lib/libfm-gtk3.so.4
-%%GTK2%%lib/libfm-gtk.so.4.0.3
-%%GTK3%%lib/libfm-gtk3.so.4.0.3
+lib/libfm-gtk.so
+lib/libfm-gtk.so.4
+lib/libfm-gtk.so.4.0.3
 lib/libfm.so
 lib/libfm.so.4
 lib/libfm.so.4.0.3
@@ -81,8 +78,7 @@ lib/libfm/modules/gtk-menu-actions.so
 lib/libfm/modules/gtk-menu-trash.so
 lib/libfm/modules/vfs-menu.so
 lib/libfm/modules/vfs-search.so
-%%GTK2%%libdata/pkgconfig/libfm-gtk.pc
-%%GTK3%%libdata/pkgconfig/libfm-gtk3.pc
+libdata/pkgconfig/libfm-gtk.pc
 libdata/pkgconfig/libfm.pc
 man/man1/libfm-pref-apps.1.gz
 man/man1/lxshortcut.1.gz

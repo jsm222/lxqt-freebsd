@@ -18,10 +18,11 @@ LIB_DEPENDS=	libmenu-cache.so:${PORTSDIR}/x11/menu-cache \
 
 USES=		desktop-file-utils gmake libtool pathfix pkgconfig \
 		shared-mime-info gettext-tools tar:xz
-USE_GNOME=	glib20
+USE_GNOME=	glib20 gtk20
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--sysconfdir=${LOCALBASE}/etc --disable-static
+CONFIGURE_ARGS=	--sysconfdir=${LOCALBASE}/etc --disable-static \
+	--with-gtk=2
 CPPFLAGS+=	-I${LOCALBASE}/include
 LIBS+=		-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip
@@ -29,15 +30,8 @@ INSTALL_TARGET=	install-strip
 PORTDOCS=	AUTHORS NEWS README
 
 OPTIONS_DEFINE=	DOCS NLS
-OPTIONS_SINGLE=	GTK
-OPTIONS_SINGLE_GTK=	GTK2 GTK3
-OPTIONS_DEFAULT=	GTK2
 NLS_USES=	gettext-runtime
 NLS_CONFIGURE_ENABLE=	nls
-GTK2_USE=	gnome=gtk20
-GTK2_CONFIGURE_ON=	--with-gtk=2
-GTK3_USE=	gnome=gtk30
-GTK3_CONFIGURE_ON=	--with-gtk=3
 OPTIONS_SUB=	yes
 
 post-patch:
