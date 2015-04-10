@@ -12,7 +12,7 @@ COMMENT=	Core library of PCManFM file manager
 
 LICENSE=	LGPL21
 
-USES=		gmake libtool pathfix pkgconfig gettext tar:xz
+USES=		gmake libtool pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 intltool intlhack
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
@@ -20,8 +20,7 @@ INSTALL_TARGET=	install-strip
 
 WRKSRC=	${WRKDIR}/libfm-${PORTVERSION}
 
-CONFIGURE_ARGS=	--sysconfdir=${LOCALBASE}/etc --with-extra-only \
-	--disable-static
+EXTRA_PATCHES+=	${.CURDIR}/../libfm/files/patch-configure
 
 CONFIGURE_ARGS=	--sysconfdir=${LOCALBASE}/etc --with-extra-only \
 	--disable-static \
