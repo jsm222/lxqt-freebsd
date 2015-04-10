@@ -23,4 +23,8 @@ WRKSRC=	${WRKDIR}/libfm-${PORTVERSION}
 CONFIGURE_ARGS=	--sysconfdir=${LOCALBASE}/etc --with-extra-only \
 	--disable-static
 
+CONFIGURE_ARGS=	--sysconfdir=${LOCALBASE}/etc --with-extra-only \
+	--disable-static \
+	--disable-nls
+
 .include <bsd.port.mk>
