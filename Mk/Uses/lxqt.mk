@@ -31,7 +31,7 @@ PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt/LXQt" \
 # Available LXQt components are:
 _USE_LXQT_ALL=	lxqt qtxdg
 
-# Not part of LXQT project, but LXDE (same developers).
+# Not part of LXQt project, but LXDE (same developers).
 _USE_LXQT_ALL+=	libfm
 
 lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/devel/liblxqt
