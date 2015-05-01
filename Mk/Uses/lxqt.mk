@@ -14,7 +14,7 @@ _INCLUDE_USES_LXQT_MK=	yes
 
 MASTER_SITE_LXQT+= \
 	http://downloads.lxqt.org/%SUBDIR%/
-MASTER_SITE_LXQT_SUBDIR=	${PORTNAME}/${PORTVERSION}
+MASTER_SITE_LXQT_SUBDIR=	lxqt/${PORTVERSION}
 
 MASTER_SITES?=	${MASTER_SITE_LXQT}
 MASTER_SITE_SUBDIR?=	${MASTER_SITE_LXQT_SUBDIR}
@@ -34,7 +34,7 @@ _USE_LXQT_ALL=	lxqt qtxdg
 # Not part of LXQT project, but LXDE (same developers).
 _USE_LXQT_ALL+=	libfm
 
-lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/x11/liblxqt
+lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/devel/liblxqt
 lxqt_USE_LXQT_REQ=	qtxdg
 
 qtxdg_LIB_DEPENDS=	libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
@@ -75,7 +75,7 @@ RUN_DEPENDS+=	${${comp}_RUN_DEPENDS}
 . endif
 .endfor
 
-.endif # defined(USE_XFCE)
+.endif # end of defined(USE_XFCE)
 .endif
 
 .if defined(_POSTMKINCLUDED) && !defined(_INCLUDE_USES_LXQT_POST_MK)
