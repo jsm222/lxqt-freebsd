@@ -13,7 +13,7 @@ COMMENT=	Access to the windowing system
 
 LICENSE=	LGPL21
 
-RUN_DEPENDS=	extra-cmake-modules>=1.8:${PORTSDIR}/devel/extra-cmake-modules
+BUILD_DEPENDS=	extra-cmake-modules>=1.8:${PORTSDIR}/devel/extra-cmake-modules
 
 KDE5_BRANCH?=	5.8
 
