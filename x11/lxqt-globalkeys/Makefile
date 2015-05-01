@@ -7,7 +7,7 @@ CATEGORIES=	x11
 MASTER_SITES=	LXQT
 
 MAINTAINER=	olivierd@FreeBSD.org
-COMMENT=	Configure shortcut keys for the LXQt desktop
+COMMENT=	Global keyboard shortcuts registration
 
 USES=	cmake pkgconfig gettext lxqt tar:xz
 USE_QT5=	dbus linguisttools widgets
