@@ -75,7 +75,7 @@ RUN_DEPENDS+=	${${comp}_RUN_DEPENDS}
 . endif
 .endfor
 
-.endif # end of defined(USE_XFCE)
+.endif # defined(USE_XFCE)
 .endif
 
 .if defined(_POSTMKINCLUDED) && !defined(_INCLUDE_USES_LXQT_POST_MK)
