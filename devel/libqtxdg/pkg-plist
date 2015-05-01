@@ -1,3 +1,4 @@
+include/qt5xdg/%%VERSION%%/private/qtxdg/qiconloader_p.h
 include/qt5xdg/XdgAction
 include/qt5xdg/XdgAutoStart
 include/qt5xdg/XdgDesktopFile
@@ -19,7 +20,7 @@ include/qt5xdg/xdgmimetype.h
 include/qt5xdg/xmlhelper.h
 lib/libQt5Xdg.so
 lib/libQt5Xdg.so.1
-lib/libQt5Xdg.so.1.0.0
+lib/libQt5Xdg.so.1.2.0
 libdata/pkgconfig/Qt5Xdg.pc
 share/cmake/qt5xdg/qt5xdg-config.cmake
 share/cmake/qt5xdg/qt5xdg_use.cmake

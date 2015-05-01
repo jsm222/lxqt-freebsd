@@ -2,20 +2,20 @@
 # $FreeBSD$
 
 PORTNAME=	libqtxdg
-PORTVERSION=	1.1.0
+PORTVERSION=	1.2.0
 CATEGORIES=	devel
-MASTER_SITES=	http://downloads.lxqt.org/${PORTNAME}/${PORTVERSION}/
-DIST_SUBDIR=	lxqt
+MASTER_SITES=	LXQT
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Qt implementation of freedesktop.org xdg specs
 
-LICENSE=	LGPL21
 
-USES=	cmake pkgconfig tar:xz
+USES=	cmake pkgconfig lxqt tar:xz
 USE_QT5=	core widgets xml
 
 # LXQt is build on top of Qt5
-CONFIGURE_ARGS=-DUSE_QT5=ON -DUSE_QT4=OFF
+CONFIGURE_ARGS=-DUSE_QT5:BOOL=ON -DUSE_QT4:BOOL=OFF
+
+PLIST_SUB+=	VERSION="${PORTVERSION}"
 
 .include <bsd.port.mk>
