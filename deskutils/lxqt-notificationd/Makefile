@@ -4,15 +4,12 @@
 PORTNAME=	lxqt-notificationd
 PORTVERSION=	0.9.0
 CATEGORIES=	deskutils
-MASTER_SITES=	http://downloads.lxqt.org/%SUBDIR%/
-DIST_SUBDIR=	lxqt
+MASTER_SITES=	LXQT
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	LXQt notification daemon
 
-LICENSE=	LGPL21
-
-USES=	cmake pkgconfig gettext tar:xz
+USES=	cmake pkgconfig gettext lxqt tar:xz
 USE_QT5=	dbus linguisttools widgets
 USE_LXQT=	lxqt
 
