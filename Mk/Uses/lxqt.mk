@@ -29,7 +29,7 @@ PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt/LXQt" \
 	LXQT_SHAREDIR="share/lxqt"
 
 # Available LXQt components are:
-_USE_LXQT_ALL=	lxqt qtxdg globalkeys
+_USE_LXQT_ALL=	lxqt qtxdg globalkeys libfmqt5
 
 # Not part of LXQt project, but LXDE (same developers).
 _USE_LXQT_ALL+=	libfm
@@ -41,6 +41,9 @@ qtxdg_LIB_DEPENDS=	libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
 
 globalkeys_LIB_DEPENDS=	liblxqt-globalkeys.so:${PORTSDIR}/x11/lxqt-globalkeys
 globalkeys_USE_LXQT_REQ=	lxqt
+
+libfmqt5_LIB_DEPENDS=	libfm-qt5.so:${PORTSDIR}/x11-fm/pcmanfm-qt
+libfmqt5_USE_LXQT_REQ=	libfm
 
 libfm_LIB_DEPENDS=	libfm.so:${PORTSDIR}/x11/libfm
 
