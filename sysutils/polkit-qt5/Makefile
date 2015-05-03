@@ -1,7 +1,7 @@
 # Created by: Dima Panov <fluffy@Fluffy.Khv.RU>
 # $FreeBSD: head/sysutils/polkit-qt/Makefile 375658 2014-12-26 21:02:21Z rakuco $
 
-PORTNAME=	polkit-qt
+PORTNAME=	polkit-qt5
 PORTVERSION=	0.112.0
 CATEGORIES=	sysutils
 MASTER_SITES=	KDE/stable/apps/KDE4.x/admin/
