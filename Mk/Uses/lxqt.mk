@@ -9,7 +9,7 @@
 #
 # MAINTAINER: olivierd@FreeBSD.org
 
-.if !defined(_INCLUDE_USES_LXQT_Mk)
+.if !defined(_INCLUDE_USES_LXQT_MK)
 _INCLUDE_USES_LXQT_MK=	yes
 
 MASTER_SITE_LXQT+= \
@@ -81,7 +81,7 @@ RUN_DEPENDS+=	${${comp}_RUN_DEPENDS}
 . endif
 .endfor
 
-.endif # end of defined(USE_XFCE)
+.endif # end of defined(USE_LXQT)
 .endif
 
 .if defined(_POSTMKINCLUDED) && !defined(_INCLUDE_USES_LXQT_POST_MK)
