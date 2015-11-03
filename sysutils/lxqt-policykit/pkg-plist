@@ -1,0 +1,7 @@
+bin/lxqt-policykit-agent
+%%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_de.qm
+%%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_el.qm
+%%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_hu.qm
+%%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_pt.qm
+%%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_ru.qm
+%%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_ru_RU.qm
