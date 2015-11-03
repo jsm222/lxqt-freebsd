@@ -27,6 +27,7 @@ LICENSE=	LGPL21
 
 PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt/LXQt" \
 	LXQT_SHAREDIR="share/lxqt" \
+	LXQT_TRANSLATIONS="share/lxqt/translations" \
 	VERSION="${PORTVERSION}"
 
 # Available LXQt components are:
