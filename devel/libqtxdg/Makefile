@@ -13,6 +13,4 @@ COMMENT=	Qt implementation of freedesktop.org xdg specs
 USES=	cmake:outsource lxqt pkgconfig tar:xz
 USE_QT5=	core dbus widgets xml
 
-PLIST_SUB+=	VERSION="${PORTVERSION}"
-
 .include <bsd.port.mk>
