@@ -1,0 +1,11 @@
+--- libfm-qt/CMakeLists.txt.orig	2015-11-02 11:34:16 UTC
++++ libfm-qt/CMakeLists.txt
+@@ -144,7 +144,7 @@ else()
+     install(FILES "${CMAKE_CURRENT_BINARY_DIR}/lib${LIBRARY_NAME}.pc" DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
+ endif()
+ 
+-install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATADIR}/libfm-qt/translations")
++install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATADIR}/lxqt/translations/libfm-qt")
+ 
+ # prevent the generated files from being deleted during make cleaner
+ set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM true)

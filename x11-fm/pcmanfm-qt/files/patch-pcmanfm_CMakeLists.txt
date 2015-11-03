@@ -1,0 +1,11 @@
+--- pcmanfm/CMakeLists.txt.orig	2015-11-02 11:34:16 UTC
++++ pcmanfm/CMakeLists.txt
+@@ -95,7 +95,7 @@ install(TARGETS pcmanfm-qt RUNTIME DESTI
+ install(FILES ${DESKTOP_FILES} DESTINATION "${CMAKE_INSTALL_DATADIR}/applications"
+ )
+ 
+-install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATADIR}/pcmanfm-qt/translations")
++install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATADIR}/lxqt/translations/pcmanfm-qt")
+ 
+ # prevent the generated files from being deleted during make clean
+ set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM true)
