@@ -1,0 +1,4 @@
+Polkit agent for LXQt desktop. The polkit module will perform security
+tast over scale action privilegies.
+
+WWW: http://lxqt.org/
