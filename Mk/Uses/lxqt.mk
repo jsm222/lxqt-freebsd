@@ -26,7 +26,8 @@ LICENSE=	LGPL21
 .endif
 
 PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt/LXQt" \
-	LXQT_SHAREDIR="share/lxqt"
+	LXQT_SHAREDIR="share/lxqt" \
+	VERSION="${PORTVERSION}"
 
 # Available LXQt components are:
 _USE_LXQT_ALL=	lxqt qtxdg globalkeys libfmqt5
