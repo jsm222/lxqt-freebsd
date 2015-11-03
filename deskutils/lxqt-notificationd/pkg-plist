@@ -1,9 +1,0 @@
-bin/lxqt-config-notificationd
-bin/lxqt-notificationd
-share/applications/lxqt-config-notificationd.desktop
-%%LXQT_SHAREDIR%%/translations/lxqt-config-notificationd/lxqt-config-notificationd_pt.qm
-%%LXQT_SHAREDIR%%/translations/lxqt-config-notificationd/lxqt-config-notificationd_ru.qm
-%%LXQT_SHAREDIR%%/translations/lxqt-config-notificationd/lxqt-config-notificationd_ru_RU.qm
-%%LXQT_SHAREDIR%%/translations/lxqt-notificationd/lxqt-notificationd_pt.qm
-%%LXQT_SHAREDIR%%/translations/lxqt-notificationd/lxqt-notificationd_ru.qm
-%%LXQT_SHAREDIR%%/translations/lxqt-notificationd/lxqt-notificationd_ru_RU.qm
