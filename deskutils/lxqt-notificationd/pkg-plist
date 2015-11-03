@@ -1,0 +1,17 @@
+bin/lxqt-config-notificationd
+bin/lxqt-notificationd
+share/applications/lxqt-config-notificationd.desktop
+%%LXQT_TRANSLATIONS%%/lxqt-config-notificationd/lxqt-config-notificationd_de.qm
+%%LXQT_TRANSLATIONS%%/lxqt-config-notificationd/lxqt-config-notificationd_el.qm
+%%LXQT_TRANSLATIONS%%/lxqt-config-notificationd/lxqt-config-notificationd_hr.qm
+%%LXQT_TRANSLATIONS%%/lxqt-config-notificationd/lxqt-config-notificationd_hu.qm
+%%LXQT_TRANSLATIONS%%/lxqt-config-notificationd/lxqt-config-notificationd_it.qm
+%%LXQT_TRANSLATIONS%%/lxqt-config-notificationd/lxqt-config-notificationd_pt.qm
+%%LXQT_TRANSLATIONS%%/lxqt-config-notificationd/lxqt-config-notificationd_ru.qm
+%%LXQT_TRANSLATIONS%%/lxqt-config-notificationd/lxqt-config-notificationd_ru_RU.qm
+%%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_de.qm
+%%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_el.qm
+%%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_hu.qm
+%%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_pt.qm
+%%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_ru.qm
+%%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_ru_RU.qm
