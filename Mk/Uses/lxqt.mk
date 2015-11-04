@@ -25,7 +25,7 @@ DIST_SUBDIR=	lxqt
 LICENSE=	LGPL21
 .endif
 
-PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt/LXQt" \
+PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt" \
 	LXQT_SHAREDIR="share/lxqt" \
 	LXQT_TRANSLATIONS="share/lxqt/translations" \
 	VERSION="${PORTVERSION}"
