@@ -84,7 +84,6 @@ RUN_DEPENDS+=	${${comp}_RUN_DEPENDS}
 .endfor
 
 .endif # end of defined(USE_LXQT)
-.endif
 
 _USES_patch+=	750:man-post-patch
 
@@ -92,7 +91,10 @@ man-post-patch:
 	@(cd ${WRKSRC} && ${FIND} . -type f -name 'CMakeLists.txt' \
 		| ${XARGS} ${REINPLACE_CMD} -i "" 's|$${CMAKE_INSTALL_MANDIR}|man|')
 
+.endif
+
 .if defined(_POSTMKINCLUDED) && !defined(_INCLUDE_USES_LXQT_POST_MK)
+
 _INCLUDE_USES_LXQT_POST_MK=	yes
 
 .endif
