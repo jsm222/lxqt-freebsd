@@ -1,0 +1,17 @@
+bin/screengrab
+%%QT_LIBDIR%%/screengrab/libextedit.so
+%%QT_LIBDIR%%/screengrab/libextedit.so.1.0.0
+%%QT_LIBDIR%%/screengrab/libuploader.so
+%%QT_LIBDIR%%/screengrab/libuploader.so.1.0.0
+share/applications/screengrab.desktop
+%%DOCSDIR%%/html/default.css
+%%DOCSDIR%%/html/en/index.html
+%%DOCSDIR%%/html/pt_BR/index.html
+%%DOCSDIR%%/html/ru/index.html
+share/pixmaps/screengrab.png
+%%DATADIR%%/translations/screengrab_de_DE.qm
+%%DATADIR%%/translations/screengrab_es_ES.qm
+%%DATADIR%%/translations/screengrab_it_IT.qm
+%%DATADIR%%/translations/screengrab_pt_BR.qm
+%%DATADIR%%/translations/screengrab_ru.qm
+%%DATADIR%%/translations/screengrab_uk_UA.qm

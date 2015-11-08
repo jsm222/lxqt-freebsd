@@ -1,0 +1,39 @@
+--- CMakeLists.txt.orig	2015-01-29 11:24:31 UTC
++++ CMakeLists.txt
+@@ -15,6 +15,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
+ 
+ # long live cmake + qt :)
+ set(CMAKE_AUTOMOC ON)
++set(CMAKE_AUTOUIC ON)
+ 
+ include(GNUInstallDirs)
+ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+@@ -89,7 +90,6 @@ endif()
+ if(SG_EXT_EDIT)
+     add_definitions( -DSG_EXT_EDIT="1")
+     find_package(Qt5Xdg REQUIRED)
+-    include(${QTXDG_USE_FILE})
+ endif()
+ 
+ message(STATUS "Global shortcuts support: " ${SG_GLOBALSHORTCUTS})
+@@ -151,7 +151,6 @@ set(SCREENGRAB_DESKTOP_FILES_IN
+ )
+ 
+ lxqt_translate_ts(SCREENGRAB_QMS
+-    USE_QT5 TRUE
+     UPDATE_TRANSLATIONS ${UPDATE_TRANSLATIONS}
+     SOURCES
+         ${SCREENGRAB_SRC}
+@@ -191,10 +190,10 @@ if(SG_EXT_UPLOADS)
+ endif()
+ 
+ if(SG_EXT_EDIT)
+-    target_link_libraries(screengrab extedit)
++    target_link_libraries(screengrab Qt5Xdg extedit)
+ endif()
+ 
+-target_link_libraries(screengrab qkeysequencewidget Qt5::Widgets KF5::WindowSystem)
++target_link_libraries(screengrab qkeysequencewidget Qt5::Network Qt5::Widgets Qt5::X11Extras KF5::WindowSystem)
+ 
+ 
+ # make src.tar.gz
