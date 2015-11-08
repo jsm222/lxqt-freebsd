@@ -12,6 +12,10 @@
 .if !defined(_INCLUDE_USES_LXQT_MK)
 _INCLUDE_USES_LXQT_MK=	yes
 
+.if !empty(lxqt_ARGS)
+IGNORE=	Incorrect 'USES+=lxqt:${lxqt_ARGS} takes no arguments
+.endif
+
 MASTER_SITE_LXQT+= \
 	http://downloads.lxqt.org/%SUBDIR%/${PORTVERSION}/
 MASTER_SITE_LXQT_SUBDIR=	lxqt/
