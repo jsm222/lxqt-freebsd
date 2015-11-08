@@ -21,11 +21,4 @@ USE_LXQT=	qtxdg
 USE_XORG=	x11 xcb
 INSTALLS_ICONS=	yes
 
-#CMAKE_ARGS+=	-DSG_EXT_UPLOADS:BOLL=OFF
-
-#post-patch:
-#	${FIND} ${WRKSRC} -type f | ${XARGS} \
-#		${REINPLACE_CMD} -i "" 's|ui_aboutwidget.h|aboutwidget.h| ; \
-#			s|ui_configwidget.h|configwidget.h|'
-
 .include <bsd.port.mk>
