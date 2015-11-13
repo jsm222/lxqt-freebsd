@@ -1,0 +1,24 @@
+--- config/CMakeLists.txt.orig	2015-10-08 16:38:12 UTC
++++ config/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ # install default config files to /etc/xdg
+ install(FILES
+-    lxqt.conf	
+-    session.conf
++    lxqt.conf.sample	
++    session.conf.sample
+     windowmanagers.conf	
+     DESTINATION "${LXQT_ETC_XDG_DIR}/lxqt"
+     COMPONENT Runtime
+@@ -11,9 +11,9 @@ install(DIRECTORY openbox
+     COMPONENT Runtime
+ )
+ 
+-configure_file(pcmanfm-qt/lxqt/settings.conf.in pcmanfm-qt/lxqt/settings.conf @ONLY)
++configure_file(pcmanfm-qt/lxqt/settings.conf.in pcmanfm-qt/lxqt/settings.conf.sample @ONLY)
+ install(FILES
+-    "${CMAKE_CURRENT_BINARY_DIR}/pcmanfm-qt/lxqt/settings.conf"
++    "${CMAKE_CURRENT_BINARY_DIR}/pcmanfm-qt/lxqt/settings.conf.sample"
+     DESTINATION "${LXQT_ETC_XDG_DIR}/pcmanfm-qt/lxqt"
+     COMPONENT Runtime
+ )
