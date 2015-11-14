@@ -18,7 +18,7 @@ IGNORE=	Incorrect 'USES+=lxqt:${lxqt_ARGS} takes no arguments
 
 MASTER_SITE_LXQT+= \
 	http://downloads.lxqt.org/%SUBDIR%/${PORTVERSION}/
-MASTER_SITE_LXQT_SUBDIR=	lxqt/
+MASTER_SITE_LXQT_SUBDIR=	lxqt
 
 .if !defined(USE_GITHUB)
 MASTER_SITES?=	${MASTER_SITE_LXQT}
