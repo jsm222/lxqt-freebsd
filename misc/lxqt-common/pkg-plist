@@ -1,11 +1,9 @@
 bin/startlxqt
-etc/xdg/autostart/lxqt-compton.desktop
 etc/xdg/autostart/lxqt-desktop.desktop
 etc/xdg/autostart/lxqt-globalkeyshortcuts.desktop
 etc/xdg/autostart/lxqt-notifications.desktop
 etc/xdg/autostart/lxqt-panel.desktop
 etc/xdg/autostart/lxqt-policykit-agent.desktop
-etc/xdg/autostart/lxqt-powermanagement.desktop
 etc/xdg/autostart/lxqt-qlipper-autostart.desktop
 etc/xdg/autostart/lxqt-runner.desktop
 etc/xdg/autostart/lxqt-xscreensaver-autostart.desktop

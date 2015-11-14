@@ -1,14 +1,14 @@
 --- autostart/CMakeLists.txt.orig	2015-10-08 16:38:12 UTC
 +++ autostart/CMakeLists.txt
-@@ -1,6 +1,12 @@
+@@ -1,6 +1,11 @@
  cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
  
- file(GLOB DESKTOP_FILES_IN *.desktop.in)
+-file(GLOB DESKTOP_FILES_IN *.desktop.in)
++file(GLOB DESKTOP_FILES_IN RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.desktop.in)
 +# Remove some .desktop files not yet ported to FreeBSD
 +list(REMOVE_ITEM DESKTOP_FILES_IN
-+    lxqt-compton.desktop.in
-+    lxqt-powermanagement.desktop.in
-+    lxqt-qlipper.desktop.in
++    "lxqt-compton.desktop.in"
++    "lxqt-powermanagement.desktop.in"
 +)
  
  # Translations **********************************

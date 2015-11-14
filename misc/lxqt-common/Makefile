@@ -16,6 +16,7 @@ RUN_DEPENDS=	xscreensaver:x11/xscreensaver \
 	lxqt-runner:x11/lxqt-runner \
 	lxqt-policykit-agent:sysutils/lxqt-policykit \
 	lxqt-session:x11-wm/lxqt-session \
+	qlipper:deskutils/qlipper \
 	openbox:x11-wm/openbox
 	
 
