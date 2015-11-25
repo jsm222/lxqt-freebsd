@@ -37,23 +37,25 @@ PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt" \
 	VERSION="${PORTVERSION}"
 
 # Available LXQt components are:
-_USE_LXQT_ALL=	lxqt qtxdg globalkeys libfmqt5
+_USE_LXQT_ALL=	globalkeys libfmqt5 lxqt qterm qtxdg
 
 # Not part of LXQt project, but LXDE (same developers).
 _USE_LXQT_ALL+=	libfm
 
-lxqt_LIB_DEPENDS=	liblxqt.so:devel/liblxqt
+lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/devel/liblxqt
 lxqt_USE_LXQT_REQ=	qtxdg
 
-qtxdg_LIB_DEPENDS=	libQt5Xdg.so:devel/libqtxdg
+qtxdg_LIB_DEPENDS=	libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
 
-globalkeys_LIB_DEPENDS=	liblxqt-globalkeys.so:x11/lxqt-globalkeys
+globalkeys_LIB_DEPENDS=	liblxqt-globalkeys.so:${PORTSDIR}/x11/lxqt-globalkeys
 globalkeys_USE_LXQT_REQ=	lxqt
 
-libfmqt5_LIB_DEPENDS=	libfm-qt5.so:x11-fm/pcmanfm-qt
+libfmqt5_LIB_DEPENDS=	libfm-qt5.so:${PORTSDIR}/x11-fm/pcmanfm-qt
 libfmqt5_USE_LXQT_REQ=	libfm
 
-libfm_LIB_DEPENDS=	libfm.so:x11/libfm
+qterm_LIB_DEPENDS=	libqtermwidget5.so:${PORTSDIR}/x11-toolkits/qtermwidget
+
+libfm_LIB_DEPENDS=	libfm.so:${PORTSDIR}/x11/libfm
 
 .if defined(USE_LXQT)
 

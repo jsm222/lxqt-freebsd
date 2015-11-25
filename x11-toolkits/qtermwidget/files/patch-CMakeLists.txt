@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2014-10-21 15:47:40 UTC
++++ CMakeLists.txt
+@@ -104,7 +104,7 @@ set(QTERMWIDGET_INCLUDE_DIR "${CMAKE_INS
+ 
+ #| Defines
+ add_definitions(-DHAVE_POSIX_OPENPT -DHAVE_SYS_TIME_H)
+-if(APPLE)
++if(APPLE OR ${CMAKE_SYSTEM_NAME} MATCHES "DragonFly" OR ${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
+     add_definitions(-DHAVE_UTMPX -D_UTMPX_COMPAT)
+ endif()
+ CHECK_FUNCTION_EXISTS(updwtmpx HAVE_UPDWTMPX)
