@@ -1,0 +1,5 @@
+bin/lxqt-appswitcher
+bin/lxqt-config-appswitcher
+etc/xdg/autostart/lxqt-appswitcher.desktop
+share/applications/lxqt-config-appswitcher.desktop
+share/lxqt/themes/ambiance/lxqt-app-switcher.qss
