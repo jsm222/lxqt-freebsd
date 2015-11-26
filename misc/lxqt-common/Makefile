@@ -9,15 +9,15 @@ MASTER_SITES=	LXQT
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	LXQt common files
 
-RUN_DEPENDS=	xscreensaver:x11/xscreensaver \
-	pcmanfm-qt:x11-fm/pcmanfm-qt \
-	lxqt-notificationd:deskutils/lxqt-notificationd \
-	lxqt-panel:x11-wm/lxqt-panel \
-	lxqt-runner:x11/lxqt-runner \
-	lxqt-policykit-agent:sysutils/lxqt-policykit \
-	lxqt-session:x11-wm/lxqt-session \
-	qlipper:deskutils/qlipper \
-	openbox:x11-wm/openbox
+RUN_DEPENDS=	xscreensaver:${PORTSDIR}/x11/xscreensaver \
+	pcmanfm-qt:${PORTSDIR}/x11-fm/pcmanfm-qt \
+	lxqt-notificationd:${PORTSDIR}/deskutils/lxqt-notificationd \
+	lxqt-panel:${PORTSDIR}/x11-wm/lxqt-panel \
+	lxqt-runner:${PORTSDIR}/x11/lxqt-runner \
+	lxqt-policykit-agent:${PORTSDIR}/sysutils/lxqt-policykit \
+	lxqt-session:${PORTSDIR}/x11-wm/lxqt-session \
+	qlipper:${PORTSDIR}/deskutils/qlipper \
+	openbox:${PORTSDIR}/x11-wm/openbox
 	
 
 USES=	cmake:outsource kde:4 lxqt tar:xz

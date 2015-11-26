@@ -11,7 +11,7 @@ COMMENT=	Image viewer and screenshot tool
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	libexif.so:graphics/libexif
+LIB_DEPENDS=	libexif.so:${PORTSDIR}/graphics/libexif
 
 USES=	desktop-file-utils cmake:outsource lxqt pkgconfig tar:xz
 USE_GNOME=	glib20

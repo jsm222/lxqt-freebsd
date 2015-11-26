@@ -9,7 +9,7 @@ MASTER_SITES=	LXQT
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	LXQt system integration plugin for Qt
 
-LIB_DEPENDS=	libdbusmenu-qt5.so:devel/libdbusmenu-qt5
+LIB_DEPENDS=	libdbusmenu-qt5.so:${PORTSDIR}/devel/libdbusmenu-qt5
 
 USES=	cmake:outsource lxqt pkgconfig tar:xz
 USE_QT5=	dbus linguisttools widgets

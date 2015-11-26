@@ -9,9 +9,9 @@ MASTER_SITES=	LXQT
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Panel for the LXQt desktop
 
-LIB_DEPENDS=	libmenu-cache.so:x11/menu-cache \
-	libdbusmenu-qt5.so:devel/libdbusmenu-qt5 \
-	libxkbcommon.so:x11/libxkbcommon
+LIB_DEPENDS=	libmenu-cache.so:${PORTSDIR}/x11/menu-cache \
+	libdbusmenu-qt5.so:${PORTSDIR}/devel/libdbusmenu-qt5 \
+	libxkbcommon.so:${PORTSDIR}/x11/libxkbcommon
 
 USES=	cmake:outsource compiler:c++11-lang gettext kde:5 lxqt pkgconfig tar:xz
 USE_QT5=	dbus linguisttools widgets x11extras xml
