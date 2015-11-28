@@ -18,7 +18,6 @@ RUN_DEPENDS=	startlxqt:${PORTSDIR}/misc/lxqt-common \
 	lximage-qt:${PORTSDIR}/graphics/lximage-qt
 
 USES=	metaport
-LATEST_LINK=	lxqt
 
 OPTIONS_DEFINE=	SSH
 OPTIONS_DEFAULT=	SSH SCREENGRAB
