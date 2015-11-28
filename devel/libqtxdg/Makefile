@@ -4,7 +4,7 @@
 PORTNAME=	libqtxdg
 PORTVERSION=	1.3.0
 CATEGORIES=	devel
-MASTER_SITES=	LXQT/${PORTNAME}/${PORTVERSION}
+MASTER_SITES=	LXQT/${PORTNAME}
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Qt implementation of freedesktop.org xdg specs
