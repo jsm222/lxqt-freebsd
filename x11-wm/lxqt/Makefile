@@ -19,8 +19,8 @@ RUN_DEPENDS=	startlxqt:${PORTSDIR}/misc/lxqt-common \
 
 USES=	metaport
 
-OPTIONS_DEFINE=	SSH
-OPTIONS_DEFAULT=	SSH SCREENGRAB
+OPTIONS_DEFINE=	SSH SCREENGRAB
+OPTIONS_DEFAULT=	SSH
 SSH_RUN_DEPENDS=	lxqt-openssh-askpass:${PORTSDIR}/security/lxqt-openssh-askpass
 SCREENGRAB_RUN_DEPENDS=	screengrab:${PORTSDIR}/deskutils/screengrab
 SCREENGRAB_DESC=	Screenshot utility
