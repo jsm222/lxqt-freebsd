@@ -14,8 +14,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	debian-lxqt
 GH_TAGNAME=	bf7c081
 
-USES=	cmake:outsource gettext
-USE_QT5=	linguisttools widgets
+USES=	cmake:outsource compiler:c++11-lang gettext
+USE_QT5=	buildtools_build qmake_build linguisttools widgets
 USE_XORG=	x11
 INSTALLS_ICONS=	yes
 
