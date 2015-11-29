@@ -17,7 +17,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	lxde
 
 USES=	cmake:outsource pkgconfig
-USE_QT5=	linguisttools widgets x11extras
+USE_QT5=	buildtools_build qmake_build linguisttools widgets \
+	x11extras
 USE_GNOME=	glib20
 
 CMAKE_ARGS=	-DUSE_QT5:BOOL=ON
