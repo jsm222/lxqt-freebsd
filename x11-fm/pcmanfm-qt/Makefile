@@ -13,7 +13,8 @@ LICENSE=	GPLv2
 
 USES=	cmake:outsource desktop-file-utils gettext lxqt pkgconfig tar:xz
 USE_GNOME=	glib20
-USE_QT5=	dbus linguisttools widgets x11extras
+USE_QT5=	buildtools_build qmake_build dbus linguisttools widgets \
+	x11extras
 USE_LXQT=	libfm
 USE_XORG=	xcb
 
