@@ -14,8 +14,8 @@ LICENSE=	GPLv2
 USE_GITHUB=	yes
 GH_ACCOUNT=	lxde
 
-USES=	cmake:outsource pkgconfig
-USE_QT5=	core xml widgets
+USES=	cmake:outsource compiler:c++11-lang pkgconfig
+USE_QT5=	buildtools_build qmake_build core xml widgets
 
 CMAKE_ARGS=	-DBUILD_DESIGNER_PLUGIN:BOOL=OFF \
 	-DUSE_QT5:BOOL=ON
