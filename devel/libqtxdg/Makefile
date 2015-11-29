@@ -11,6 +11,6 @@ COMMENT=	Qt implementation of freedesktop.org xdg specs
 
 
 USES=	cmake:outsource lxqt pkgconfig tar:xz
-USE_QT5=	core dbus widgets xml
+USE_QT5=	buildtools_build qmake_build core dbus widgets xml
 
 .include <bsd.port.mk>
