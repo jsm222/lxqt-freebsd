@@ -9,7 +9,8 @@ MASTER_SITES=	LXQT
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Shared library for LXQt applications
 
-USES=	cmake:outsource gettext kde:5 lxqt pkgconfig tar:xz
+USES=	cmake:outsource compiler:c++11-lib gettext kde:5 lxqt \
+	pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build dbus linguisttools \
 	widgets x11extras xml
 USE_KDE=	windowsystem
