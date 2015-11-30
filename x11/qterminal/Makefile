@@ -15,7 +15,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	lxde
 
 USES=	cmake:outsource gettext lxqt pkgconfig
-USE_QT5=	linguisttools widgets
+USE_QT5=	buildtools_build qmake_build linguisttools widgets
 USE_LXQT=	qterm
 USE_XORG=	x11
 

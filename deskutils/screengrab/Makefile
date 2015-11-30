@@ -15,7 +15,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	QtDesktop
 
 USES=	cmake:outsource gettext kde:5 lxqt pkgconfig
-USE_QT5=	dbus linguisttools network widgets x11extras
+USE_QT5=	buildtools_build qmake_build dbus linguisttools network \
+	widgets x11extras
 USE_KDE=	windowsystem
 USE_LXQT=	qtxdg
 USE_XORG=	x11 xcb
