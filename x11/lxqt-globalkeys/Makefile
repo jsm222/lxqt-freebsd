@@ -10,7 +10,7 @@ MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Global keyboard shortcuts registration
 
 USES=	cmake:outsource gettext lxqt pkgconfig tar:xz
-USE_QT5=	dbus linguisttools widgets
+USE_QT5=	buildtools_build qmake_build dbus linguisttools widgets
 USE_LXQT=	lxqt
 USE_XORG=	x11
 

@@ -13,8 +13,7 @@ COMMENT=	About dialog of LXQt
 LICENSE=	LGPL21
 
 USES=	cmake:outsource gettext lxqt pkgconfig tar:xz
-#USE_QT5=	buildtools uitools widgets x11extras
-USE_QT5=	buildtools widgets x11extras
+USE_QT5=	buildtools_build qmake_build widgets x11extras
 USE_LXQT=	lxqt
 
 .include <bsd.port.mk>

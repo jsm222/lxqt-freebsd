@@ -12,7 +12,7 @@ COMMENT=	System administration tool for the LXQt desktop
 LIB_DEPENDS=	liboobs-1.so:${PORTSDIR}/devel/liboobs
 
 USES=	cmake:outsource gettext kde:5 lxqt pkgconfig tar:xz
-USE_QT5=	widgets
+USE_QT5=	buildtools_build qmake_build widgets
 USE_KDE=	windowsystem
 USE_GNOME=	glib20
 USE_LXQT=	lxqt

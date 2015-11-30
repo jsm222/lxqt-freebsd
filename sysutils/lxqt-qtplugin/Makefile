@@ -11,8 +11,8 @@ COMMENT=	LXQt system integration plugin for Qt
 
 LIB_DEPENDS=	libdbusmenu-qt5.so:${PORTSDIR}/devel/libdbusmenu-qt5
 
-USES=	cmake:outsource lxqt pkgconfig tar:xz
-USE_QT5=	dbus linguisttools widgets
+USES=	cmake:outsource compiler:c++11-lib lxqt pkgconfig tar:xz
+USE_QT5=	buildtools_build qmake_build dbus linguisttools widgets
 USE_LXQT=	lxqt
 USE_LDCONFIG=	yes
 

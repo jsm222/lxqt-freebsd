@@ -10,8 +10,10 @@ DIST_SUBDIR=	lxqt
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	LXQt system settings center
 
-USES=	cmake:outsource gettext kde:5 lxqt pkgconfig tar:xz
-USE_QT5=	concurrent dbus linguisttools svg widgets x11extras xml
+USES=	cmake:outsource compiler:c++11-lib gettext kde:5 lxqt \
+	pkgconfig tar:xz
+USE_QT5=	buildtools_build qmake_build concurrent dbus \
+	linguisttools svg widgets x11extras xml
 USE_KDE=	libkscreen
 USE_LXQT=	lxqt
 USE_XORG=	x11 xcursor xrandr
