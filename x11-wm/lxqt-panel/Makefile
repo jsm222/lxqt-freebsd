@@ -13,7 +13,7 @@ LIB_DEPENDS=	libmenu-cache.so:${PORTSDIR}/x11/menu-cache \
 	libdbusmenu-qt5.so:${PORTSDIR}/devel/libdbusmenu-qt5 \
 	libxkbcommon.so:${PORTSDIR}/x11/libxkbcommon
 
-USES=	cmake:outsource compiler:c++11-lang gettext kde:5 lxqt \
+USES=	cmake:outsource compiler:c++11-lib gettext kde:5 lxqt \
 	pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build dbus linguisttools widgets \
 	x11extras xml

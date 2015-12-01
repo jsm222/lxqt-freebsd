@@ -11,7 +11,8 @@ COMMENT=	LXQt tool used to launch programs quickly
 
 LIB_DEPENDS=	libmenu-cache.so:${PORTSDIR}/x11/menu-cache
 
-USES=	cmake:outsource gettext kde:5 lxqt pkgconfig tar:xz
+USES=	cmake:outsource compiler:c++11-lib gettext kde:5 lxqt \
+	pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build linguisttools script \
 	widgets xml
 USE_KDE=	windowsystem
