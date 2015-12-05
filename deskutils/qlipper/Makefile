@@ -4,6 +4,7 @@
 PORTNAME=	qlipper
 PORTVERSION=	5.0.0
 CATEGORIES=	deskutils
+DIST_SUBDIR=	lxqt
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Lightweight clipboard history applet
