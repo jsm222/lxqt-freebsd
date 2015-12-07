@@ -21,7 +21,7 @@ RUN_DEPENDS=	xscreensaver:${PORTSDIR}/x11/xscreensaver \
 	
 
 USES=	cmake:outsource kde:4 lxqt tar:xz
-USE_KDE=	oxygen-icons
+USE_KDE=	oxygen-icons4
 USE_QT5=	buildtools_build qmake_build
 USE_LXQT=	globalkeys
 
