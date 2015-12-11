@@ -9,7 +9,7 @@ MASTER_SITES=	LXQT
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	GUI frontend to su/sudo for LXQt desktop
 
-USES=	cmake:outsource gettext lxqt pkgconfig tar:xz
+USES=	cmake:outsource compiler:c++11-lib gettext lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build linguisttools widgets
 USE_LXQT=	lxqt
 
