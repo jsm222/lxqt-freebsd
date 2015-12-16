@@ -12,6 +12,7 @@ COMMENT=	Panel for the LXQt desktop
 LIB_DEPENDS=	libmenu-cache.so:${PORTSDIR}/x11/menu-cache \
 	libdbusmenu-qt5.so:${PORTSDIR}/devel/libdbusmenu-qt5 \
 	libxkbcommon.so:${PORTSDIR}/x11/libxkbcommon
+RUN_DEPENDS=	lxmenu-data>=0.1.2:${PORTSDIR}/x11/lxmenu-data
 
 USES=	cmake:outsource compiler:c++11-lib gettext kde:5 lxqt \
 	pkgconfig tar:xz
