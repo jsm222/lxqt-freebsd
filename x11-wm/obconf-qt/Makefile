@@ -3,6 +3,7 @@
 
 PORTNAME=	obconf-qt
 PORTVERSION=	0.9.0
+PORTREVISION=	1
 CATEGORIES=	x11-wm
 DIST_SUBDIR=	lxqt
 
@@ -21,6 +22,7 @@ USE_QT5=	buildtools_build qmake_build linguisttools widgets \
 	x11extras
 USE_GNOME=	glib20
 
+LDFLAGS=	-L${LOCALBASE}/lib
 CMAKE_ARGS=	-DUSE_QT5:BOOL=ON
 
 .include <bsd.port.mk>
