@@ -15,4 +15,6 @@ USES=	cmake:outsource gettext lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build linguisttools widgets
 USE_LXQT=	lxqt
 
+LDFLAGS+=	-L${LOCALBASE}/lib
+
 .include <bsd.port.mk>
