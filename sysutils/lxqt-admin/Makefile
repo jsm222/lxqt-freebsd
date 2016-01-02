@@ -17,4 +17,6 @@ USE_KDE=	windowsystem
 USE_GNOME=	glib20
 USE_LXQT=	lxqt
 
+LDFLAGS+=	-L${LOCALBASE}/lib
+
 .include <bsd.port.mk>

@@ -18,6 +18,8 @@ USE_QT5=	buildtools_build qmake_build linguisttools script \
 USE_KDE=	windowsystem
 USE_LXQT=	globalkeys
 
+LDFLAGS+=	-L${LOCALBASE}/lib
+
 CMAKE_ARGS=	-DRUNNER_VBOX:BOOL=OFF
 
 .include <bsd.port.mk>

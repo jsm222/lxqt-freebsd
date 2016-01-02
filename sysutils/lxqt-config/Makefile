@@ -18,4 +18,6 @@ USE_KDE=	libkscreen
 USE_LXQT=	lxqt
 USE_XORG=	x11 xcursor xrandr
 
+LDFLAGS+=	-L${LOCALBASE}/lib
+
 .include <bsd.port.mk>
