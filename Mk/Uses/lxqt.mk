@@ -40,6 +40,10 @@ PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt" \
 LDFLAGS+=	-L${LOCALBASE}/lib
 .endif
 
+.if !defined(CXXFLAGS)
+CXXFLAGS+=	-I${LOCALBASE}/include
+.endif
+
 # Available LXQt components are:
 _USE_LXQT_ALL=	globalkeys libfmqt5 lxqt qterm qtxdg
 
