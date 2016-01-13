@@ -33,8 +33,8 @@ OPTIONS_SUB=	YES
 
 .if ${OSVERSION} < 1000032
 EXTRA_PATCHES=	${FILESDIR}/extra-patch-autotests_wayland_kwin__wayland__test.cpp \
-	extra-patch-main__wayland.cpp \
-	extra-patch-wayland__server.cpp
+	${FILESDIR}/extra-patch-main__wayland.cpp \
+	${FILESDIR}/extra-patch-wayland__server.cpp
 .endif
 
 .include <bsd.port.post.mk>
