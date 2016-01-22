@@ -7,6 +7,14 @@
 # Usage:	USES=lxqt
 # Valid ARGS:	does not require args
 #
+# Available LXQt components are:
+#
+# globalkeys	- Keyboard shortcuts daemon
+# libfmqt5	- Libfm Qt bindings
+# lxqt		- LXQt core library
+# qterm		- Terminal widget library
+# qtxdg		- Qt implementation of freedesktop.org xdg specs
+#
 # MAINTAINER: olivierd@FreeBSD.org
 
 .if !defined(_INCLUDE_USES_LXQT_MK)
@@ -36,26 +44,28 @@ PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt" \
 	LXQT_TRANSLATIONS="share/lxqt/translations" \
 	VERSION="${PORTVERSION}"
 
+CMAKE_ARGS+=	-DCMAKE_INSTALL_MANDIR=${MANDIR}
+
 # Available LXQt components are:
 _USE_LXQT_ALL=	globalkeys libfmqt5 lxqt qterm qtxdg
 
 # Not part of LXQt project, but LXDE (same developers).
 _USE_LXQT_ALL+=	libfm
 
-lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/devel/liblxqt
-lxqt_USE_LXQT_REQ=	qtxdg
-
-qtxdg_LIB_DEPENDS=	libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
-
 globalkeys_LIB_DEPENDS=	liblxqt-globalkeys.so:${PORTSDIR}/x11/lxqt-globalkeys
 globalkeys_USE_LXQT_REQ=	lxqt
+
+libfm_LIB_DEPENDS=	libfm.so:${PORTSDIR}/x11/libfm
 
 libfmqt5_LIB_DEPENDS=	libfm-qt5.so:${PORTSDIR}/x11-fm/pcmanfm-qt
 libfmqt5_USE_LXQT_REQ=	libfm
 
+lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/devel/liblxqt
+lxqt_USE_LXQT_REQ=	qtxdg
+
 qterm_LIB_DEPENDS=	libqtermwidget5.so:${PORTSDIR}/x11-toolkits/qtermwidget
 
-libfm_LIB_DEPENDS=	libfm.so:${PORTSDIR}/x11/libfm
+qtxdg_LIB_DEPENDS=	libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
 
 .if defined(USE_LXQT)
 
@@ -68,10 +78,11 @@ ${comp}_USE_LXQT_REQ+=	${${comp}_USE_LXQR_REQ}
 
 # Then, use already expanded USE_LXQT_REQ to expand USE_LXQT.
 .for comp in ${USE_LXQT}
-. if ${_USE_LXQT_ALL:M${comp}} == ""
+. if empty(_USE_LXQT_ALL:M${comp})
 IGNORE=	cannot install: Unknown component ${comp}
-. endif
+. else
 _USE_LXQT+=	${${comp}_USE_LXQT_REQ} ${comp}
+. endif
 .endfor
 
 # Remove duplicate components
@@ -93,13 +104,7 @@ RUN_DEPENDS+=	${${comp}_RUN_DEPENDS}
 
 .endif # end of defined(USE_LXQT)
 
-_USES_patch+=	750:man-post-patch
-
-man-post-patch:
-	@(cd ${WRKSRC} && ${FIND} . -type f -name 'CMakeLists.txt' \
-		| ${XARGS} ${REINPLACE_CMD} -i "" 's|$${CMAKE_INSTALL_MANDIR}|man|')
-
-.endif
+.endif # end of !defined(_INCLUDE_USES_LXQT_MK)
 
 .if defined(_POSTMKINCLUDED) && !defined(_INCLUDE_USES_LXQT_POST_MK)
 
