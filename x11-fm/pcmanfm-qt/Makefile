@@ -14,7 +14,8 @@ LICENSE=	GPLv2
 USE_GITHUB=	yes
 GH_ACCOUNT=	lxde
 
-USES=	cmake:outsource desktop-file-utils gettext lxqt pkgconfig tar:xz
+USES=	cmake:outsource compiler:c++11-lib desktop-file-utils gettext \
+	lxqt pkgconfig tar:xz
 USE_GNOME=	glib20
 USE_QT5=	buildtools_build qmake_build dbus linguisttools widgets \
 	x11extras
