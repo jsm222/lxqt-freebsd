@@ -11,7 +11,8 @@ COMMENT=	Qt port of libfm
 
 LIB_DEPENDS=	libfm.so:${PORTSDIR}/x11/libfm
 
-USES=	cmake:outsource compiler:c++11-lib lxqt pkgconfig tar:xz
+USES=	cmake:outsource compiler:c++11-lib gettext lxqt pkgconfig \
+	tar:xz
 USE_QT5=	buildtools_build qmake_build linguisttools widgets \
 	x11extras
 USE_GNOME=	glib20
