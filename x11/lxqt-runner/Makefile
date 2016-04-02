@@ -9,7 +9,7 @@ MASTER_SITES=	LXQT
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	LXQt tool used to launch programs quickly
 
-LIB_DEPENDS=	libmenu-cache.so:${PORTSDIR}/x11/menu-cache
+LIB_DEPENDS=	libmenu-cache.so:x11/menu-cache
 
 USES=	cmake:outsource compiler:c++11-lib gettext kde:5 lxqt \
 	pkgconfig tar:xz

@@ -12,7 +12,7 @@ COMMENT=	Qt port of preferences manager for the Openbox
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	libobt.so:${PORTSDIR}/x11-wm/openbox
+LIB_DEPENDS=	libobt.so:x11-wm/openbox
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	lxde

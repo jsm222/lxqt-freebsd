@@ -52,20 +52,20 @@ _USE_LXQT_ALL=	globalkeys libfmqt5 lxqt qterm qtxdg
 # Not part of LXQt project, but LXDE (same developers).
 _USE_LXQT_ALL+=	libfm
 
-globalkeys_LIB_DEPENDS=	liblxqt-globalkeys.so:${PORTSDIR}/x11/lxqt-globalkeys
+globalkeys_LIB_DEPENDS=	liblxqt-globalkeys.so:x11/lxqt-globalkeys
 globalkeys_USE_LXQT_REQ=	lxqt
 
-libfm_LIB_DEPENDS=	libfm.so:${PORTSDIR}/x11/libfm
+libfm_LIB_DEPENDS=	libfm.so:x11/libfm
 
-libfmqt5_LIB_DEPENDS=	libfm-qt5.so:${PORTSDIR}/x11-fm/pcmanfm-qt
+libfmqt5_LIB_DEPENDS=	libfm-qt5.so:x11-fm/pcmanfm-qt
 libfmqt5_USE_LXQT_REQ=	libfm
 
-lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/devel/liblxqt
+lxqt_LIB_DEPENDS=	liblxqt.so:devel/liblxqt
 lxqt_USE_LXQT_REQ=	qtxdg
 
-qterm_LIB_DEPENDS=	libqtermwidget5.so:${PORTSDIR}/x11-toolkits/qtermwidget
+qterm_LIB_DEPENDS=	libqtermwidget5.so:x11-toolkits/qtermwidget
 
-qtxdg_LIB_DEPENDS=	libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
+qtxdg_LIB_DEPENDS=	libQt5Xdg.so:devel/libqtxdg
 
 .if defined(USE_LXQT)
 
