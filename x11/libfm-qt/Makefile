@@ -9,7 +9,7 @@ MASTER_SITES=	LXQT/${PORTNAME}
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Qt port of libfm
 
-LIB_DEPENDS=	libfm.so:${PORTSDIR}/x11/libfm
+LIB_DEPENDS=	libfm.so:x11/libfm
 
 USES=	cmake:outsource compiler:c++11-lib gettext lxqt pkgconfig \
 	tar:xz

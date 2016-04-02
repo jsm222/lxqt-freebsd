@@ -49,17 +49,17 @@ CMAKE_ARGS+=	-DCMAKE_INSTALL_MANDIR=${MANDIRS}
 # Available LXQt components are:
 _USE_LXQT_ALL=	globalkeys libfmqt lxqt qterm qtxdg
 
-globalkeys_LIB_DEPENDS=	liblxqt-globalkeys.so:${PORTSDIR}/x11/lxqt-globalkeys
+globalkeys_LIB_DEPENDS=	liblxqt-globalkeys.so:x11/lxqt-globalkeys
 globalkeys_USE_LXQT_REQ=	lxqt
 
-libfmqt_LIB_DEPENDS=	libfm-qt.so:${PORTSDIR}/x11/libfm-qt
+libfmqt_LIB_DEPENDS=	libfm-qt.so:x11/libfm-qt
 
-lxqt_LIB_DEPENDS=	liblxqt.so:${PORTSDIR}/devel/liblxqt
+lxqt_LIB_DEPENDS=	liblxqt.so:devel/liblxqt
 lxqt_USE_LXQT_REQ=	qtxdg
 
-qterm_LIB_DEPENDS=	libqtermwidget5.so:${PORTSDIR}/x11-toolkits/qtermwidget
+qterm_LIB_DEPENDS=	libqtermwidget5.so:x11-toolkits/qtermwidget
 
-qtxdg_LIB_DEPENDS=	libQt5Xdg.so:${PORTSDIR}/devel/libqtxdg
+qtxdg_LIB_DEPENDS=	libQt5Xdg.so:devel/libqtxdg
 
 .if defined(USE_LXQT)
 
