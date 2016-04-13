@@ -16,5 +16,5 @@ share/applications/pcmanfm-qt.desktop
 %%DATADIR%%/translations/pcmanfm-qt_pl.qm
 %%DATADIR%%/translations/pcmanfm-qt_pt.qm
 %%DATADIR%%/translations/pcmanfm-qt_ru.qm
-%%DATADIR%%/translations/pcmanfm-qt_ru_RU.qm
+%%DATADIR%%/translations/pcmanfm-qt_tr_TR.qm
 %%DATADIR%%/translations/pcmanfm-qt_zh_TW.qm
