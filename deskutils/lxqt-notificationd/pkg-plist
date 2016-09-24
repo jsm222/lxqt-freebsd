@@ -1,0 +1,3 @@
+bin/lxqt-config-notificationd
+bin/lxqt-notificationd
+share/applications/lxqt-config-notificationd.desktop
