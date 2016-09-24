@@ -1,0 +1,26 @@
+# Created by: Olivier Duchateau
+# $FreeBSD$
+
+PORTNAME=	lxqt-policykit
+PORTVERSION=	0.11.0
+CATEGORIES=	sysutils
+MASTER_SITES=	LXQT
+
+MAINTAINER=	olivierd@FreeBSD.org
+COMMENT=	PolicyKit authentication agent
+
+LICENSE=	LGPL21+
+
+LIB_DEPENDS=	libpolkit-qt5-agent-1.so:sysutils/polkit-qt5 \
+	libpolkit-agent-1.so:sysutils/polkit
+
+USES=	cmake:outsource gettext kde:5 localbase lxqt pkgconfig tar:xz
+USE_QT5=	buildtools_build qmake_build core dbus gui svg widgets \
+	x11extras xml
+USE_KDE=	windowsystem
+USE_LXQT=	lxqt
+USE_GNOME=	glib20
+
+PLIST_FILES=	bin/lxqt-policykit-agent
+
+.include <bsd.port.mk>
