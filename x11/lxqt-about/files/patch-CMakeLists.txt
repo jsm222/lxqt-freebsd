@@ -1,0 +1,17 @@
+--- CMakeLists.txt.orig	2016-09-23 22:43:54 UTC
++++ CMakeLists.txt
+@@ -40,14 +40,6 @@ lxqt_translate_ts(QM_FILES
+         ${UI_FILES}
+     INSTALL_DIR
+         "${LXQT_TRANSLATIONS_DIR}/${PROJECT_NAME}"
+-    PULL_TRANSLATIONS
+-        ${PULL_TRANSLATIONS}
+-    CLEAN_TRANSLATIONS
+-        ${CLEAN_TRANSLATIONS}
+-    TRANSLATIONS_REPO
+-        ${TRANSLATIONS_REPO}
+-    TRANSLATIONS_REFSPEC
+-        ${TRANSLATIONS_REFSPEC}
+ )
+ 
+ lxqt_app_translation_loader(QM_LOADER ${PROJECT_NAME})
