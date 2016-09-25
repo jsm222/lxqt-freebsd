@@ -17,6 +17,8 @@ USE_QT5=	buildtools_build qmake_build core dbus gui svg \
 USE_KDE=	windowsystem
 USE_LXQT=	lxqt
 
+CMAKE_ARGS+=	-DPULL_TRANSLATIONS:BOOL=OFF
+
 PLIST_FILES=	bin/lxqt-openssh-askpass
 
 .include <bsd.port.mk>
