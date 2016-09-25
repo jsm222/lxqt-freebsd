@@ -18,4 +18,6 @@ USE_QT5=	buildtools_build qmake_build dbus core gui \
 USE_KDE=	windowsystem
 USE_LXQT=	lxqt
 
+CMAKE_ARGS+=	-DPULL_TRANSLATIONS:BOOL=OFF
+
 .include <bsd.port.mk>
