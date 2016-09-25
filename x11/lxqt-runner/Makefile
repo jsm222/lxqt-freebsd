@@ -20,9 +20,10 @@ USE_QT5=	buildtools_build qmake_build core dbus gui script svg \
 	widgets x11extras xml
 USE_KDE=	windowsystem
 USE_GNOME=	glib20
-USE_LXQT=	globalkeys
+USE_LXQT=	globalkeys qtxdg
 
-CMAKE_ARGS=	-DRUNNER_VBOX:BOOL=OFF
+CMAKE_ARGS=	-DRUNNER_VBOX:BOOL=OFF \
+	-DPULL_TRANSLATIONS:BOOL=OFF
 
 PLIST_FILES=	bin/lxqt-runner
 
