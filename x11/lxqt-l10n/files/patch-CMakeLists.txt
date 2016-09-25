@@ -1,0 +1,15 @@
+--- CMakeLists.txt.orig	2016-09-23 22:45:02 UTC
++++ CMakeLists.txt
+@@ -25,6 +25,7 @@ option(WITH_LXQT_SUDO "Build lxqt-sudo t
+ option(WITH_OBCONF_QT "Build obconf-qt translations" ON)
+ option(WITH_PCMANFM_QT "Build pcmanfm-qt translations" ON)
+ option(WITH_QTERMINAL "Build qterminal translations" ON)
++option(WITH_PAVUCONTROL_QT "Build pavucontrol-qt translations" ON)
+ 
+ macro(add_component VAR_OPTION VAR_SUBDIR)
+     if (${VAR_OPTION})
+@@ -88,3 +89,4 @@ add_component(WITH_LXQT_SUDO lxqt-sudo)
+ add_component(WITH_OBCONF_QT obconf-qt)
+ add_component(WITH_PCMANFM_QT pcmanfm-qt)
+ add_component(WITH_QTERMINAL qterminal)
++add_component(WITH_PAVUCONTROL_QT pavucontrol-qt)

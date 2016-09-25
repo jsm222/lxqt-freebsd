@@ -22,7 +22,8 @@ RUN_DEPENDS=	lxqt-liblxqt-l10n>=0.11:devel/lxqt-liblxqt-l10n \
 	lxqt-policykit-l10n>=0.11:sysutils/lxqt-policykit-l10n \
 	lxqt-about-l10n>=0.11:x11/lxqt-about-l10n \
 	lxqt-globalkeys-l10n>=0.11:x11/lxqt-globalkeys-l10n \
-	lxqt-runner-l10n>=0.11:x11/lxqt-runner-l10n
+	lxqt-runner-l10n>=0.11:x11/lxqt-runner-l10n \
+	lxqt-pavucontrol-l10n>=0.11:audio/lxqt-pavucontrol-l10n
 
 USES=	lxqt metaport tar:xz
 USE_LXQT=	lxqt
