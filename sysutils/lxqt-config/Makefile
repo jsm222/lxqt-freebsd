@@ -21,4 +21,6 @@ USE_KDE=	libkscreen windowsystem
 USE_LXQT=	lxqt
 USE_XORG=	ice sm x11 xcb xcursor xext xfixes xrandr
 
+CMAKE_ARGS+=	-DPULL_TRANSLATIONS:BOOL=OFF
+
 .include <bsd.port.mk>
