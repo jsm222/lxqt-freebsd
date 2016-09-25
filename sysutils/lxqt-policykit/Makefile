@@ -21,6 +21,8 @@ USE_KDE=	windowsystem
 USE_LXQT=	lxqt
 USE_GNOME=	glib20
 
+CMAKE_ARGS+=	-DPULL_TRANSLATIONS:BOOL=OFF
+
 PLIST_FILES=	bin/lxqt-policykit-agent
 
 .include <bsd.port.mk>
