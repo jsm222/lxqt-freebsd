@@ -24,6 +24,4 @@ USE_LXQT=	libfmqt lxqt
 USE_XORG=	ice sm x11 xcb xext xfixes
 INSTALLS_ICONS=	yes
 
-CMAKE_ARGS+=	-DPULL_TRANSLATIONS:BOOL=OFF
-
 .include <bsd.port.mk>

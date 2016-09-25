@@ -22,6 +22,4 @@ USE_GNOME=	glib20
 USE_XORG=	xcb
 USE_LXQT=	lxqt
 
-CMAKE_ARGS+=	-DPULL_TRANSLATIONS:BOOL=OFF
-
 .include <bsd.port.mk>

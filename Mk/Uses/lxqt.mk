@@ -34,16 +34,13 @@ MASTER_SITE_SUBDIR?=	${MASTER_SITE_LXQT_SUBDIR}
 
 DIST_SUBDIR=	lxqt
 
-.if !defined(LICENSE)
-LICENSE=	LGPL21+
-.endif
-
 PLIST_SUB+=	LXQT_INCLUDEDIR="include/lxqt" \
 	LXQT_SHAREDIR="share/lxqt" \
 	LXQT_TRANSLATIONS="share/lxqt/translations" \
 	VERSION="${PORTVERSION}"
 
-CMAKE_ARGS+=	-DCMAKE_INSTALL_MANDIR=${MANDIRS}
+CMAKE_ARGS+=	-DCMAKE_INSTALL_MANDIR=${MANDIRS} \
+	-DPULL_TRANSLATIONS:BOOL=OFF
 
 # Available LXQt components are:
 _USE_LXQT_ALL=	globalkeys libfmqt lxqt qtxdg

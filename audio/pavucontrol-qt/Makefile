@@ -21,8 +21,6 @@ USE_QT5=	buildtools_build qmake_build core dbus gui widgets
 USE_LXQT=	lxqt
 USE_GNOME=	glib20
 
-CMAKE_ARGS+=	-DPULL_TRANSLATIONS:BOOL=OFF
-
 PLIST_FILES=	bin/pavucontrol-qt \
 	share/applications/pavucontrol-qt.desktop
 

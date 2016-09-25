@@ -18,6 +18,4 @@ USE_KDE=	windowsystem
 USE_LXQT=	lxqt
 USE_XORG=	ice sm x11 xext
 
-CMAKE_ARGS+=	-DPULL_TRANSLATIONS:BOOL=OFF
-
 .include <bsd.port.mk>
