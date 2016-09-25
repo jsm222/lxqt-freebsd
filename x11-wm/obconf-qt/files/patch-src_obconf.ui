@@ -1,0 +1,18 @@
+Create theme is not working, broken by design
+
+--- src/obconf.ui.orig	2015-02-25 14:12:33 UTC
++++ src/obconf.ui
+@@ -97,13 +97,6 @@
+            </property>
+           </widget>
+          </item>
+-         <item>
+-          <widget class="QPushButton" name="theme_archive">
+-           <property name="text">
+-            <string>Create a theme &amp;archive (.obt)...</string>
+-           </property>
+-          </widget>
+-         </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="appearancePage">
