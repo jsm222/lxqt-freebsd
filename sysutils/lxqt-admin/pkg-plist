@@ -1,0 +1,4 @@
+bin/lxqt-admin-user
+bin/lxqt-admin-user-helper
+share/applications/lxqt-admin-user.desktop
+share/polkit-1/actions/org.lxqt.lxqt-admin-user.policy

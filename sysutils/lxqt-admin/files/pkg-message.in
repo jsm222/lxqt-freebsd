@@ -1,0 +1,10 @@
+Allow users management, create custom rules in
+ %%LOCALBASE%%/etc/polkit-1/rules.d/
+
+Replace PUTYOURLOGINHERE by your login.  
+
+polkit.addRule(function(action, subject) {
+	if (action.id == "org.lxqt.lxqt-admin-user" && subject.user == "PUTYOURLOGINHERE") {
+		return polkit.Result.YES;
+	}
+});
