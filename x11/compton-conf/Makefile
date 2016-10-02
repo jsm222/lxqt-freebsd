@@ -1,0 +1,20 @@
+# Created by: Jesper Schmitz Mouridsen
+# $FreeBSD$
+
+PORTNAME=	compton-conf
+PORTVERSION=	0.2.0
+CATEGORIES=	x11
+MASTER_SITES=	LXQT/${PORTNAME}
+
+MAINTAINER=	jesper@schmitz.computer
+COMMENT=	Controls compton settings 
+
+LICENSE=	LGPL21+
+
+LIB_DEPENDS=  libconfig.so:devel/libconfig
+
+USES=	cmake:outsource compiler:c++11-lib localbase lxqt pkgconfig tar:xz
+USE_QT5=	buildtools_build qmake_build core dbus gui widgets
+USE_LXQT=	lxqt
+
+.include <bsd.port.mk>

@@ -1,0 +1,3 @@
+bin/compton-conf
+share/applications/compton-conf.desktop
+%%DATADIR%%/compton.conf.example
