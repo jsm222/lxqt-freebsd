@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 #
-# Copyright (c) 2015 Olivier Duchateau <olivierd@FreeBSD.org>
+# Copyright (c) 2015, 2016 Olivier Duchateau <olivierd@FreeBSD.org>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -28,7 +28,7 @@
 # Local repository
 LOCAL_REPO="lxqt"
 # Version supported
-BRANCH="0.10"
+BRANCH="0.11"
 # The ports tree
 PORTSDIR="/usr/ports"
 
@@ -59,6 +59,7 @@ usage()
 usage: ${PRGNAME} options
 
 options:
+  -h    display this help
   -c    clone remote repository
   -m    merge into the ports tree
   -u    update local repository
@@ -167,7 +168,7 @@ merge()
 		fi
 }
 
-opts=$(getopt cmur ${*})
+opts=$(getopt hcmur ${*})
 if [ ${?} -ne 0 ]; then
 		usage
 fi
