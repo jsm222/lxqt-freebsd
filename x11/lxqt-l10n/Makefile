@@ -29,7 +29,13 @@ RUN_DEPENDS=	lxqt-liblxqt-l10n>=0.11:devel/lxqt-liblxqt-l10n \
 	lxqt-session-l10n>=0.11:x11-wm/lxqt-session-l10n \
 	lxqt-admin-l10n>=0.11:sysutils/lxqt-admin-l10n
 
-USES=	lxqt metaport tar:xz
+# Can't use metaport, because we need to fetch tarball
+USES=	lxqt tar:xz
 USE_LXQT=	lxqt
+
+NO_BUILD=       yes
+NO_INSTALL=     yes
+NO_MTREE=       yes
+NO_ARCH=        yes
 
 .include <bsd.port.mk>
