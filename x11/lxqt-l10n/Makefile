@@ -25,7 +25,8 @@ RUN_DEPENDS=	lxqt-liblxqt-l10n>=0.11:devel/lxqt-liblxqt-l10n \
 	lxqt-runner-l10n>=0.11:x11/lxqt-runner-l10n \
 	lxqt-pavucontrol-l10n>=0.11:audio/lxqt-pavucontrol-l10n \
 	lxqt-obconf-l10n>=0.11:x11-wm/lxqt-obconf-l10n \
-	lxqt-panel-l10n>=0.11:x11-wm/lxqt-panel-l10n
+	lxqt-panel-l10n>=0.11:x11-wm/lxqt-panel-l10n \
+	lxqt-session-l10n>=0.11:x11-wm/lxqt-session-l10n
 
 USES=	lxqt metaport tar:xz
 USE_LXQT=	lxqt
