@@ -17,5 +17,6 @@ RUN_DEPENDS=	compton:x11-wm/compton
 USES=	cmake:outsource compiler:c++11-lib localbase lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build core dbus gui widgets
 USE_LXQT=	lxqt
+SUB_FILES=	pkg-message
 
 .include <bsd.port.mk>
