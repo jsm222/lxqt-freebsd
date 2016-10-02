@@ -1,0 +1,7 @@
+bin/qlipper
+share/applications/qlipper.desktop
+share/icons/hicolor/128x128/apps/qlipper.png
+%%DATADIR%%/translations/qlipper_cs.qm
+%%DATADIR%%/translations/qlipper_de.qm
+%%DATADIR%%/translations/qlipper_it.qm
+%%DATADIR%%/translations/qlipper_sr.qm
