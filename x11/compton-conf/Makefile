@@ -11,7 +11,8 @@ COMMENT=	Controls compton settings
 
 LICENSE=	LGPL21+
 
-LIB_DEPENDS=  libconfig.so:devel/libconfig
+LIB_DEPENDS=	libconfig.so:devel/libconfig
+RUN_DEPENDS=	compton:x11-wm/compton
 
 USES=	cmake:outsource compiler:c++11-lib localbase lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build core dbus gui widgets
