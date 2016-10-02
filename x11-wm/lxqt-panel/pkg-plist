@@ -5,6 +5,7 @@ bin/lxqt-panel
 %%LXQT_INCLUDEDIR%%/lxqtpanelglobals.h
 %%LXQT_INCLUDEDIR%%/pluginsettings.h
 %%QT_LIBDIR%%/lxqt-panel/libcolorpicker.so
+%%CPULOAD%%%%QT_LIBDIR%%/lxqt-panel/libcpuload.so
 %%QT_LIBDIR%%/lxqt-panel/libdirectorymenu.so
 %%QT_LIBDIR%%/lxqt-panel/libkbindicator.so
 %%MOUNT%%%%QT_LIBDIR%%/lxqt-panel/libmount.so
