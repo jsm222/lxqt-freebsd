@@ -1,0 +1,10 @@
+--- lxqt-admin/CMakeLists.txt.orig	2016-09-23 22:45:02 UTC
++++ lxqt-admin/CMakeLists.txt
+@@ -6,5 +6,5 @@ option(WITH_LXQT_ADMIN_TIME "Build lxqt-
+ option(WITH_LXQT_ADMIN_USER "Build lxqt-admin-user translations" ON)
+ 
+ #components
+-add_component(WITH_LXQT_ADMIN_USER lxqt-admin-time)
+-add_component(WITH_LXQT_ADMIN_TIME lxqt-admin-user)
++add_component(WITH_LXQT_ADMIN_USER lxqt-admin-user)
++add_component(WITH_LXQT_ADMIN_TIME lxqt-admin-time)
