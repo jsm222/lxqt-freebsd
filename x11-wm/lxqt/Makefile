@@ -21,8 +21,10 @@ RUN_DEPENDS=	startlxqt:misc/lxqt-common \
 
 USES=	metaport
 
-OPTIONS_DEFINE=	SSH SUDO
-OPTIONS_DEFAULT=	SSH
+OPTIONS_DEFINE=	EDITOR SSH SUDO
+OPTIONS_DEFAULT=	EDITOR SSH
+EDITOR_RUN_DEPENDS=	featherpad:editors/featherpad
+EDITOR_DESC=	Install plain-text editor
 SSH_RUN_DEPENDS=	lxqt-openssh-askpass:security/lxqt-openssh-askpass
 SUDO_RUN_DEPENDS=	lxqt-sudo:security/lxqt-sudo
 SUDO_DESC=	GUI frontend (Qt5) to sudo/su

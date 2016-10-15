@@ -1,0 +1,4 @@
+bin/featherpad
+share/applications/featherpad.desktop
+%%DATADIR%%/help
+share/icons/hicolor/scalable/apps/featherpad.svg
