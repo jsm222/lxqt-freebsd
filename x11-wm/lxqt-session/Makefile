@@ -11,7 +11,7 @@ COMMENT=	Session manager component for LXQt
 
 LICENSE=	LGPL21+
 
-RUN_DEPENDS=	xdg-user-dir:devel/xdg-user-dirs
+BUILD_DEPENDS=	xdg-user-dirs-update:devel/xdg-user-dirs
 
 USES=	cmake:outsource compiler:c++11-lib kde:5 lxqt \
 	pkgconfig tar:xz
