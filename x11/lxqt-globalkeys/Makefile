@@ -11,7 +11,7 @@ COMMENT=	Global keyboard shortcuts registration
 
 LICENSE=	LGPL21+
 
-USES=	cmake:outsource kde:5 lxqt pkgconfig tar:xz
+USES=	cmake:outsource compiler:c++11-lib kde:5 lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build core dbus gui svg \
 	widgets x11extras xml
 USE_KDE=	windowsystem
