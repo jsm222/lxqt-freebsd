@@ -11,7 +11,7 @@ COMMENT=	Qt implementation of freedesktop.org xdg specs
 
 LICENSE=	LGPL21+
 
-USES=	cmake:outsource lxqt pkgconfig tar:xz
+USES=	cmake:outsource compiler:c++11-lib lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build core dbus gui svg widgets \
 	xml
 
