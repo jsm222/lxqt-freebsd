@@ -114,9 +114,6 @@ revert()
 										rm -Rf "${PORTSDIR}/${d#./}";
 								fi
 						done
-
-						# TODO: it's temporary
-						rm ${PORTSDIR}/Mk/Uses/lxqt.mk;
 						
 						cd ${PORTSDIR};
 						${svn_cmd} revert -R .;
