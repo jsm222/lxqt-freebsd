@@ -1,10 +1,10 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	lxqt-libfm-l10n
+PORTNAME=	libfmqt-l10n
 PORTVERSION=	0.11.0
 CATEGORIES=	x11
-DISTNAME=	${PORTNAME:S/-libfm//}-${DISTVERSION}
+DISTNAME=	lxqt-l10n-${DISTVERSION}
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Translations of libfm-qt

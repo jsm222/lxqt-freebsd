@@ -16,7 +16,7 @@ RUN_DEPENDS=	liblxqt-l10n>=0.11:devel/liblxqt-l10n \
 	lxqt-lximage-l10n>=0.11:graphics/lxqt-lximage-l10n \
 	lxqt-openssh-l10n>=0.11:security/lxqt-openssh-l10n \
 	lxqt-sudo-l10n>=0.11:security/lxqt-sudo-l10n \
-	lxqt-libfm-l10n>=0.11:x11/lxqt-libfm-l10n \
+	libfmqt-l10n>=0.11:x11/libfmqt-l10n \
 	lxqt-pcmanfm-l10n>=0.11:x11-fm/lxqt-pcmanfm-l10n \
 	lxqt-config-l10n>=0.11:sysutils/lxqt-config-l10n \
 	lxqt-policykit-l10n>=0.11:sysutils/lxqt-policykit-l10n \
