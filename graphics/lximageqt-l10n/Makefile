@@ -1,10 +1,10 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	lxqt-lximage-l10n
+PORTNAME=	lximageqt-l10n
 PORTVERSION=	0.11.0
 CATEGORIES=	graphics
-DISTNAME=	${PORTNAME:S/-lximage//}-${DISTVERSION}
+DISTNAME=	lxqt-l10n-${DISTVERSION}
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Translations of lximage-qt
