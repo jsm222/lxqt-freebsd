@@ -1,10 +1,10 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	lxqt-pcmanfm-l10n
+PORTNAME=	pcmanfmqt-l10n
 PORTVERSION=	0.11.0
 CATEGORIES=	x11-fm
-DISTNAME=	${PORTNAME:S/-pcmanfm//}-${DISTVERSION}
+DISTNAME=	lxqt-l10n-${DISTVERSION}
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Translations of pcmanfm-qt

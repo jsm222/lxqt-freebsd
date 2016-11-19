@@ -13,11 +13,11 @@ LICENSE=	LGPL21+
 
 RUN_DEPENDS=	liblxqt-l10n>=0.11:devel/liblxqt-l10n \
 	lxqt-notificationd-l10n>=0.11:deskutils/lxqt-notificationd-l10n \
-	lxqt-lximage-l10n>=0.11:graphics/lxqt-lximage-l10n \
+	lximageqt-l10n>=0.11:graphics/lximageqt-l10n \
 	lxqt-openssh-l10n>=0.11:security/lxqt-openssh-l10n \
 	lxqt-sudo-l10n>=0.11:security/lxqt-sudo-l10n \
 	libfmqt-l10n>=0.11:x11/libfmqt-l10n \
-	lxqt-pcmanfm-l10n>=0.11:x11-fm/lxqt-pcmanfm-l10n \
+	pcmanfmqt-l10n>=0.11:x11-fm/pcmanfmqt-l10n \
 	lxqt-config-l10n>=0.11:sysutils/lxqt-config-l10n \
 	lxqt-policykit-l10n>=0.11:sysutils/lxqt-policykit-l10n \
 	lxqt-about-l10n>=0.11:x11/lxqt-about-l10n \
