@@ -11,7 +11,7 @@ COMMENT=	Translations of LXQt components
 
 LICENSE=	LGPL21+
 
-RUN_DEPENDS=	lxqt-liblxqt-l10n>=0.11:devel/lxqt-liblxqt-l10n \
+RUN_DEPENDS=	liblxqt-l10n>=0.11:devel/liblxqt-l10n \
 	lxqt-notificationd-l10n>=0.11:deskutils/lxqt-notificationd-l10n \
 	lxqt-lximage-l10n>=0.11:graphics/lxqt-lximage-l10n \
 	lxqt-openssh-l10n>=0.11:security/lxqt-openssh-l10n \
