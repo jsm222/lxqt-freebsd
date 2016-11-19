@@ -1,10 +1,10 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	lxqt-liblxqt-l10n
+PORTNAME=	liblxqt-l10n
 PORTVERSION=	0.11.0
 CATEGORIES=	devel
-DISTNAME=	${PORTNAME:S/-liblxqt//}-${DISTVERSION}
+DISTNAME=	lxqt-l10n-${DISTVERSION}
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Translations of liblxqt
