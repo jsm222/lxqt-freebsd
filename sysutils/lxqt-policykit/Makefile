@@ -14,8 +14,8 @@ LICENSE=	LGPL21+
 LIB_DEPENDS=	libpolkit-qt5-agent-1.so:sysutils/polkit-qt5 \
 	libpolkit-agent-1.so:sysutils/polkit
 
-USES=	cmake:outsource compiler:c++11-lib kde:5 localbase lxqt pkgconfig \
-	tar:xz
+USES=	cmake:outsource compiler:c++11-lib kde:5 localbase:ldflags lxqt \
+	pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build core dbus gui svg widgets \
 	x11extras xml
 USE_KDE=	windowsystem

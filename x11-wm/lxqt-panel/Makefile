@@ -16,8 +16,8 @@ LIB_DEPENDS=	libmenu-cache.so:x11/menu-cache \
 	libxkbcommon.so:x11/libxkbcommon
 RUN_DEPENDS=	lxmenu-data>=0.1.2:x11/lxmenu-data
 
-USES=	cmake:outsource compiler:c++11-lib gettext-runtime kde:5 localbase \
-	lxqt pkgconfig tar:xz
+USES=	cmake:outsource compiler:c++11-lib gettext-runtime kde:5 \
+	localbase:ldflags lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build core dbus gui svg widgets \
 	x11extras xml
 USE_KDE=	windowsystem

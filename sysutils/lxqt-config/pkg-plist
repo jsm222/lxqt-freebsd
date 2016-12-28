@@ -6,7 +6,7 @@ bin/lxqt-config-input
 bin/lxqt-config-locale
 bin/lxqt-config-monitor
 etc/xdg/menus/lxqt-config.menu
-%%QT_LIBDIR%%/lxqt-config/liblxqt-config-cursor.so
+lib/lxqt-config/liblxqt-config-cursor.so
 share/applications/lxqt-config-appearance.desktop
 share/applications/lxqt-config-brightness.desktop
 share/applications/lxqt-config-file-associations.desktop
