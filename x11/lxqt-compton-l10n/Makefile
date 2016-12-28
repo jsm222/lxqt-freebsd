@@ -2,8 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-compton-l10n
-PORTVERSION=	0.11.0
+PORTVERSION=	0.11.1
 CATEGORIES=	x11
+MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-compton//}-${DISTVERSION}
 
 MAINTAINER=	jesper@schmitz.computer
@@ -16,9 +17,9 @@ DISTINFO_FILE=	${MASTERDIR}/distinfo
 DESCR=	${MASTERDIR}/pkg-descr
 PLIST=	${.CURDIR}/pkg-plist
 
-USES=	cmake:outsource lxqt tar:xz
-USE_QT5=	buildtools_build qmake_build
-USE_LXQT=	lxqt
+USES=	cmake:outsource lxqt pkgconfig tar:xz
+USE_QT5=	buildtools_build qmake_build linguisttools
+USE_LXQT=	buildtools
 
 CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=ON \
 	-DWITH_LIBFM_QT:BOOL=OFF \

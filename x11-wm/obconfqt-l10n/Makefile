@@ -1,13 +1,14 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	lxqt-pavucontrol-l10n
-PORTVERSION=	0.11.0
-CATEGORIES=	audio
-DISTNAME=	${PORTNAME:S/-pavucontrol//}-${DISTVERSION}
+PORTNAME=	obconfqt-l10n
+PORTVERSION=	0.11.1
+CATEGORIES=	x11-wm
+MASTER_SITES=	LXQT/lxqt-l10n
+DISTNAME=	lxqt-l10n-${DISTVERSION}
 
 MAINTAINER=	olivierd@FreeBSD.org
-COMMENT=	Translations of pavucontrol-qt
+COMMENT=	Translations of obconf-qt
 
 LICENSE=	LGPL21+
 
@@ -16,9 +17,9 @@ DISTINFO_FILE=	${MASTERDIR}/distinfo
 DESCR=	${MASTERDIR}/pkg-descr
 PLIST=	${.CURDIR}/pkg-plist
 
-USES=	cmake:outsource lxqt tar:xz
-USE_QT5=	buildtools_build qmake_build
-USE_LXQT=	lxqt
+USES=	cmake:outsource lxqt pkgconfig tar:xz
+USE_QT5=	buildtools_build qmake_build linguisttools
+USE_LXQT=	buildtools
 
 CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_LIBFM_QT:BOOL=OFF \
@@ -36,13 +37,9 @@ CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_LXQT_RUNNER:BOOL=OFF \
 	-DWITH_LXQT_SESSION:BOOL=OFF \
 	-DWITH_LXQT_SUDO:BOOL=OFF \
-	-DWITH_OBCONF_QT:BOOL=OFF \
+	-DWITH_OBCONF_QT:BOOL=ON \
 	-DWITH_PCMANFM_QT:BOOL=OFF \
 	-DWITH_QTERMINAL:BOOL=OFF \
-	-DWITH_PAVUCONTROL_QT:BOOL=ON
-
-post-extract:
-	${CP} ${FILESDIR}/CMakeLists.txt \
-		${WRKSRC}/pavucontrol-qt
+	-DWITH_PAVUCONTROL_QT:BOOL=OFF
 
 .include <bsd.port.mk>
