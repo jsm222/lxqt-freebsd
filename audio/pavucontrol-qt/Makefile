@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	pavucontrol-qt
-PORTVERSION=	0.1.0
+PORTVERSION=	0.2.0
 CATEGORIES=	audio
 MASTER_SITES=	LXQT/${PORTNAME}
 
@@ -17,8 +17,9 @@ RUN_DEPENDS=	xdg-user-dir:devel/xdg-user-dirs
 
 USES=	cmake:outsource compiler:c++0x gettext-runtime localbase:ldflags \
 	lxqt pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build core dbus gui widgets
-USE_LXQT=	lxqt
+USE_QT5=	buildtools_build qmake_build core dbus gui linguisttools \
+	widgets
+USE_LXQT=	buildtools
 USE_GNOME=	glib20
 
 PLIST_FILES=	bin/pavucontrol-qt \
