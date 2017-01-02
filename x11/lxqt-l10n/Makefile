@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-l10n
-PORTVERSION=	0.11.1
+PORTVERSION=	0.11.2
 CATEGORIES=	x11
 
 MAINTAINER=	olivierd@FreeBSD.org
@@ -28,6 +28,6 @@ RUN_DEPENDS=	liblxqt-l10n>=0.11:devel/liblxqt-l10n \
 	lxqt-session-l10n>=0.11:x11-wm/lxqt-session-l10n \
 	lxqt-admin-l10n>=0.11:sysutils/lxqt-admin-l10n
 
-USES= metaport
+USES=	metaport
 
 .include <bsd.port.mk>

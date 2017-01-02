@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-policykit-l10n
-PORTVERSION=	0.11.1
+PORTVERSION=	0.11.2
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-policykit//}-${DISTVERSION}

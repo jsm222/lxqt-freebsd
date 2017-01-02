@@ -1,4 +1,5 @@
 share/compton-conf/translations/compton-conf_cs.qm
+share/compton-conf/translations/compton-conf_da.qm
 share/compton-conf/translations/compton-conf_de.qm
 share/compton-conf/translations/compton-conf_el.qm
 share/compton-conf/translations/compton-conf_fr.qm
@@ -8,4 +9,5 @@ share/compton-conf/translations/compton-conf_ja.qm
 share/compton-conf/translations/compton-conf_nl.qm
 share/compton-conf/translations/compton-conf_pt.qm
 share/compton-conf/translations/compton-conf_ru.qm
+share/compton-conf/translations/compton-conf_tr.qm
 share/compton-conf/translations/compton-conf_uk.qm
