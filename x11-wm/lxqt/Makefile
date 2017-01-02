@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt
-PORTVERSION=	0.11.0
+PORTVERSION=	0.11.1
 CATEGORIES=	x11-wm
 
 MAINTAINER=	olivierd@FreeBSD.org
@@ -22,7 +22,7 @@ RUN_DEPENDS=	startlxqt:misc/lxqt-common \
 USES=	metaport
 
 OPTIONS_DEFINE=	EDITOR SSH SUDO
-OPTIONS_DEFAULT=	EDITOR SSH
+OPTIONS_DEFAULT=	SUDO
 EDITOR_RUN_DEPENDS=	featherpad:editors/featherpad
 EDITOR_DESC=	Install plain-text editor
 SSH_RUN_DEPENDS=	lxqt-openssh-askpass:security/lxqt-openssh-askpass
