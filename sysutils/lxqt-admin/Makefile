@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-admin
-PORTVERSION=	0.11.0
+PORTVERSION=	0.11.1
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT
 
@@ -16,7 +16,7 @@ USE_QT5=	buildtools_build qmake_build core dbus gui svg \
 	widgets x11extras xml
 USE_KDE=	windowsystem
 USE_GNOME=	glib20
-USE_LXQT=	lxqt
+USE_LXQT=	buildtools lxqt
 SUB_FILES=	pkg-message
 
 .include <bsd.port.mk>
