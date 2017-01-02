@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-sudo
-PORTVERSION=	0.11.0
+PORTVERSION=	0.11.1
 CATEGORIES=	security
 MASTER_SITES=	LXQT
 
@@ -18,6 +18,6 @@ USES=	cmake:outsource compiler:c++11-lib gettext kde:5 lxqt \
 USE_QT5=	buildtools_build qmake_build core dbus gui svg widgets \
 	x11extras xml
 USE_KDE=	windowsystem
-USE_LXQT=	lxqt
+USE_LXQT=	buildtools lxqt
 
 .include <bsd.port.mk>
