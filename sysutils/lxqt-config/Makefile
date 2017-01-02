@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-config
-PORTVERSION=	0.11.0
+PORTVERSION=	0.11.1
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT
 DIST_SUBDIR=	lxqt
@@ -16,9 +16,9 @@ LICENSE_COMB=	multi
 USES=	cmake:outsource compiler:c++11-lib kde:5 localbase:ldflags lxqt \
 	pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build concurrent core dbus \
-	gui svg widgets x11extras xml
+	gui linguisttools svg widgets x11extras xml
 USE_KDE=	libkscreen windowsystem
-USE_LXQT=	lxqt
+USE_LXQT=	buildtools lxqt
 USE_XORG=	ice sm x11 xcb xcursor xext xfixes xrandr
 
 .include <bsd.port.mk>
