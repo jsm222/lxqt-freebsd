@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-openssh-askpass
-PORTVERSION=	0.11.0
+PORTVERSION=	0.11.1
 CATEGORIES=	security
 MASTER_SITES=	LXQT
 
@@ -11,11 +11,11 @@ COMMENT=	LXQt GUI dialog for OpenSSH authentication
 
 LICENSE=	LGPL21+
 
-USES=	cmake:outsource gettext kde:5 lxqt pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build core dbus gui svg \
-	widgets x11extras xml
+USES=	cmake:outsource kde:5 lxqt pkgconfig tar:xz
+USE_QT5=	buildtools_build qmake_build core dbus gui linguisttools \
+	svg widgets x11extras xml
 USE_KDE=	windowsystem
-USE_LXQT=	lxqt
+USE_LXQT=	buildtools lxqt
 
 PLIST_FILES=	bin/lxqt-openssh-askpass
 
