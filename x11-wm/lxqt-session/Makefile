@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-session
-PORTVERSION=	0.11.0
+PORTVERSION=	0.11.1
 CATEGORIES=	x11-wm
 MASTER_SITES=	LXQT
 
@@ -15,11 +15,11 @@ BUILD_DEPENDS=	xdg-user-dirs-update:devel/xdg-user-dirs
 
 USES=	cmake:outsource compiler:c++11-lib kde:5 lxqt \
 	pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build core dbus gui svg \
-	widgets x11extras xml
+USE_QT5=	buildtools_build qmake_build core dbus gui linguisttools \
+	svg widgets x11extras xml
 USE_KDE=	windowsystem
-USE_LXQT=	lxqt qtxdg
-USE_XORG=	x11 xcb
+USE_LXQT=	buildtools lxqt qtxdg
+USE_XORG=	x11 ice sm xcb xext
 
 CMAKE_ARGS+=	-DWITH_LIBUDEV:BOOL=OFF
 
