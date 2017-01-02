@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-common
-PORTVERSION=	0.11.0
+PORTVERSION=	0.11.1
 CATEGORIES=	misc
-MASTER_SITES=	LXQT
+MASTER_SITES=	LXQT/${PORTNAME}
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	LXQt common files
@@ -24,7 +24,7 @@ RUN_DEPENDS=	xscreensaver:x11/xscreensaver \
 USES=	cmake:outsource kde:5 lxqt tar:xz
 USE_KDE=	oxygen-icons5
 USE_QT5=	buildtools_build qmake_build
-USE_LXQT=	globalkeys
+USE_LXQT=	buildtools globalkeys
 
 OPTIONS_DEFINE=	COMPTON
 COMPTON_RUN_DEPENDS=	compton-conf:x11/compton-conf

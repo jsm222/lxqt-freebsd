@@ -1,20 +1,20 @@
 bin/startlxqt
-%%COMPTON%%%%QT_ETCDIR%%/autostart/lxqt-compton.desktop
-%%QT_ETCDIR%%/autostart/lxqt-desktop.desktop
-%%QT_ETCDIR%%/autostart/lxqt-globalkeyshortcuts.desktop
-%%QT_ETCDIR%%/autostart/lxqt-notifications.desktop
-%%QT_ETCDIR%%/autostart/lxqt-panel.desktop
-%%QT_ETCDIR%%/autostart/lxqt-policykit-agent.desktop
-%%QT_ETCDIR%%/autostart/lxqt-qlipper-autostart.desktop
-%%QT_ETCDIR%%/autostart/lxqt-runner.desktop
-%%QT_ETCDIR%%/autostart/lxqt-xscreensaver-autostart.desktop
-%%QT_ETCDIR%%/lxqt/globalkeyshortcuts.conf
-@sample %%QT_ETCDIR%%/lxqt/lxqt.conf.sample
-@sample %%QT_ETCDIR%%/lxqt/session.conf.sample
-%%QT_ETCDIR%%/lxqt/windowmanagers.conf
-%%QT_ETCDIR%%/menus/lxqt-applications.menu
-%%QT_ETCDIR%%/openbox/lxqt-rc.xml
-@sample %%QT_ETCDIR%%/pcmanfm-qt/lxqt/settings.conf.sample
+%%COMPTON%%etc/xdg/autostart/lxqt-compton.desktop
+etc/xdg/autostart/lxqt-desktop.desktop
+etc/xdg/autostart/lxqt-globalkeyshortcuts.desktop
+etc/xdg/autostart/lxqt-notifications.desktop
+etc/xdg/autostart/lxqt-panel.desktop
+etc/xdg/autostart/lxqt-policykit-agent.desktop
+etc/xdg/autostart/lxqt-qlipper-autostart.desktop
+etc/xdg/autostart/lxqt-runner.desktop
+etc/xdg/autostart/lxqt-xscreensaver-autostart.desktop
+etc/xdg/lxqt/globalkeyshortcuts.conf
+@sample etc/xdg/lxqt/lxqt.conf.sample
+@sample etc/xdg/lxqt/session.conf.sample
+etc/xdg/lxqt/windowmanagers.conf
+etc/xdg/menus/lxqt-applications.menu
+etc/xdg/openbox/lxqt-rc.xml
+@sample etc/xdg/pcmanfm-qt/lxqt/settings.conf.sample
 man/man1/startlxqt.1.gz
 share/desktop-directories/lxqt-leave.directory
 share/desktop-directories/lxqt-settings.directory
@@ -50,6 +50,7 @@ share/kdm/sessions/lxqt.desktop
 %%LXQT_SHAREDIR%%/themes/dark/arrow-right.svg
 %%LXQT_SHAREDIR%%/themes/dark/calendar-popup/left-arrow.svg
 %%LXQT_SHAREDIR%%/themes/dark/calendar-popup/right-arrow.svg
+%%LXQT_SHAREDIR%%/themes/dark/checked.svg
 %%LXQT_SHAREDIR%%/themes/dark/lxqt-notificationd.qss
 %%LXQT_SHAREDIR%%/themes/dark/lxqt-notificationd/cancel.svg
 %%LXQT_SHAREDIR%%/themes/dark/lxqt-panel.qss
@@ -60,6 +61,7 @@ share/kdm/sessions/lxqt.desktop
 %%LXQT_SHAREDIR%%/themes/dark/preview.png
 %%LXQT_SHAREDIR%%/themes/dark/spacer-plugin/spacer-dots.svg
 %%LXQT_SHAREDIR%%/themes/dark/spacer-plugin/spacer-line.svg
+%%LXQT_SHAREDIR%%/themes/dark/unchecked.svg
 %%LXQT_SHAREDIR%%/themes/dark/wallpaper.cfg
 %%LXQT_SHAREDIR%%/themes/dark/wallpaper.png
 %%LXQT_SHAREDIR%%/themes/frost/arrow-right.svg
