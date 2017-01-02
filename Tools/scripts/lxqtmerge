@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 #
-# Copyright (c) 2015, 2016 Olivier Duchateau <olivierd@FreeBSD.org>
+# Copyright (c) 2015, 2017 Olivier Duchateau <olivierd@FreeBSD.org>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
