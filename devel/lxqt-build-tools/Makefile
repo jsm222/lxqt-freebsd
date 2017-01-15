@@ -4,8 +4,7 @@
 PORTNAME=	lxqt-build-tools
 PORTVERSION=	0.3.2
 CATEGORIES=	devel
-#MASTER_SITES=	LXQT/${PORTNAME}
-MASTER_SITES=	https://github.com/lxde/${PORTNAME}/releases/download/${PORTVERSION}/
+MASTER_SITES=	LXQT/${PORTNAME}
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	Helpers CMake modules for LXQt
