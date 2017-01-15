@@ -31,17 +31,13 @@ COMPTON_RUN_DEPENDS=	compton-conf:x11/compton-conf
 COMPTON_DESC=	Support of GUI configuration tool of Compton
 OPTIONS_SUB=	yes
 
-.include <bsd.port.options.mk>
-
 post-extract:
 .for s in lxqt.conf session.conf
 	${MV} ${WRKSRC}/config/${s} ${WRKSRC}/config/${s}.sample
 .endfor
 
-post-patch:
-.if ${PORT_OPTIONS:MCOMPTON}
+post-patch-COMPTON-on:
 	${REINPLACE_CMD} -e 's|"lxqt-compton|#"lxqt-compton|' \
 		${WRKSRC}/autostart/CMakeLists.txt
-.endif
 
 .include <bsd.port.mk>
