@@ -13,7 +13,6 @@ LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/BSD-3-Clause
 
 USES=		cmake:outsource lxqt pkgconfig tar:xz
-#USE_QT5=	qmake_build buildtools_build core
-NO_ARCH=	yes
+USE_QT5=	qmake_build buildtools_build core
 
 .include <bsd.port.mk>
