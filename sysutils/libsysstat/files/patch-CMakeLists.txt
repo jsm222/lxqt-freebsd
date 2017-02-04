@@ -1,0 +1,38 @@
+--- CMakeLists.txt.orig	2016-12-10 23:50:29 UTC
++++ CMakeLists.txt
+@@ -23,6 +23,23 @@ include(LXQtCreatePkgConfigFile)
+ include(LXQtCreatePortableHeaders)
+ include(LXQtCompilerSettings NO_POLICY_SCOPE)
+ 
++include(CheckIncludeFiles)
++include(CheckLibraryExists)
++
++check_include_files("sys/socket.h;net/if.h;net/if_mib.h;net/if_types.h" HAVE_IF_H)
++check_library_exists(kvm kvm_getswapinfo "kvm.h" HAVE_KVM_H)
++check_library_exists(c sysctlbyname "sys/sysctl.h" HAVE_SYSCTL_H)
++
++if(HAVE_SYSCTL_H)
++    set(CMAKE_REQUIRED_LIBRARIES ${CMAKE_REQUIRED_LIBRARIES} c)
++endif()
++if(HAVE_KVM_H)
++    find_path(KVM_INCLUDE_DIR NAMES kvm.h)
++    set(KVM_INCLUDE_DIR ${KVM_INCLUDE_DIR})
++endif()
++
++configure_file(config.h.in config.h)
++
+ set(CMAKE_AUTOMOC ON)
+ set(CMAKE_INCLUDE_CURRENT_DIR ON)
+ 
+@@ -96,9 +113,9 @@ target_compile_definitions(${SYSSTAT_LIB
+ )
+ 
+ target_include_directories(${SYSSTAT_LIBRARY_NAME}
+-    INTERFACE
++    PUBLIC
++        "${KVM_INCLUDE_DIR}"
+         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${SYSSTAT_LIBRARY_NAME}>"
+-        "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_FILES_DIRECTORY}/include/${SYSSTAT_LIBRARY_NAME}>"
+ )
+ 
+ lxqt_create_portable_headers(SYSSTAT_NAMESPACE_HEADERS
