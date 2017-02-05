@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=LXQt Application switcher
-TryExec=lxqt-appswitcher
-Exec=lxqt-appswitcher
-
-Hidden=true
-OnlyShowIn=LXQt;
-X-LXQt-Module=true
