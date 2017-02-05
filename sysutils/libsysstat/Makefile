@@ -11,7 +11,7 @@ COMMENT=	Library used to query system info and statistics
 
 LICENSE=	LGPL21
 
-USES=	cmake:outsource compiler lxqt pkgconfig tar:xz
+USES=	cmake:outsource lxqt pkgconfig tar:xz
 USE_QT5=	qmake_build buildtools_build core
 USE_LXQT=	buildtools
 
