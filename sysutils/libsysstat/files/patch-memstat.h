@@ -1,6 +1,14 @@
 --- memstat.h.orig	2016-12-10 23:50:29 UTC
 +++ memstat.h
-@@ -35,6 +35,12 @@
+@@ -27,6 +27,7 @@
+ #ifndef LIBSYSSTAT__MEM_STAT__INCLUDED
+ #define LIBSYSSTAT__MEM_STAT__INCLUDED
+ 
++#include "config.h"
+ 
+ #include <QtCore/QObject>
+ 
+@@ -35,6 +36,12 @@
  
  namespace SysStat {
  

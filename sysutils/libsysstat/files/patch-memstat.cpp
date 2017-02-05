@@ -1,9 +1,11 @@
 --- memstat.cpp.orig	2016-12-10 23:50:29 UTC
 +++ memstat.cpp
-@@ -23,6 +23,20 @@
+@@ -23,6 +23,22 @@
  **
  ** END_COMMON_COPYRIGHT_HEADER */
  
++#include "config.h"
++
 +#include <cstdio>
 +
 +#if defined(HAVE_KVM_H) && defined(HAVE_SYSCTL_H)
@@ -21,7 +23,7 @@
  
  #include "memstat.h"
  #include "memstat_p.h"
-@@ -30,6 +44,42 @@
+@@ -30,6 +46,45 @@
  
  namespace SysStat {
  
@@ -37,10 +39,13 @@
 +        return buf;
 +}
 +
-+qulonglong MemGetByBytes(const QString name)
++qulonglong MemGetByBytes(QString property)
 +{
 +    qulonglong buf;
 +    size_t len = sizeof(qulonglong);
++
++    std::string s = property.toStdString();
++    const char *name = s.c_str();
 +
 +    if (sysctlbyname(name, &buf, &len, NULL, 0) < 0)
 +        return 0;
@@ -48,7 +53,7 @@
 +        return buf;
 +}
 +
-+qulonglong MemGetByPages(const QString name)
++qulonglong MemGetByPages(QString name)
 +{
 +    qulonglong res = 0;
 +
@@ -64,7 +69,7 @@
  MemStatPrivate::MemStatPrivate(MemStat *parent)
      : BaseStatPrivate(parent)
  {
-@@ -53,6 +103,39 @@ void MemStatPrivate::timeout()
+@@ -53,6 +108,39 @@ void MemStatPrivate::timeout()
      qulonglong swapTotal = 0;
      qulonglong swapFree = 0;
  
@@ -84,7 +89,7 @@
 +    if (kd == NULL)
 +        kvm_close(kd);
 +
-+    if ((kvm_getswapinfo(kd, kswap, (sizeof(kswap) / sizeof(kswap[0])), SWIF_DEV_PREFIX) > 0)
++    if (kvm_getswapinfo(kd, kswap, (sizeof(kswap) / sizeof(kswap[0])), SWIF_DEV_PREFIX) > 0)
 +    {
 +        int swapd = SwapDevices();
 +        /* TODO: loop over swap devives */
@@ -94,17 +99,17 @@
 +            swapUsed = static_cast<qulonglong>(kswap[0].ksw_used * getpagesize());
 +        }
 +
-+        kvm_closed(kd);
++        kvm_close(kd);
 +    }
 +    else
-+        kvm_closed(kd);
++        kvm_close(kd);
 +#endif
 +
 +#ifndef HAVE_SYSCTL_H
      foreach (QString row, readAllFile("/proc/meminfo").split(QChar('\n'), QString::SkipEmptyParts))
      {
          QStringList tokens = row.split(QChar(' '), QString::SkipEmptyParts);
-@@ -72,6 +155,7 @@ void MemStatPrivate::timeout()
+@@ -72,6 +160,7 @@ void MemStatPrivate::timeout()
          else if(tokens[0] == "SwapFree:")
              swapFree = tokens[1].toULong();
      }
@@ -112,7 +117,7 @@
  
      if (mSource == "memory")
      {
-@@ -89,7 +173,11 @@ void MemStatPrivate::timeout()
+@@ -89,7 +178,11 @@ void MemStatPrivate::timeout()
      {
          if (swapTotal)
          {
