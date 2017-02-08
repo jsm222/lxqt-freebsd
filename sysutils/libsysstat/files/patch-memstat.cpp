@@ -69,10 +69,11 @@
  MemStatPrivate::MemStatPrivate(MemStat *parent)
      : BaseStatPrivate(parent)
  {
-@@ -53,6 +108,39 @@ void MemStatPrivate::timeout()
+@@ -51,6 +106,40 @@ void MemStatPrivate::timeout()
+     qulonglong memBuffers = 0;
+     qulonglong memCached = 0;
      qulonglong swapTotal = 0;
-     qulonglong swapFree = 0;
- 
++
 +#ifdef HAVE_SYSCTL_H
 +    memTotal = MemGetByBytes("hw.physmem");
 +    memFree = MemGetByPages("vm.stats.vm.v_free_count");
@@ -106,10 +107,10 @@
 +#endif
 +
 +#ifndef HAVE_SYSCTL_H
+     qulonglong swapFree = 0;
+ 
      foreach (QString row, readAllFile("/proc/meminfo").split(QChar('\n'), QString::SkipEmptyParts))
-     {
-         QStringList tokens = row.split(QChar(' '), QString::SkipEmptyParts);
-@@ -72,6 +160,7 @@ void MemStatPrivate::timeout()
+@@ -72,6 +161,7 @@ void MemStatPrivate::timeout()
          else if(tokens[0] == "SwapFree:")
              swapFree = tokens[1].toULong();
      }
@@ -117,7 +118,7 @@
  
      if (mSource == "memory")
      {
-@@ -89,7 +178,11 @@ void MemStatPrivate::timeout()
+@@ -89,7 +179,11 @@ void MemStatPrivate::timeout()
      {
          if (swapTotal)
          {

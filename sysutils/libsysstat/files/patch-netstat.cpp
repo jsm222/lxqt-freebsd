@@ -39,7 +39,7 @@
  }
  
  NetStatPrivate::~NetStatPrivate()
-@@ -58,6 +74,45 @@ NetStatPrivate::~NetStatPrivate()
+@@ -58,6 +74,46 @@ NetStatPrivate::~NetStatPrivate()
  
  void NetStatPrivate::timeout()
  {
@@ -65,7 +65,8 @@
 +        {
 +            if ((ifmd.ifmd_data.ifi_link_state == LINK_STATE_UP) && (ifmd.ifmd_data.ifi_ipackets > 0))
 +            {
-+                QString interfaceName = ifmd.ifmd_name;
++                const char *iface = ifmd.ifmd_name;
++                QString interfaceName = QString::fromLatin1(iface);
 +
 +                Values current;
 +                current.received = ifmd.ifmd_data.ifi_ibytes;
@@ -85,7 +86,7 @@
      QStringList rows(readAllFile("/proc/net/dev").split(QChar('\n'), QString::SkipEmptyParts));
  
  
-@@ -99,6 +154,7 @@ void NetStatPrivate::timeout()
+@@ -99,6 +155,7 @@ void NetStatPrivate::timeout()
  
          mPrevious[interfaceName] = current;
      }
