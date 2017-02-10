@@ -1,6 +1,6 @@
 --- CMakeLists.txt.orig	2016-12-10 23:50:29 UTC
 +++ CMakeLists.txt
-@@ -23,6 +23,20 @@ include(LXQtCreatePkgConfigFile)
+@@ -23,6 +23,15 @@ include(LXQtCreatePkgConfigFile)
  include(LXQtCreatePortableHeaders)
  include(LXQtCompilerSettings NO_POLICY_SCOPE)
  
@@ -11,13 +11,21 @@
 +check_library_exists(kvm kvm_getswapinfo "kvm.h" HAVE_KVM_H)
 +check_library_exists(c sysctlbyname "sys/sysctl.h" HAVE_SYSCTL_H)
 +
-+if(HAVE_SYSCTL_H AND HAVE_KVM_H)
-+    #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -lc -lkvm")
-+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lc -lkvm")
-+endif()
-+
 +configure_file(config.h.in config.h)
 +
  set(CMAKE_AUTOMOC ON)
  set(CMAKE_INCLUDE_CURRENT_DIR ON)
  
+@@ -80,7 +89,11 @@ add_library(${SYSSTAT_LIBRARY_NAME}
+         ${SYSSTAT_QM_FILES}
+ )
+ 
+-target_link_libraries(${SYSSTAT_LIBRARY_NAME} Qt5::Core)
++if(HAVE_SYSCTL_H AND HAVE_KVM_H)
++    target_link_libraries(${SYSSTAT_LIBRARY_NAME} c kvm Qt5::Core)
++else()
++    target_link_libraries(${SYSSTAT_LIBRARY_NAME} Qt5::Core)
++endif()
+ 
+ set_target_properties(${SYSSTAT_LIBRARY_NAME} PROPERTIES
+     VERSION ${SYSSTAT_VERSION}
