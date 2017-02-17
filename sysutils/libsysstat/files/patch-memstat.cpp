@@ -41,7 +41,7 @@
 +
 +qulonglong MemGetByBytes(QString property)
 +{
-+    qulonglong buf;
++    qulonglong buf=0;
 +    size_t len = sizeof(qulonglong);
 +
 +    std::string s = property.toStdString();

@@ -1,0 +1,15 @@
+--- plugin-sysstat/CMakeLists.txt.orig	2017-01-01 22:27:14 UTC
++++ plugin-sysstat/CMakeLists.txt
+@@ -1,4 +1,12 @@
+ set(PLUGIN "sysstat")
++include(CheckIncludeFiles)
++include(CheckLibraryExists)
++
++check_include_files("sys/socket.h;net/if.h;net/if_mib.h;net/if_types.h" HAVE_IF_H)
++check_library_exists(kvm kvm_getswapinfo "kvm.h" HAVE_KVM_H)
++check_library_exists(c sysctlbyname "sys/sysctl.h" HAVE_SYSCTL_H)
++
++configure_file(config.h.in config.h)
+ 
+ find_package(SysStat-Qt5 REQUIRED)
+ 

@@ -16,6 +16,9 @@ USE_QT5=	qmake_build buildtools_build core
 USE_LXQT=	buildtools
 
 post-extract:
-	@${CP} ${FILESDIR}/config.h.in ${WRKSRC}
+	@${CP} ${FILESDIR}/config.h.in ${WRKSRC};
+
+post-stage:
+	@${CP} ${BUILD_WRKSRC}/config.h ${STAGEDIR}${LOCALBASE}/include/sysstat-qt5/config.h
 
 .include <bsd.port.mk>

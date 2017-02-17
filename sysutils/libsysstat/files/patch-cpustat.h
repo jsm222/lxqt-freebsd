@@ -26,22 +26,22 @@
  
      void updateSources();
  
-+#ifndef HAVE_SYSCTL_H
++#ifdef HAVE_SYSCTL_H
      uint minFreq(const QString &source) const;
      uint maxFreq(const QString &source) const;
  
  signals:
 -    void update(float user, float nice, float system, float other, float frequencyRate, uint frequency);
-+    void update(float user, float nice, float system, float other, ulong frequency);
-     void update(float user, float nice, float system, float other);
++    void update(float user, float nice, float system, float idle, float other, ulong frequency);
++    void update(float user, float nice, float system, float idle, float other);
 +    void update(ulong frequency);
 +#else
 +    ulong minFreq(const QString &source) const;
 +    ulong maxFreq(const QString &source) const;
 +
 +signals:
-+    void update(float user, float nice, float system, float idle, float other, float frequencyRate, uint frequency);
-+    void update(float user, float nice, float system, float idle, float other);
++    void update(float user, float nice, float system, float frequencyRate, uint frequency);
+     void update(float user, float nice, float system, float other);
      void update(uint frequency);
 +#endif
  
