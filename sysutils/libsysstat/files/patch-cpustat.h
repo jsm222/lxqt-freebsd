@@ -1,15 +1,18 @@
 --- cpustat.h.orig	2016-12-10 23:50:29 UTC
 +++ cpustat.h
-@@ -27,6 +27,8 @@
+@@ -27,6 +27,11 @@
  #ifndef LIBSYSSTAT__CPU_STAT__INCLUDED
  #define LIBSYSSTAT__CPU_STAT__INCLUDED
  
++#ifdef HAVE_CONFIG_H
 +#include "config.h"
++#endif
++
 +#include <cstdio>
  
  #include <QtCore/QObject>
  
-@@ -35,6 +37,12 @@
+@@ -35,6 +40,12 @@
  
  namespace SysStat {
  
@@ -22,7 +25,7 @@
  class CpuStatPrivate;
  
  class SYSSTATSHARED_EXPORT CpuStat : public BaseStat
-@@ -52,13 +60,23 @@ public:
+@@ -52,13 +63,23 @@ public:
  
      void updateSources();
  

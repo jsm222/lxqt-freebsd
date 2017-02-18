@@ -1,10 +1,12 @@
 --- netstat.cpp.orig	2016-12-10 23:50:29 UTC
 +++ netstat.cpp
-@@ -23,6 +23,21 @@
+@@ -23,6 +23,23 @@
  **
  ** END_COMMON_COPYRIGHT_HEADER */
  
++#ifdef HAVE_CONFIG_H
 +#include "config.h"
++#endif
 +
 +#include <cstdio>
 +
@@ -22,7 +24,7 @@
  
  #include "netstat.h"
  #include "netstat_p.h"
-@@ -37,7 +52,7 @@ NetStatPrivate::NetStatPrivate(NetStat *
+@@ -37,7 +54,7 @@ NetStatPrivate::NetStatPrivate(NetStat *
  
      connect(mTimer, SIGNAL(timeout()), SLOT(timeout()));
  
@@ -31,7 +33,7 @@
      QStringList rows(readAllFile("/proc/net/dev").split(QChar('\n'), QString::SkipEmptyParts));
  
      rows.erase(rows.begin(), rows.begin() + 2);
-@@ -50,6 +65,7 @@ NetStatPrivate::NetStatPrivate(NetStat *
+@@ -50,6 +67,7 @@ NetStatPrivate::NetStatPrivate(NetStat *
  
          mSources.append(tokens[0].trimmed());
      }
@@ -39,7 +41,7 @@
  }
  
  NetStatPrivate::~NetStatPrivate()
-@@ -58,6 +74,46 @@ NetStatPrivate::~NetStatPrivate()
+@@ -58,6 +76,46 @@ NetStatPrivate::~NetStatPrivate()
  
  void NetStatPrivate::timeout()
  {
@@ -86,7 +88,7 @@
      QStringList rows(readAllFile("/proc/net/dev").split(QChar('\n'), QString::SkipEmptyParts));
  
  
-@@ -99,6 +155,7 @@ void NetStatPrivate::timeout()
+@@ -99,6 +157,7 @@ void NetStatPrivate::timeout()
  
          mPrevious[interfaceName] = current;
      }

@@ -1,10 +1,12 @@
 --- cpustat.cpp.orig	2016-12-10 23:50:29 UTC
 +++ cpustat.cpp
-@@ -23,15 +23,71 @@
+@@ -23,15 +23,73 @@
  **
  ** END_COMMON_COPYRIGHT_HEADER */
  
++#ifdef HAVE_CONFIG_H
 +#include "config.h"
++#endif
 +
 +#include <cstdio>
  
@@ -72,7 +74,7 @@
  CpuStatPrivate::CpuStatPrivate(CpuStat *parent)
      : BaseStatPrivate(parent)
      , mMonitoring(CpuStat::LoadAndFrequency)
-@@ -47,6 +103,49 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
+@@ -47,6 +105,49 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
  
  void CpuStatPrivate::addSource(const QString &source)
  {
@@ -122,7 +124,7 @@
      bool ok;
  
      uint min = readAllFile(qPrintable(QString("/sys/devices/system/cpu/%1/cpufreq/scaling_min_freq").arg(source))).toUInt(&ok);
-@@ -56,12 +155,26 @@ void CpuStatPrivate::addSource(const QSt
+@@ -56,12 +157,26 @@ void CpuStatPrivate::addSource(const QSt
          if (ok)
              mBounds[source] = qMakePair(min, max);
      }
@@ -149,7 +151,7 @@
      foreach (QString row, readAllFile("/proc/stat").split(QChar('\n'), QString::SkipEmptyParts))
      {
          QStringList tokens = row.split(QChar(' '), QString::SkipEmptyParts);
-@@ -97,6 +210,7 @@ void CpuStatPrivate::updateSources()
+@@ -97,6 +212,7 @@ void CpuStatPrivate::updateSources()
                  addSource(QString("cpu%1").arg(number));
          }
      }
@@ -157,7 +159,7 @@
  }
  
  CpuStatPrivate::~CpuStatPrivate()
-@@ -117,7 +231,15 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -117,7 +233,15 @@ void CpuStatPrivate::recalculateMinMax()
  {
      int cores = 1;
      if (mSource == "cpu")
@@ -173,7 +175,7 @@
  
      mIntervalMin = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) / 1.25; // -25%
      mIntervalMax = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) * 1.25; // +25%
-@@ -125,6 +247,84 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -125,6 +249,84 @@ void CpuStatPrivate::recalculateMinMax()
  
  void CpuStatPrivate::timeout()
  {
@@ -258,7 +260,7 @@
      if ( (mMonitoring == CpuStat::LoadOnly)
        || (mMonitoring == CpuStat::LoadAndFrequency) )
      {
-@@ -258,6 +458,7 @@ void CpuStatPrivate::timeout()
+@@ -258,6 +460,7 @@ void CpuStatPrivate::timeout()
          }
          emit update(freq);
      }
@@ -266,7 +268,7 @@
  }
  
  QString CpuStatPrivate::defaultSource()
-@@ -302,9 +503,15 @@ CpuStat::CpuStat(QObject *parent)
+@@ -302,9 +505,15 @@ CpuStat::CpuStat(QObject *parent)
      impl = new CpuStatPrivate(this);
      baseimpl = impl;
  

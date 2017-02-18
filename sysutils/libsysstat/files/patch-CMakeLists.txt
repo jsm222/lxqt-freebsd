@@ -1,6 +1,6 @@
 --- CMakeLists.txt.orig	2016-12-10 23:50:29 UTC
 +++ CMakeLists.txt
-@@ -23,6 +23,15 @@ include(LXQtCreatePkgConfigFile)
+@@ -23,6 +23,16 @@ include(LXQtCreatePkgConfigFile)
  include(LXQtCreatePortableHeaders)
  include(LXQtCompilerSettings NO_POLICY_SCOPE)
  
@@ -12,11 +12,12 @@
 +check_library_exists(c sysctlbyname "sys/sysctl.h" HAVE_SYSCTL_H)
 +
 +configure_file(config.h.in config.h)
++add_definitions("-DHAVE_CONFIG_H=1")
 +
  set(CMAKE_AUTOMOC ON)
  set(CMAKE_INCLUDE_CURRENT_DIR ON)
  
-@@ -80,7 +89,11 @@ add_library(${SYSSTAT_LIBRARY_NAME}
+@@ -80,7 +90,11 @@ add_library(${SYSSTAT_LIBRARY_NAME}
          ${SYSSTAT_QM_FILES}
  )
  

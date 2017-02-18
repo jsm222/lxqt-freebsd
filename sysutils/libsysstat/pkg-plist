@@ -4,7 +4,6 @@ include/sysstat-qt5/SysStat/Global
 include/sysstat-qt5/SysStat/MemStat
 include/sysstat-qt5/SysStat/NetStat
 include/sysstat-qt5/SysStat/Version
-include/sysstat-qt5/config.h
 include/sysstat-qt5/basestat.h
 include/sysstat-qt5/cpustat.h
 include/sysstat-qt5/memstat.h

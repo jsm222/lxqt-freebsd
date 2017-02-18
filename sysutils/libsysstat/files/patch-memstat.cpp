@@ -1,10 +1,12 @@
 --- memstat.cpp.orig	2016-12-10 23:50:29 UTC
 +++ memstat.cpp
-@@ -23,6 +23,22 @@
+@@ -23,6 +23,24 @@
  **
  ** END_COMMON_COPYRIGHT_HEADER */
  
++#ifdef HAVE_CONFIG_H
 +#include "config.h"
++#endif
 +
 +#include <cstdio>
 +
@@ -23,7 +25,7 @@
  
  #include "memstat.h"
  #include "memstat_p.h"
-@@ -30,6 +46,45 @@
+@@ -30,6 +48,45 @@
  
  namespace SysStat {
  
@@ -69,7 +71,7 @@
  MemStatPrivate::MemStatPrivate(MemStat *parent)
      : BaseStatPrivate(parent)
  {
-@@ -51,6 +106,40 @@ void MemStatPrivate::timeout()
+@@ -51,6 +108,40 @@ void MemStatPrivate::timeout()
      qulonglong memBuffers = 0;
      qulonglong memCached = 0;
      qulonglong swapTotal = 0;
@@ -110,7 +112,7 @@
      qulonglong swapFree = 0;
  
      foreach (QString row, readAllFile("/proc/meminfo").split(QChar('\n'), QString::SkipEmptyParts))
-@@ -72,6 +161,7 @@ void MemStatPrivate::timeout()
+@@ -72,6 +163,7 @@ void MemStatPrivate::timeout()
          else if(tokens[0] == "SwapFree:")
              swapFree = tokens[1].toULong();
      }
@@ -118,7 +120,7 @@
  
      if (mSource == "memory")
      {
-@@ -89,7 +179,11 @@ void MemStatPrivate::timeout()
+@@ -89,7 +181,11 @@ void MemStatPrivate::timeout()
      {
          if (swapTotal)
          {

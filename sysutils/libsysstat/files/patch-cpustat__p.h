@@ -1,14 +1,16 @@
 --- cpustat_p.h.orig	2016-12-10 23:50:29 UTC
 +++ cpustat_p.h
-@@ -27,6 +27,7 @@
+@@ -27,6 +27,9 @@
  #ifndef LIBSYSSTAT__CPU_STAT__PRIVATE__INCLUDED
  #define LIBSYSSTAT__CPU_STAT__PRIVATE__INCLUDED
  
++#ifdef HAVE_CONFIG_H
 +#include "config.h"
++#endif
  
  #include <QtCore/QObject>
  #include <QtCore/QtGlobal>
-@@ -52,6 +53,15 @@ public:
+@@ -52,6 +55,15 @@ public:
      CpuStat::Monitoring monitoring() const;
      void setMonitoring(CpuStat::Monitoring value);
  
@@ -24,7 +26,7 @@
      uint minFreq(const QString &source) const;
      uint maxFreq(const QString &source) const;
  
-@@ -59,6 +69,7 @@ signals:
+@@ -59,6 +71,7 @@ signals:
      void update(float user, float nice, float system, float other);
      void update(uint frequency);
      void update(float user, float nice, float system, float other, float frequencyRate, uint frequency);
@@ -32,7 +34,7 @@
  
  private slots:
      void timeout();
-@@ -74,12 +85,21 @@ private:
+@@ -74,12 +87,21 @@ private:
      {
          Values();
  
@@ -54,7 +56,7 @@
  
          void sum();
  
-@@ -89,7 +109,11 @@ private:
+@@ -89,7 +111,11 @@ private:
  
      CpuStat::Monitoring mMonitoring;
  
