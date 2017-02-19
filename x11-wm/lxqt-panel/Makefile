@@ -47,11 +47,7 @@ LDFLAGS+=	-Xlinker --export-dynamic
 
 CMAKE_ARGS+=	-DSENSORS_PLUGIN:BOOL=OFF \
 	-DNETWORKMONITOR_PLUGIN:BOOL=OFF \
-	-DSYSSTAT_PLUGIN:BOOL=ON \
 	-DWITH_SCREENSAVER_FALLBACK:BOOL=OFF
-
-post-extract:
-	@${CP} ${FILESDIR}/config.h.in ${WRKSRC}/plugin-sysstat/;
 
 .include <bsd.port.options.mk>
 

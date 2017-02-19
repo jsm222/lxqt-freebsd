@@ -1,3 +1,0 @@
-#cmakedefine HAVE_SYSCTL_H
-#cmakedefine HAVE_IF_H
-#cmakedefine HAVE_KVM_H
