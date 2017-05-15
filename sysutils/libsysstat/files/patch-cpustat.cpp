@@ -124,7 +124,7 @@
      bool ok;
  
      uint min = readAllFile(qPrintable(QString("/sys/devices/system/cpu/%1/cpufreq/scaling_min_freq").arg(source))).toUInt(&ok);
-@@ -56,12 +157,26 @@ void CpuStatPrivate::addSource(const QSt
+@@ -56,12 +157,27 @@ void CpuStatPrivate::addSource(const QSt
          if (ok)
              mBounds[source] = qMakePair(min, max);
      }
@@ -139,19 +139,20 @@
 +    int cpu;
 +
 +    cpu = GetCpu();
-+    if (cpu > 0)
++    for (int i =0;i<cpu;i++)
 +    {
-+        mSources.append(QString("cpu"));
++        mSources.append(QString("cpu%1").arg(i));
 +
-+        mBounds.clear();
 +
-+        addSource(QString("cpu"));
++
++        addSource(QString("cpu%1").arg(i));
 +    }
++    mBounds.clear();
 +#else
      foreach (QString row, readAllFile("/proc/stat").split(QChar('\n'), QString::SkipEmptyParts))
      {
          QStringList tokens = row.split(QChar(' '), QString::SkipEmptyParts);
-@@ -97,6 +212,7 @@ void CpuStatPrivate::updateSources()
+@@ -97,6 +213,7 @@ void CpuStatPrivate::updateSources()
                  addSource(QString("cpu%1").arg(number));
          }
      }
@@ -159,7 +160,7 @@
  }
  
  CpuStatPrivate::~CpuStatPrivate()
-@@ -117,7 +233,15 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -117,7 +234,15 @@ void CpuStatPrivate::recalculateMinMax()
  {
      int cores = 1;
      if (mSource == "cpu")
@@ -175,7 +176,7 @@
  
      mIntervalMin = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) / 1.25; // -25%
      mIntervalMax = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) * 1.25; // +25%
-@@ -125,6 +249,84 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -125,6 +250,87 @@ void CpuStatPrivate::recalculateMinMax()
  
  void CpuStatPrivate::timeout()
  {
@@ -186,16 +187,16 @@
 +        size_t cp_size = sizeof(long) * CPUSTATES * GetCpu();
 +        long *cp_times = (long *)malloc(cp_size);
 +        Values current;
-+
++        int cpuNumber = mSource.midRef(3).toInt();
 +        if (sysctlbyname("kern.cp_times", cp_times, &cp_size, NULL, 0) < 0)
 +            free(cp_times);
 +
-+        current.user = static_cast<ulong>(cp_times[CP_USER]);
-+        current.nice = static_cast<ulong>(cp_times[CP_NICE]);
-+        current.system = static_cast<ulong>(cp_times[CP_SYS]);
-+        current.idle = static_cast<ulong>(cp_times[CP_IDLE]);
-+        current.other = static_cast<ulong>(cp_times[CP_INTR]);
-+        current.sum();
++        current.user = static_cast<ulong>(cp_times[CP_USER+cpuNumber*CPUSTATES]);
++        current.nice = static_cast<ulong>(cp_times[CP_NICE+cpuNumber*CPUSTATES]);
++        current.system = static_cast<ulong>(cp_times[CP_SYS+cpuNumber*CPUSTATES]);
++        current.idle = static_cast<ulong>(cp_times[CP_IDLE+cpuNumber*CPUSTATES]);
++        current.other = static_cast<ulong>(cp_times[CP_INTR+cpuNumber*CPUSTATES]);
++        current.total = current.user + current.nice + current.system+current.idle+current.other;
 +
 +        float sumDelta = static_cast<float>(current.total - mPrevious.total);
 +
@@ -237,6 +238,7 @@
 +            }
 +            else
 +            {
++
 +                emit update(
 +                    static_cast<float>(current.user - mPrevious.user ) / sumDelta,
 +                    static_cast<float>(current.nice - mPrevious.nice ) / sumDelta,
@@ -244,8 +246,10 @@
 +                    static_cast<float>(current.idle - mPrevious.idle ) / sumDelta,
 +                    static_cast<float>(current.other - mPrevious.other ) / sumDelta);
 +            }
++
 +            mPrevious = current;
 +        }
++
 +        free(cp_times);
 +    }
 +    else
@@ -260,7 +264,7 @@
      if ( (mMonitoring == CpuStat::LoadOnly)
        || (mMonitoring == CpuStat::LoadAndFrequency) )
      {
-@@ -258,6 +460,7 @@ void CpuStatPrivate::timeout()
+@@ -258,6 +464,7 @@ void CpuStatPrivate::timeout()
          }
          emit update(freq);
      }
@@ -268,7 +272,7 @@
  }
  
  QString CpuStatPrivate::defaultSource()
-@@ -302,9 +505,15 @@ CpuStat::CpuStat(QObject *parent)
+@@ -302,9 +509,15 @@ CpuStat::CpuStat(QObject *parent)
      impl = new CpuStatPrivate(this);
      baseimpl = impl;
  

@@ -47,9 +47,9 @@
 +            .arg(cpu_percent));
 +
 +    y_system = clamp(y_system, 0, 99);
-+    y_user   = clamp(y_user + y_nice, 0, 99);
-+    y_nice   = clamp(y_nice, 0, 99);
-+    y_other  = clamp(y_other + y_idle, 0, 99);
++    y_user   = clamp(y_user + y_system, 0, 99);
++    y_nice   = clamp(y_nice+y_user, 0, 99);
++    y_other  = clamp(y_other+y_nice, 0, 99);
 +
 +    clearLine();
 +    QPainter painter(&mHistoryImage);

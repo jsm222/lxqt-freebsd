@@ -1,0 +1,14 @@
+--- plugin-sysstat/CMakeLists.txt.orig	2017-01-01 22:27:14 UTC
++++ plugin-sysstat/CMakeLists.txt
+@@ -1,5 +1,11 @@
+ set(PLUGIN "sysstat")
+ 
++if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
++    add_definitions("-DCMAKE_SYSTEM_NAME_FREEBSD=1")
++elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
++    add_definitions("-DCMAKE_SYSTEM_NAME_LINUX=1") 
++endif()
++
+ find_package(SysStat-Qt5 REQUIRED)
+ 
+ set(HEADERS
