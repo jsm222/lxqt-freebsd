@@ -74,7 +74,16 @@
  CpuStatPrivate::CpuStatPrivate(CpuStat *parent)
      : BaseStatPrivate(parent)
      , mMonitoring(CpuStat::LoadAndFrequency)
-@@ -47,6 +105,49 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
+@@ -39,6 +97,8 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
+     mSource = defaultSource();
+ 
+     connect(mTimer, SIGNAL(timeout()), SLOT(timeout()));
++    size_t flen=2;
++    sysctlnametomib("kern.cp_times",mib,&flen);
+ 
+     mUserHz = sysconf(_SC_CLK_TCK);
+ 
+@@ -47,6 +107,49 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
  
  void CpuStatPrivate::addSource(const QString &source)
  {
@@ -124,7 +133,7 @@
      bool ok;
  
      uint min = readAllFile(qPrintable(QString("/sys/devices/system/cpu/%1/cpufreq/scaling_min_freq").arg(source))).toUInt(&ok);
-@@ -56,12 +157,27 @@ void CpuStatPrivate::addSource(const QSt
+@@ -56,12 +159,27 @@ void CpuStatPrivate::addSource(const QSt
          if (ok)
              mBounds[source] = qMakePair(min, max);
      }
@@ -152,7 +161,7 @@
      foreach (QString row, readAllFile("/proc/stat").split(QChar('\n'), QString::SkipEmptyParts))
      {
          QStringList tokens = row.split(QChar(' '), QString::SkipEmptyParts);
-@@ -97,6 +213,7 @@ void CpuStatPrivate::updateSources()
+@@ -97,6 +215,7 @@ void CpuStatPrivate::updateSources()
                  addSource(QString("cpu%1").arg(number));
          }
      }
@@ -160,7 +169,7 @@
  }
  
  CpuStatPrivate::~CpuStatPrivate()
-@@ -117,7 +234,15 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -117,7 +236,15 @@ void CpuStatPrivate::recalculateMinMax()
  {
      int cores = 1;
      if (mSource == "cpu")
@@ -176,7 +185,7 @@
  
      mIntervalMin = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) / 1.25; // -25%
      mIntervalMax = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) * 1.25; // +25%
-@@ -125,6 +250,87 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -125,6 +252,87 @@ void CpuStatPrivate::recalculateMinMax()
  
  void CpuStatPrivate::timeout()
  {
@@ -188,7 +197,7 @@
 +        long *cp_times = (long *)malloc(cp_size);
 +        Values current;
 +        int cpuNumber = mSource.midRef(3).toInt();
-+        if (sysctlbyname("kern.cp_times", cp_times, &cp_size, NULL, 0) < 0)
++        if (sysctl(mib,2, cp_times, &cp_size, NULL, 0) < 0)
 +            free(cp_times);
 +
 +        current.user = static_cast<ulong>(cp_times[CP_USER+cpuNumber*CPUSTATES]);
@@ -264,7 +273,7 @@
      if ( (mMonitoring == CpuStat::LoadOnly)
        || (mMonitoring == CpuStat::LoadAndFrequency) )
      {
-@@ -258,6 +464,7 @@ void CpuStatPrivate::timeout()
+@@ -258,6 +466,7 @@ void CpuStatPrivate::timeout()
          }
          emit update(freq);
      }
@@ -272,7 +281,7 @@
  }
  
  QString CpuStatPrivate::defaultSource()
-@@ -302,9 +509,15 @@ CpuStat::CpuStat(QObject *parent)
+@@ -302,9 +511,15 @@ CpuStat::CpuStat(QObject *parent)
      impl = new CpuStatPrivate(this);
      baseimpl = impl;
  

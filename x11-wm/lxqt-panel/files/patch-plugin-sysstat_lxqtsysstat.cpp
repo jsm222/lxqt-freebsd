@@ -27,24 +27,22 @@
  void LXQtSysStatContent::cpuUpdate(float user, float nice, float system, float other, float frequencyRate, uint)
  {
      int y_system = static_cast<int>(system * 100.0 * frequencyRate);
-@@ -478,6 +484,54 @@ void LXQtSysStatContent::cpuUpdate(float
+@@ -478,6 +484,52 @@ void LXQtSysStatContent::cpuUpdate(float
  
      update(0, mTitleFontPixelHeight, width(), height() - mTitleFontPixelHeight);
  }
 +#elif defined(Q_OS_FREEBSD)
 +void LXQtSysStatContent::cpuUpdate(float user, float nice, float system, float idle, float other)
 +{
-+    int y_system = static_cast<int>(system * 100.0);
-+    int y_user   = static_cast<int>(user   * 100.0);
-+    int y_nice   = static_cast<int>(nice   * 100.0);
-+    int y_idle   = static_cast<int>(idle   * 100.0);
-+    int y_other  = static_cast<int>(other  * 100.0);
++    int y_system = static_cast<int>(round(system * 100.0));
++    int y_user   = static_cast<int>(round(user   * 100.0));
++    int y_nice   = static_cast<int>(round(nice   * 100.0));
++    int y_idle   = static_cast<int>(round(idle   * 100.0));
++    int y_other  = static_cast<int>(round(other  * 100.0));
 +
-+    float used  = (user + nice);
-+    float cpu_percent  = (used * 100) / (used + system + idle + other);
++    toolTipInfo(tr("system: %1%<br>user: %2%<br>nice: %3%<br>other: %4%", "CPU tooltip information")
++                .arg(y_system).arg(y_user).arg(y_nice).arg(y_other));
 +
-+    toolTipInfo(tr("%1%", "CPU tooltip information")
-+            .arg(cpu_percent));
 +
 +    y_system = clamp(y_system, 0, 99);
 +    y_user   = clamp(y_user + y_system, 0, 99);

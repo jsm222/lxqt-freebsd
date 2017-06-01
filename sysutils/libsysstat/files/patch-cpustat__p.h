@@ -34,7 +34,7 @@
  
  private slots:
      void timeout();
-@@ -74,12 +87,21 @@ private:
+@@ -74,22 +87,35 @@ private:
      {
          Values();
  
@@ -56,8 +56,11 @@
  
          void sum();
  
-@@ -89,7 +111,11 @@ private:
- 
+         void clear();
+     } Values;
+     Values mPrevious;
+-
++    int mib[2];
      CpuStat::Monitoring mMonitoring;
  
 +#ifdef HAVE_SYSCTL_H
