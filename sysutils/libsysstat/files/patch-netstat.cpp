@@ -33,15 +33,38 @@
      QStringList rows(readAllFile("/proc/net/dev").split(QChar('\n'), QString::SkipEmptyParts));
  
      rows.erase(rows.begin(), rows.begin() + 2);
-@@ -50,6 +67,7 @@ NetStatPrivate::NetStatPrivate(NetStat *
+@@ -50,6 +67,30 @@ NetStatPrivate::NetStatPrivate(NetStat *
  
          mSources.append(tokens[0].trimmed());
      }
++#else
++    int count;
++    size_t len;
++    int cntifmib[] = { CTL_NET, PF_LINK, NETLINK_GENERIC, IFMIB_SYSTEM, IFMIB_IFCOUNT };// net.link.generic.system.ifcount;
++    len = sizeof(int);
++    if (sysctl(cntifmib, 5, &count, &len, NULL, 0) < 0)
++        perror("sysctl");
++
++
++    struct ifmibdata ifmd;
++    size_t len1 = sizeof(ifmd);
++    for (int i=1; i<=count;i++) {
++        int name[] = { CTL_NET, PF_LINK, NETLINK_GENERIC, IFMIB_IFDATA, i, IFDATA_GENERAL };
++
++        if (sysctl(name, 6, &ifmd, &len1, NULL, 0) < 0) {
++            perror("sysctl");
++        }
++        if ((ifmd.ifmd_data.ifi_type == IFT_ETHER) || (ifmd.ifmd_data.ifi_type == IFT_IEEE80211)) {
++        const char *iface = ifmd.ifmd_name;
++        mSources.append(QString::fromLatin1(iface));
++        }
++    }
++
 +#endif
  }
  
  NetStatPrivate::~NetStatPrivate()
-@@ -58,6 +76,46 @@ NetStatPrivate::~NetStatPrivate()
+@@ -58,6 +99,50 @@ NetStatPrivate::~NetStatPrivate()
  
  void NetStatPrivate::timeout()
  {
@@ -65,10 +88,11 @@
 +
 +        if ((ifmd.ifmd_data.ifi_type == IFT_ETHER) || (ifmd.ifmd_data.ifi_type == IFT_IEEE80211))
 +        {
++            const char *iface = ifmd.ifmd_name;
++            QString interfaceName = QString::fromLatin1(iface);
 +            if ((ifmd.ifmd_data.ifi_link_state == LINK_STATE_UP) && (ifmd.ifmd_data.ifi_ipackets > 0))
 +            {
-+                const char *iface = ifmd.ifmd_name;
-+                QString interfaceName = QString::fromLatin1(iface);
++
 +
 +                Values current;
 +                current.received = ifmd.ifmd_data.ifi_ibytes;
@@ -78,17 +102,20 @@
 +                    mPrevious.insert(interfaceName, Values());
 +                const Values &previous = mPrevious[interfaceName];
 +
-+                emit update(((current.received - previous.received) * 1000) / mTimer->interval(), ((current.transmitted - previous.transmitted) * 1000) / mTimer->interval());
++                if (interfaceName == mSource)
++                    emit update((( current.received - previous.received ) * 1000 ) / mTimer->interval(), (( current.transmitted - previous.transmitted ) * 1000 ) / mTimer->interval());
 +
 +                mPrevious[interfaceName] = current;
-+            }
++            } else if(interfaceName == mSource)
++                emit(update(0,0));
++
 +        }
 +    }
 +#else
      QStringList rows(readAllFile("/proc/net/dev").split(QChar('\n'), QString::SkipEmptyParts));
  
  
-@@ -99,6 +157,7 @@ void NetStatPrivate::timeout()
+@@ -99,6 +184,7 @@ void NetStatPrivate::timeout()
  
          mPrevious[interfaceName] = current;
      }
