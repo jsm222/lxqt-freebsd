@@ -9,6 +9,7 @@ lib/lxqt-panel/libcolorpicker.so
 lib/lxqt-panel/libdirectorymenu.so
 lib/lxqt-panel/libkbindicator.so
 %%MOUNT%%lib/lxqt-panel/libmount.so
+lib/lxqt-panel/libsysstat.so
 %%SOUND%%lib/lxqt-panel/libvolume.so
 man/man1/lxqt-panel.1.gz
 %%LXQT_SHAREDIR%%/lxqt-panel/clock.desktop
@@ -23,6 +24,7 @@ man/man1/lxqt-panel.1.gz
 %%LXQT_SHAREDIR%%/lxqt-panel/showdesktop.desktop
 %%LXQT_SHAREDIR%%/lxqt-panel/spacer.desktop
 %%LXQT_SHAREDIR%%/lxqt-panel/statusnotifier.desktop
+%%LXQT_SHAREDIR%%/lxqt-panel/sysstat.desktop
 %%LXQT_SHAREDIR%%/lxqt-panel/taskbar.desktop
 %%LXQT_SHAREDIR%%/lxqt-panel/tray.desktop
 %%SOUND%%%%LXQT_SHAREDIR%%/lxqt-panel/volume.desktop

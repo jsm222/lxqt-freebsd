@@ -14,7 +14,8 @@ LICENSE=	LGPL21+
 LIB_DEPENDS=	libmenu-cache.so:x11/menu-cache \
 	libdbusmenu-qt5.so:devel/libdbusmenu-qt5 \
 	libxkbcommon.so:x11/libxkbcommon \
-	libxcb-util.so:x11/xcb-util
+	libxcb-util.so:x11/xcb-util \
+	libsysstat-qt5.so:sysutils/libsysstat
 RUN_DEPENDS=	lxmenu-data>=0.1.2:x11/lxmenu-data
 
 USES=	cmake:outsource compiler:c++11-lib gettext-runtime kde:5 \
@@ -46,7 +47,6 @@ LDFLAGS+=	-Xlinker --export-dynamic
 
 CMAKE_ARGS+=	-DSENSORS_PLUGIN:BOOL=OFF \
 	-DNETWORKMONITOR_PLUGIN:BOOL=OFF \
-	-DSYSSTAT_PLUGIN:BOOL=OFF \
 	-DWITH_SCREENSAVER_FALLBACK:BOOL=OFF
 
 .include <bsd.port.options.mk>
