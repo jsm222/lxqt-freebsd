@@ -66,7 +66,8 @@ EOF
 
 _git()
 {
-		if [ -x $(which git 2>/dev/null) ]; then
+		which -s git
+		if [ $? -eq 0 ]; then
 				echo $(which git);
 		else
 				err "ERROR: git not found.";
@@ -89,7 +90,7 @@ checkout()
 				${git_cmd} clone ${GITURL} $LOCAL_REPO;
                 cd  ${LOCAL_REPO};
                 ${git_cmd} checkout ${BRANCH};
-		else
+		elif [ $git_cmd  ]; then
 				update ${git_cmd};
 		fi
 		exit 0
@@ -171,7 +172,6 @@ set -- ${opts}
 if [ ${#} -eq 1 ]; then
 		usage;
 else
-		while true; do
 				case "${1}" in
 						-h)
 								usage;
@@ -197,5 +197,4 @@ else
 								shift ; break
 								;;
 				esac
-		done
 fi
