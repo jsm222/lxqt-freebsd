@@ -6,7 +6,7 @@ PORTVERSION=	0.11.2
 CATEGORIES=	x11
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Qt port of libfm
 
 LICENSE=	LGPL21+

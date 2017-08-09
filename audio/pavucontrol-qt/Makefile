@@ -6,7 +6,7 @@ PORTVERSION=	0.2.0
 CATEGORIES=	audio
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	PulseAudio mixer in Qt
 
 LICENSE=	GPLv2

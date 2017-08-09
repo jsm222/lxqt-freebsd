@@ -6,7 +6,7 @@ PORTVERSION=	0.11.1
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	LXQt system integration plugin for Qt
 
 LICENSE=	LGPL21+

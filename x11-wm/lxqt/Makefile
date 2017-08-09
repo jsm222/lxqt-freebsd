@@ -5,7 +5,7 @@ PORTNAME=	lxqt
 PORTVERSION=	0.11.1
 CATEGORIES=	x11-wm
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	The "meta-port" for the LXQt Desktop
 
 LICENSE=	LGPL21+

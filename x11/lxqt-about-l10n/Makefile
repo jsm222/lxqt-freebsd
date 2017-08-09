@@ -7,7 +7,7 @@ CATEGORIES=	x11
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-about//}-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lxqt-about
 
 LICENSE=	LGPL21+

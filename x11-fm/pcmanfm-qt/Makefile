@@ -6,7 +6,7 @@ PORTVERSION=	0.11.3
 CATEGORIES=	x11-fm
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	LXQt file manager
 
 LICENSE=	GPLv2

@@ -7,7 +7,7 @@ CATEGORIES=	sysutils
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-config//}-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of liblxqt
 
 LICENSE=	LGPL21+

@@ -7,7 +7,7 @@ CATEGORIES=	deskutils
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-notificationd//}-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lxqt-notificationd
 
 LICENSE=	LGPL21+

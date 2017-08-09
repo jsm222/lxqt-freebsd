@@ -6,7 +6,7 @@ PORTVERSION=	0.3.3
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Library used to query system info and statistics
 
 LICENSE=	LGPL21

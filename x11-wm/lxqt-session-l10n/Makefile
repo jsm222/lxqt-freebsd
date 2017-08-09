@@ -7,7 +7,7 @@ CATEGORIES=	x11-wm
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-session//}-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lxqt-session
 
 LICENSE=	LGPL21+
@@ -42,4 +42,4 @@ CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_QTERMINAL:BOOL=OFF \
 	-DWITH_PAVUCONTROL_QT:BOOL=OFF
 
-.include <bsd.port.mk>
+.include "${MASTERDIR}/Makefile"

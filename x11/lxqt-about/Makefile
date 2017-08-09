@@ -7,7 +7,7 @@ CATEGORIES=	x11
 MASTER_SITES=	LXQT
 DIST_SUBDIR=	lxqt
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	About dialog of LXQt
 
 LICENSE=	LGPL21+

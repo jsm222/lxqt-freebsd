@@ -6,7 +6,7 @@ PORTVERSION=	0.11.1
 CATEGORIES=	x11-wm
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Qt port of preferences manager for the Openbox
 
 LICENSE=	GPLv2

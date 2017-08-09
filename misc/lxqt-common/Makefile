@@ -6,7 +6,7 @@ PORTVERSION=	0.11.2
 CATEGORIES=	misc
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	LXQt common files
 
 LICENSE=	LGPL21+

@@ -5,7 +5,7 @@ PORTNAME=	qlipper
 PORTVERSION=	5.0.0
 CATEGORIES=	deskutils
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Lightweight clipboard history applet
 
 LICENSE=	GPLv2

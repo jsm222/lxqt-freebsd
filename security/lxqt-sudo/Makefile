@@ -6,7 +6,7 @@ PORTVERSION=	0.11.1
 CATEGORIES=	security
 MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	GUI frontend to su/sudo for LXQt desktop
 
 LICENSE=	LGPL21+

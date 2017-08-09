@@ -6,7 +6,7 @@ PORTVERSION=	0.5.1
 CATEGORIES=	graphics
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Image viewer and screenshot tool
 
 LICENSE=	GPLv2

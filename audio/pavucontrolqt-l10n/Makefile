@@ -7,7 +7,7 @@ CATEGORIES=	audio
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	lxqt-l10n-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of pavucontrol-qt
 
 LICENSE=	LGPL21+

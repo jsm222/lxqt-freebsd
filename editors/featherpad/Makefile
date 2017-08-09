@@ -6,7 +6,7 @@ PORTVERSION=	0.5.8
 DISTVERSIONPREFIX=	V
 CATEGORIES=	editors
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Lightweight Qt5 plain-text editor
 
 LICENSE=	GPLv3

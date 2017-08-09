@@ -7,7 +7,7 @@ CATEGORIES=	graphics
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	lxqt-l10n-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lximage-qt
 
 LICENSE=	LGPL21+
@@ -42,4 +42,4 @@ CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_QTERMINAL:BOOL=OFF \
 	-DWITH_PAVUCONTROL_QT:BOOL=OFF
 
-.include <bsd.port.mk>
+.include "${MASTERDIR}/Makefile"

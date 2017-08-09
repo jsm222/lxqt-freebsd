@@ -6,7 +6,7 @@ PORTVERSION=	0.11.1
 CATEGORIES=	x11
 MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Global keyboard shortcuts registration
 
 LICENSE=	LGPL21+

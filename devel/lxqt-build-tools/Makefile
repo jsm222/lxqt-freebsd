@@ -6,7 +6,7 @@ PORTVERSION=	0.3.2
 CATEGORIES=	devel
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Helpers CMake modules for LXQt
 
 LICENSE=	BSD3CLAUSE
