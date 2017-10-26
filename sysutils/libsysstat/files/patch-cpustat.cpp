@@ -1,4 +1,4 @@
---- cpustat.cpp.orig	2017-10-26 13:55:45 UTC
+--- cpustat.cpp.orig	2017-09-23 12:46:10 UTC
 +++ cpustat.cpp
 @@ -23,15 +23,68 @@
  **
@@ -144,13 +144,13 @@
      mSources.clear();
 +#ifdef HAVE_SYSCTL_H
 +    int cpu;
-+
+ 
 +    cpu = GetCpu();
 +    for (int i =0;i<cpu;i++)
 +    {
 +        mSources.append(QString("cpu%1").arg(i));
 +
- 
++
 +
 +        addSource(QString("cpu%1").arg(i));
 +    }
@@ -167,17 +167,19 @@
  }
  
  CpuStatPrivate::~CpuStatPrivate()
-@@ -117,6 +231,9 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -117,14 +231,98 @@ void CpuStatPrivate::recalculateMinMax()
  {
      int cores = 1;
      if (mSource == "cpu")
 +#ifdef HAVE_SYSCTL_H
-+		cores = mSources.size()
++		cores = mSources.size();
 +#else
          cores = mSources.size() - 1;
- 
+-
++#endif
      mIntervalMin = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) / 1.25; // -25%
-@@ -125,6 +242,87 @@ void CpuStatPrivate::recalculateMinMax()
+     mIntervalMax = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) * 1.25; // +25%
+ }
  
  void CpuStatPrivate::timeout()
  {
