@@ -1,5 +1,7 @@
 bin/lxqt-panel
+etc/xdg/autostart/lxqt-panel.desktop
 etc/xdg/lxqt/panel.conf
+etc/xdg/menus/lxqt-applications.menu
 %%LXQT_INCLUDEDIR%%/ilxqtpanel.h
 %%LXQT_INCLUDEDIR%%/ilxqtpanelplugin.h
 %%LXQT_INCLUDEDIR%%/lxqtpanelglobals.h
@@ -12,6 +14,8 @@ lib/lxqt-panel/libkbindicator.so
 lib/lxqt-panel/libsysstat.so
 %%SOUND%%lib/lxqt-panel/libvolume.so
 man/man1/lxqt-panel.1.gz
+share/desktop-directories/lxqt-leave.directory
+share/desktop-directories/lxqt-settings.directory
 %%LXQT_SHAREDIR%%/lxqt-panel/clock.desktop
 %%LXQT_SHAREDIR%%/lxqt-panel/colorpicker.desktop
 %%CPULOAD%%%%LXQT_SHAREDIR%%/lxqt-panel/cpuload.desktop
