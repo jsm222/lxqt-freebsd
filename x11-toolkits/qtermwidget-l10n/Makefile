@@ -1,14 +1,14 @@
 # Created by: Olivier Duchateau
-# $FreeBSD: head/x11/qterminal-l10n/Makefile 430908 2017-01-09 04:29:12Z marino $
+# $FreeBSD$
 
-PORTNAME=	qterminal-l10n
+PORTNAME=	qtermwidget-l10n
 PORTVERSION=	0.12.0
-CATEGORIES=	x11
+CATEGORIES=	x11-toolkits
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	lxqt-l10n-${DISTVERSION}
 
 MAINTAINER=	jesper@schmitz.computer
-COMMENT=	Translations of Qterminal
+COMMENT=	Translations of Qtermwidget
 
 LICENSE=	LGPL21+
 
@@ -39,8 +39,8 @@ CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_LXQT_SUDO:BOOL=OFF \
 	-DWITH_OBCONF_QT:BOOL=OFF \
 	-DWITH_PCMANFM_QT:BOOL=OFF \
-	-DWITH_QTERMINAL:BOOL=ON \
-	-DWITH_QTERMWIDGET:BOOL=OFF \
+	-DWITH_QTERMINAL:BOOL=OFF \
+	-DWITH_QTERMWIDGET:BOOL=ON \
 	-DWITH_PAVUCONTROL_QT:BOOL=OFF
 
 .include <bsd.port.mk>

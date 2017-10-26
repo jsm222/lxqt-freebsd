@@ -1,12 +1,12 @@
 # Created by: Olivier Duchateau
-# $FreeBSD$
+# $FreeBSD: head/graphics/lximage-qt/Makefile 449591 2017-09-10 20:55:38Z gerald $
 
 PORTNAME=	lximage-qt
-PORTVERSION=	0.5.1
+PORTVERSION=	0.6.0
 CATEGORIES=	graphics
-MASTER_SITES=	LXQT/${PORTNAME}
+MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Image viewer and screenshot tool
 
 LICENSE=	GPLv2
@@ -19,7 +19,7 @@ USES=	cmake:outsource compiler:c++11-lib desktop-file-utils gettext-runtime \
 	localbase:ldflags lxqt pkgconfig tar:xz
 USE_GNOME=	glib20
 USE_QT5=	buildtools_build qmake_build core dbus gui linguisttools \
-	printsupport svg widgets x11extras
+	network printsupport svg widgets x11extras
 USE_LXQT=	buildtools libfmqt
 USE_XORG=	ice sm x11 xcb xext xfixes
 INSTALLS_ICONS=	yes

@@ -1,5 +1,5 @@
 # Created by: Olivier Duchateau
-# $FreeBSD$
+# $FreeBSD: head/devel/liblxqt-l10n/Makefile 441215 2017-05-19 10:09:57Z joneum $
 
 PORTNAME=	liblxqt-l10n
 PORTVERSION=	0.12.0
@@ -7,7 +7,7 @@ CATEGORIES=	devel
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	lxqt-l10n-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of liblxqt
 
 LICENSE=	LGPL21+
@@ -40,6 +40,7 @@ CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_OBCONF_QT:BOOL=OFF \
 	-DWITH_PCMANFM_QT:BOOL=OFF \
 	-DWITH_QTERMINAL:BOOL=OFF \
+	-DWITH_QTERMWIDGET:BOOL=OFF \
 	-DWITH_PAVUCONTROL_QT:BOOL=OFF
 
 .include <bsd.port.mk>

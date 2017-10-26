@@ -1,32 +1,19 @@
 # Created by: Olivier Duchateau
-# $FreeBSD$
+# $FreeBSD: head/x11/lxqt-l10n/Makefile 441215 2017-05-19 10:09:57Z joneum $
 
 PORTNAME=	lxqt-l10n
 PORTVERSION=	0.12.0
 CATEGORIES=	x11
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of LXQt components
 
 LICENSE=	LGPL21+
 
-RUN_DEPENDS=	liblxqt-l10n>=0.12.0:devel/liblxqt-l10n \
-	lxqt-notificationd-l10n>=0.12.0:deskutils/lxqt-notificationd-l10n \
-	lximageqt-l10n>=0.12.0:graphics/lximageqt-l10n \
-	lxqt-openssh-l10n>=0.12.0:security/lxqt-openssh-l10n \
-	lxqt-sudo-l10n>=0.12.0:security/lxqt-sudo-l10n \
-	libfmqt-l10n>=0.12.0:x11/libfmqt-l10n \
-	pcmanfmqt-l10n>=0.12.0:x11-fm/pcmanfmqt-l10n \
-	lxqt-config-l10n>=0.12.0:sysutils/lxqt-config-l10n \
-	lxqt-policykit-l10n>=0.12.0:sysutils/lxqt-policykit-l10n \
-	lxqt-about-l10n>=0.12.0:x11/lxqt-about-l10n \
-	lxqt-globalkeys-l10n>=0.12.0:x11/lxqt-globalkeys-l10n \
-	lxqt-runner-l10n>=0.12.0:x11/lxqt-runner-l10n \
-	pavucontrolqt-l10n>=0.12.0:audio/pavucontrolqt-l10n \
-	obconfqt-l10n>=0.12.0:x11-wm/obconfqt-l10n \
-	lxqt-panel-l10n>=0.12.0:x11-wm/lxqt-panel-l10n \
-	lxqt-session-l10n>=0.12.0:x11-wm/lxqt-session-l10n \
-	lxqt-admin-l10n>=0.12.0:sysutils/lxqt-admin-l10n
+RUN_DEPENDS=	liblxqt-l10n>=0.12:devel/liblxqt-l10n \
+	lximageqt-l10n>=0.12:graphics/lximageqt-l10n \
+	libfmqt-l10n>=0.12:x11/libfmqt-l10n \
+	pcmanfmqt-l10n>=0.12:x11-fm/pcmanfmqt-l10n
 
 USES=	metaport
 

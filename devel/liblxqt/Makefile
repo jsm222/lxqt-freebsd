@@ -1,12 +1,12 @@
 # Created by: Olivier Duchateau
-# $FreeBSD$
+# $FreeBSD: head/devel/liblxqt/Makefile 449591 2017-09-10 20:55:38Z gerald $
 
 PORTNAME=	liblxqt
-PORTVERSION=	0.11.1
+PORTVERSION=	0.12.0
 CATEGORIES=	devel
 MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Shared library for LXQt applications
 
 LICENSE=	LGPL21+
