@@ -10,7 +10,7 @@ COMMENT=	The "meta-port" for the LXQt Desktop
 
 LICENSE=	LGPL21+
 
-RUN_DEPENDS=	startlxqt:misc/lxqt-common \
+RUN_DEPENDS=	startlxqt:x11-wm/lxqt-seesion \
 	lxqt-about:x11/lxqt-about \
 	lxqt-admin-user:sysutils/lxqt-admin \
 	lxqt-config:sysutils/lxqt-config \
