@@ -1,3 +1,4 @@
 bin/lxqt-config-notificationd
 bin/lxqt-notificationd
+etc/xdg/autostart/lxqt-notifications.desktop
 share/applications/lxqt-config-notificationd.desktop
