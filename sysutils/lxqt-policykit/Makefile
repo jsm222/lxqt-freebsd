@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-policykit
-PORTVERSION=	0.11.1
+PORTVERSION=	0.12.0
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT
 
@@ -22,6 +22,7 @@ USE_KDE=	windowsystem
 USE_LXQT=	buildtools lxqt
 USE_GNOME=	glib20
 
-PLIST_FILES=	bin/lxqt-policykit-agent
+PLIST_FILES=	bin/lxqt-policykit-agent \
+etc/xdg/autostart/lxqt-policykit-agent.desktop
 
 .include <bsd.port.mk>
