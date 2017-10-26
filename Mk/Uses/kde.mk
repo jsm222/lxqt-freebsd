@@ -62,7 +62,7 @@ _KDE_RELNAME=		KDE${_KDE_VERSION}
 # === VERSIONS OF THE DIFFERENT COMPONENTS =====================================
 # Old KDE desktop.
 KDE4_VERSION?=			4.14.3
-KDE4_KDELIBS_VERSION=		4.14.32
+KDE4_KDELIBS_VERSION=		4.14.37
 KDE4_ACTIVITIES_VERSION=	4.13.3
 KDE4_WORKSPACE_VERSION=		4.11.22
 KDE4_KDEPIM_VERSION?=		4.14.10
@@ -72,17 +72,18 @@ KDE4_APPLICATIONS_VERSION?=	15.04.3
 KDE4_BRANCH?=			stable
 
 # Current KDE desktop.
-KDE_PLASMA_VERSION?=		5.10.0
+KDE_PLASMA_VERSION?=		5.11.2
 KDE_PLASMA_BRANCH?=		stable
 
-KDE_FRAMEWORKS_VERSION?=	5.34.0
+KDE_FRAMEWORKS_VERSION?=	5.39.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
-KDE_APPLICATIONS_VERSION?=	17.04.1
+KDE_APPLICATIONS_VERSION?=	17.08.2
+KDE_APPLICATIONS_SHLIB_VER?=	5.6.2
 KDE_APPLICATIONS_BRANCH?=	stable
 # Upstream moves old software to Attic/. Specify the newest applications release there.
 # Only the major version is used for the comparison.
-_KDE_APPLICATIONS_ATTIC_VERSION=	15.12.3
+_KDE_APPLICATIONS_ATTIC_VERSION=	16.12.3
 
 # ==============================================================================
 
@@ -124,6 +125,13 @@ PORTVERSION?=		${KDE_APPLICATIONS_VERSION}
 MASTER_SITES?=		KDE/Attic/applications/${KDE_APPLICATIONS_VERSION}/src
 .      else
 MASTER_SITES?=		KDE/${KDE_APPLICATIONS_BRANCH}/applications/${KDE_APPLICATIONS_VERSION}/src
+# Let bsd.port.mk create the plist-entries for the documentation.
+# KDE Applications ports install their documentation to
+# ${PREFIX}/share/doc.
+DOCSDIR=		${PREFIX}/share/doc
+PORTDOCS?=		HTML/*
+# Further pass along a SHLIB_VER PLIST_SUB
+PLIST_SUB+=		KDE_APPLICATIONS_SHLIB_VER=${KDE_APPLICATIONS_SHLIB_VER}
 .      endif
 DIST_SUBDIR?=		KDE/applications/${KDE_APPLICATIONS_VERSION}
 .    elif ${_KDE_CATEGORY:Mkde-plasma}
@@ -216,6 +224,7 @@ _USE_KDE4_ALL=	baseapps kactivities kdelibs \
 		pimlibs pykde4 pykdeuic4 qtruby runtime smokegen smokekde \
 		smokeqt workspace \
 		oxygen-icons5
+_USE_KDE4_EOL=	workspace
 # These components are not part of the Software Compilation.
 _USE_KDE4_ALL+=	automoc4 ontologies qimageblitz soprano strigi
 _USE_KDE4_ALL+=	${_USE_KDE_BOTH}
@@ -228,9 +237,9 @@ _USE_KDE5_ALL=	baseapps kate
 # that our list of frameworks matches the structure offered upstream.
 _USE_FRAMEWORKS_TIER1=	apidox archive bluez-qt breeze-icons codecs config \
 			coreaddons dbusaddons dnssd i18n idletime itemmodels \
-			itemviews oxygen-icons5 plotting prison solid sonnet \
-			syntaxhighlighting threadweaver wayland widgetsaddons \
-			windowsystem
+			itemviews kirigami2 oxygen-icons5 plotting prison solid \
+			sonnet syntaxhighlighting threadweaver wayland \
+			widgetsaddons windowsystem
 # NOT LISTED TIER1: modemmanagerqt networkmanagerqt (not applicable)
 
 _USE_FRAMEWORKS_TIER2=	activities-stats auth completion crash doctools \
@@ -251,11 +260,6 @@ _USE_FRAMEWORKS_TIER4= 	frameworkintegration
 # new projects should avoid using these libraries.
 _USE_FRAMEWORKS_PORTING=js jsembed kdelibs4support khtml mediaplayer kross
 
-# These are weird items: not officially released as Frameworks, but
-# required by them (and from KDE).
-#  - kirigami https://dot.kde.org/2016/03/30/kde-proudly-presents-kirigami-ui
-_USE_FRAMEWORKS_EXTRA=	kirigami kirigami2
-
 _USE_FRAMEWORKS_ALL=	ecm \
 			${_USE_FRAMEWORKS_TIER1} \
 			${_USE_FRAMEWORKS_TIER2} \
@@ -266,7 +270,7 @@ _USE_FRAMEWORKS_ALL=	ecm \
 
 # List of components of the KDE Plasma distribution.
 _USE_PLASMA_ALL=	activitymanagerd bluedevil breeze breeze-gtk \
-			breeze-kde4 decoration discover hotkeys \
+			breeze-kde4 decoration discover drkonqi hotkeys \
 			infocenter kde-cli-tools kde-gtk-config \
 			kdeplasma-addons kgamma5 kmenuedit kscreen \
 			kscreenlocker ksshaskpass ksysguard kwallet-pam \
@@ -367,9 +371,6 @@ smokekde_LIB=		libsmokekdecore.so
 
 smokeqt_PORT=		devel/smokeqt
 smokeqt_LIB=		libsmokeqtcore.so
-
-workspace_PORT=		x11/kde4-workspace
-workspace_LIB=		libkworkspace.so
 
 # Non-Software Compilation components
 
@@ -526,6 +527,9 @@ kimageformats_PATH=	${QT_PLUGINDIR}/imageformats/kimg_xcf.so
 kio_PORT=		devel/kf5-kio
 kio_LIB=		libKF5KIOCore.so
 
+kirigami2_PORT=		x11-toolkits/kf5-kirigami2
+kirigami2_PATH=		${QT_QMLDIR}/org/kde/kirigami.2/libkirigamiplugin.so
+
 kross_PORT=		lang/kf5-kross
 kross_LIB=		libKF5KrossCore.so
 
@@ -560,7 +564,7 @@ plasma-framework_PORT=	x11/kf5-plasma-framework
 plasma-framework_LIB=	libKF5Plasma.so
 
 plasma-pa_PORT=		audio/plasma5-plasma-pa
-plasma-pa_LIB=		libQPulseAudioPrivate.so
+plasma-pa_PATH=		${QT_PLUGINDIR}/kcms/kcm_pulseaudio.so
 
 plotting_PORT=		graphics/kf5-kplotting
 plotting_LIB=		libKF5Plotting.so
@@ -619,13 +623,6 @@ xmlgui_LIB=		libKF5XmlGui.so
 xmlrpcclient_PORT=	net/kf5-kxmlrpcclient
 xmlrpcclient_LIB=	libKF5XmlRpcClient.so
 
-# Sort kirigami, once it's officially a Framework
-kirigami_PORT=		x11-toolkits/kirigami
-kirigami_PATH=		${QT_QMLDIR}/org/kde/kirigami/libkirigamiplugin.so
-
-kirigami2_PORT=		x11-toolkits/kirigami2
-kirigami2_PATH=		${QT_QMLDIR}/org/kde/kirigami.2/libkirigamiplugin.so
-
 # ====================== end of frameworks components ==========================
 
 # ====================== plasma components =====================================
@@ -649,6 +646,9 @@ decoration_LIB=		libkdecorations2.so
 
 discover_PORT=		sysutils/plasma5-discover
 discover_PATH=		${KDE_PREFIX}/bin/plasma-discover
+
+drkonqi_PORT=		sysutils/plasma5-drkonqi
+drkonqi_PATH=		${KDE_PREFIX}/lib/libexec/drkonqi
 
 hotkeys_PORT=		devel/plasma5-khotkeys
 hotkeys_LIB=		libkhotkeysprivate.so.5
@@ -859,7 +859,7 @@ kate_PORT=		editors/kate
 kate_PATH=		${QT_PLUGINDIR}/ktexteditor/ktexteditor_lumen.so
 
 kio-extras_PORT=	devel/kio-extras
-kio-extras_LIB=		libmolletnetwork5.so.5
+kio-extras_LIB=		libmolletnetwork5.so.17
 
 marble_PORT=		astro/marble
 marble_LIB=		libmarblewidget-qt5.so
@@ -935,6 +935,10 @@ _USE_KDE_ALL=	${_USE_${_KDE_RELNAME}_ALL}
 
 # Iterate through components deprived of suffix.
 .  for component in ${USE_KDE:O:u:C/_.+//}
+  # Check if it is EOL'd
+.    if ${_USE_KDE4_EOL:M${component}}
+IGNORE?=	EOL '${component}' is no longer supported by kde.mk
+.    endif
   # Check that the component is valid.
 .    if ${_USE_KDE_ALL:M${component}} != ""
    # Skip meta-components (currently none).
