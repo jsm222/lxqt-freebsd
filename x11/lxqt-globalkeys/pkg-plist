@@ -18,6 +18,8 @@ lib/liblxqt-globalkeys.so.0
 lib/liblxqt-globalkeys.so.%%VERSION%%
 libdata/pkgconfig/lxqt-globalkeys-ui.pc
 libdata/pkgconfig/lxqt-globalkeys.pc
+etc/xdg/autostart/lxqt-globalkeyshortcuts.desktop
+etc/xdg/lxqt/globalkeyshortcuts.conf
 share/applications/lxqt-config-globalkeyshortcuts.desktop
 share/cmake/lxqt-globalkeys-ui/lxqt-globalkeys-ui-config-version.cmake
 share/cmake/lxqt-globalkeys-ui/lxqt-globalkeys-ui-config.cmake
