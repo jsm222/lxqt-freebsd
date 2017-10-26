@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-qtplugin
-PORTVERSION=	0.11.1
+PORTVERSION=	0.12.0
 CATEGORIES=	sysutils
-MASTER_SITES=	LXQT/${PORTNAME}
+MASTER_SITES=	LXQT
 
 MAINTAINER=	olivierd@FreeBSD.org
 COMMENT=	LXQt system integration plugin for Qt
