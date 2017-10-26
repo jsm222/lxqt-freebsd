@@ -1,4 +1,6 @@
+share/qterminal/translations/qterminal_ca.qm
 share/qterminal/translations/qterminal_cs.qm
+share/qterminal/translations/qterminal_da.qm
 share/qterminal/translations/qterminal_de.qm
 share/qterminal/translations/qterminal_el.qm
 share/qterminal/translations/qterminal_es.qm
@@ -7,7 +9,9 @@ share/qterminal/translations/qterminal_fr.qm
 share/qterminal/translations/qterminal_hu.qm
 share/qterminal/translations/qterminal_it.qm
 share/qterminal/translations/qterminal_ja.qm
+share/qterminal/translations/qterminal_lt.qm
 share/qterminal/translations/qterminal_nl.qm
+share/qterminal/translations/qterminal_pl.qm
 share/qterminal/translations/qterminal_pt.qm
 share/qterminal/translations/qterminal_pt_BR.qm
 share/qterminal/translations/qterminal_ru.qm
