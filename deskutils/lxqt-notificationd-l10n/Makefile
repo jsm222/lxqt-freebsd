@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-notificationd-l10n
-PORTVERSION=	0.11.2
+PORTVERSION=	0.12.0
 CATEGORIES=	deskutils
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-notificationd//}-${DISTVERSION}
