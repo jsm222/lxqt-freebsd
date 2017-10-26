@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-runner
-PORTVERSION=	0.11.1
+PORTVERSION=	0.12.0
 CATEGORIES=	x11
 MASTER_SITES=	LXQT
 
@@ -24,6 +24,7 @@ USE_LXQT=	buildtools globalkeys qtxdg
 
 CMAKE_ARGS=	-DRUNNER_VBOX:BOOL=OFF
 
-PLIST_FILES=	bin/lxqt-runner
+PLIST_FILES=	bin/lxqt-runner \
+		etc/xdg/autostart/lxqt-runner.desktop
 
 .include <bsd.port.mk>
