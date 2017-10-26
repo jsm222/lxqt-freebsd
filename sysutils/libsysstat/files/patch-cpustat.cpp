@@ -1,17 +1,14 @@
---- cpustat.cpp.orig	2016-12-10 23:50:29 UTC
+--- cpustat.cpp.orig	2017-10-26 13:55:45 UTC
 +++ cpustat.cpp
-@@ -23,15 +23,73 @@
+@@ -23,15 +23,68 @@
  **
  ** END_COMMON_COPYRIGHT_HEADER */
  
+-
 +#ifdef HAVE_CONFIG_H
 +#include "config.h"
 +#endif
-+
-+#include <cstdio>
- 
  #include <unistd.h>
- 
 +#ifdef HAVE_SYSCTL_H
 +extern "C"
 +{
@@ -19,12 +16,11 @@
 +    #include <limits.h>
 +    #include <string.h>
 +    #include <sys/resource.h> /* CPUSTATES */
-+
+ 
 +    #include <sys/types.h>
 +    #include <sys/sysctl.h>
 +}
 +#endif
-+
  #include "cpustat.h"
  #include "cpustat_p.h"
  
@@ -74,16 +70,19 @@
  CpuStatPrivate::CpuStatPrivate(CpuStat *parent)
      : BaseStatPrivate(parent)
      , mMonitoring(CpuStat::LoadAndFrequency)
-@@ -39,6 +97,8 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
+@@ -39,7 +92,10 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
      mSource = defaultSource();
  
      connect(mTimer, SIGNAL(timeout()), SLOT(timeout()));
-+    size_t flen=2;
-+    sysctlnametomib("kern.cp_times",mib,&flen);
- 
+-
++#ifdef HAVE_SYSCTL_H
++	size_t flen=2;
++	sysctlnametomib("kern.cp_times",mib,&flen);
++#endif
      mUserHz = sysconf(_SC_CLK_TCK);
  
-@@ -47,6 +107,49 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
+     updateSources();
+@@ -47,6 +103,49 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *
  
  void CpuStatPrivate::addSource(const QString &source)
  {
@@ -133,7 +132,7 @@
      bool ok;
  
      uint min = readAllFile(qPrintable(QString("/sys/devices/system/cpu/%1/cpufreq/scaling_min_freq").arg(source))).toUInt(&ok);
-@@ -56,12 +159,27 @@ void CpuStatPrivate::addSource(const QSt
+@@ -56,12 +155,26 @@ void CpuStatPrivate::addSource(const QSt
          if (ok)
              mBounds[source] = qMakePair(min, max);
      }
@@ -143,7 +142,6 @@
  void CpuStatPrivate::updateSources()
  {
      mSources.clear();
- 
 +#ifdef HAVE_SYSCTL_H
 +    int cpu;
 +
@@ -152,16 +150,16 @@
 +    {
 +        mSources.append(QString("cpu%1").arg(i));
 +
-+
+ 
 +
 +        addSource(QString("cpu%1").arg(i));
 +    }
 +    mBounds.clear();
 +#else
-     foreach (QString row, readAllFile("/proc/stat").split(QChar('\n'), QString::SkipEmptyParts))
+     foreach (const QString &row, readAllFile("/proc/stat").split(QChar('\n'), QString::SkipEmptyParts))
      {
          QStringList tokens = row.split(QChar(' '), QString::SkipEmptyParts);
-@@ -97,6 +215,7 @@ void CpuStatPrivate::updateSources()
+@@ -97,6 +210,7 @@ void CpuStatPrivate::updateSources()
                  addSource(QString("cpu%1").arg(number));
          }
      }
@@ -169,23 +167,17 @@
  }
  
  CpuStatPrivate::~CpuStatPrivate()
-@@ -117,7 +236,15 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -117,6 +231,9 @@ void CpuStatPrivate::recalculateMinMax()
  {
      int cores = 1;
      if (mSource == "cpu")
-+    {
 +#ifdef HAVE_SYSCTL_H
-+        int c = GetCpu();
-+        if (c > 0)
-+            cores = c;
++		cores = mSources.size()
 +#else
          cores = mSources.size() - 1;
-+#endif
-+    }
  
      mIntervalMin = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) / 1.25; // -25%
-     mIntervalMax = static_cast<float>(mTimer->interval()) / 1000 * static_cast<float>(mUserHz) * static_cast<float>(cores) * 1.25; // +25%
-@@ -125,6 +252,87 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -125,6 +242,87 @@ void CpuStatPrivate::recalculateMinMax()
  
  void CpuStatPrivate::timeout()
  {
@@ -273,7 +265,7 @@
      if ( (mMonitoring == CpuStat::LoadOnly)
        || (mMonitoring == CpuStat::LoadAndFrequency) )
      {
-@@ -258,6 +466,7 @@ void CpuStatPrivate::timeout()
+@@ -258,6 +456,7 @@ void CpuStatPrivate::timeout()
          }
          emit update(freq);
      }
@@ -281,10 +273,11 @@
  }
  
  QString CpuStatPrivate::defaultSource()
-@@ -302,9 +511,15 @@ CpuStat::CpuStat(QObject *parent)
+@@ -301,10 +500,15 @@ CpuStat::CpuStat(QObject *parent)
+ {
      impl = new CpuStatPrivate(this);
      baseimpl = impl;
- 
+-
 +#ifdef HAVE_SYSCTL_H
 +    connect(impl, SIGNAL(update(float,float,float,float,float,ulong)), this, SIGNAL(update(float,float,float,float,float,ulong)));
 +    connect(impl, SIGNAL(update(float,float,float,float,float)), this, SIGNAL(update(float,float,float,float,float)));
