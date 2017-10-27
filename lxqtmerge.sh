@@ -29,7 +29,7 @@
 # Local repository
 LOCAL_REPO="lxqt"
 # Version supported
-BRANCH="0.11"
+BRANCH="0.12"
 # The ports tree
 PORTSDIR="/usr/ports"
 
