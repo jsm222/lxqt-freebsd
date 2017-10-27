@@ -12,5 +12,6 @@ COMMENT=	Themes for the LXQt desktop
 LICENSE=	LGPL21+
 
 USES=		lxqt cmake:outsource tar:xz
+USE_LXQT=	buildtools
 
 .include <bsd.port.mk>
