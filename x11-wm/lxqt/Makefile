@@ -5,10 +5,11 @@ PORTNAME=	lxqt
 PORTVERSION=	0.12.0
 CATEGORIES=	x11-wm
 
-MAINTAINER=	olivierd@FreeBSD.org
-COMMENT=	The "meta-port" for the LXQt Desktop
+MAINTAINER=	jesper@schmitz.computer
 
 LICENSE=	LGPL21+
+
+COMMENT=	meta-port for the LXQt Desktop
 
 RUN_DEPENDS=	startlxqt:x11-wm/lxqt-session \
 	lxqt-about:x11/lxqt-about \
@@ -17,7 +18,18 @@ RUN_DEPENDS=	startlxqt:x11-wm/lxqt-session \
 	lxqt-qtplugin>=0.11:sysutils/lxqt-qtplugin \
 	qterminal:x11/qterminal \
 	obconf-qt:x11-wm/obconf-qt \
-	lximage-qt:graphics/lximage-qt
+	lximage-qt:graphics/lximage-qt \
+	lxqt-panel:x11-wm/lxqt-panel \
+	lxqt-runner:x11/lxqt-runner \
+	${PREFIX}/share/lxqt/themes/frost/lxqt-panel.qss:x11-themes/lxqt-themes \
+	pcmanfm-qt:x11-fm/pcmanfm-qt \
+	lxqt-notificationd:deskutils/lxqt-notificationd \
+	lxqt-panel:x11-wm/lxqt-panel \
+	lxqt-runner:x11/lxqt-runner \
+	lxqt-policykit-agent:sysutils/lxqt-policykit \
+	lxqt-session:x11-wm/lxqt-session \
+	qlipper:deskutils/qlipper \
+	openbox:x11-wm/openbox
 
 USES=	metaport
 
