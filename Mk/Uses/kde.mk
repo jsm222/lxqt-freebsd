@@ -6,7 +6,7 @@
 # Valid ARGS:	4 5
 #
 # 4:		Depend on KDE4 components and variables.
-# 5:		Depend on Plasma 5 and KDE Frameworks 5 components and variables.
+# 5:		Depend on KDE Frameworks 5 components and variables.
 #
 # Variables that can be set by a port:
 #
@@ -20,17 +20,11 @@
 # To simplify the ports, also:
 # CATEGORIES	If the port is part of one of the KDE Software distribution,
 #		it can add, in addition to 'kde' one of the following:
-#			kde-applications:	part of applications release
 #			kde-frameworks:		part of frameworks release
 #			kde-kde4: 		part of kde4 release
 #			kde-plasma:		part of plasma release
 #		this will then set default values for MASTER_SITES and DIST_SUBDIR
 #		as well as CPE_VENDOR and LICENSE.
-#
-# Further the variable:
-# KDE_BUILD_TESTS	Can be set to run the autotests of the packages.
-#			WARNING KDE tests have been known to be system
-#				destroying when run as root.
 #
 # MAINTAINER:	kde@FreeBSD.org
 
@@ -62,7 +56,7 @@ _KDE_RELNAME=		KDE${_KDE_VERSION}
 # === VERSIONS OF THE DIFFERENT COMPONENTS =====================================
 # Old KDE desktop.
 KDE4_VERSION?=			4.14.3
-KDE4_KDELIBS_VERSION=		4.14.37
+KDE4_KDELIBS_VERSION=		4.14.38
 KDE4_ACTIVITIES_VERSION=	4.13.3
 KDE4_WORKSPACE_VERSION=		4.11.22
 KDE4_KDEPIM_VERSION?=		4.14.10
@@ -72,19 +66,30 @@ KDE4_APPLICATIONS_VERSION?=	15.04.3
 KDE4_BRANCH?=			stable
 
 # Current KDE desktop.
-KDE_PLASMA_VERSION?=		5.11.2
+KDE_PLASMA_VERSION?=		5.11.5
 KDE_PLASMA_BRANCH?=		stable
 
-KDE_FRAMEWORKS_VERSION?=	5.39.0
+# Current KDE desktop.
+KDE_FRAMEWORKS_VERSION?=	5.41.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
-KDE_APPLICATIONS_VERSION?=	17.08.2
-KDE_APPLICATIONS_SHLIB_VER?=	5.6.2
+# Current KDE applications.
+KDE_APPLICATIONS_VERSION?=	17.12.0
+KDE_APPLICATIONS_SHLIB_VER?=	5.7.0
 KDE_APPLICATIONS_BRANCH?=	stable
 # Upstream moves old software to Attic/. Specify the newest applications release there.
 # Only the major version is used for the comparison.
 _KDE_APPLICATIONS_ATTIC_VERSION=	16.12.3
 
+# Extended KDE universe applications.
+CALLIGRA_VERSION?=		2.9.11
+CALLIGRA_BRANCH?=		stable
+
+KDEVELOP_VERSION?=		4.7.4
+KDEVELOP_BRANCH?=		stable
+
+KTP_VERSION?=			0.9.0
+KTP_BRANCH?=			stable
 # ==============================================================================
 
 # === INSTALLATION PREFIXES AND HEADER LOCATION ================================
@@ -92,7 +97,7 @@ _KDE_APPLICATIONS_ATTIC_VERSION=	16.12.3
 KDE_PREFIX=	${LOCALBASE}
 # ==============================================================================
 
-# === CATEGORIES HANDLING -- SETTING DEFAULT VALUES ==============================
+# === CATEGORIES HANDLING -- SETTING DEFAULT VALUES ============================
 # Doing MASTER_SITES magic based on the category of the port
 _KDE_CATEGORIES_SUPPORTED=	kde-applications kde-frameworks kde-kde4 kde-plasma
 .  for cat in ${_KDE_CATEGORIES_SUPPORTED}
@@ -114,15 +119,23 @@ LICENSE?=		LGPL20
 #    vendor is therefore kde.
 CPE_VENDOR?=		kde
 
-.    if  ${_KDE_CATEGORY:Mkde-kde4}
+.    if ${_KDE_CATEGORY:Mkde-kde4}
 PORTVERSION?=		${KDE4_VERSION}
 MASTER_SITES?=		KDE/${KDE4_BRANCH}/${KDE4_VERSION}/src
 DIST_SUBDIR?=		KDE/${KDE4_VERSION}
+CONFLICTS_INSTALL?=	${PORTNAME}-[0-9][0-9].[0-9]*
+PKGNAMESUFFIX?=		-kde4
 .    elif  ${_KDE_CATEGORY:Mkde-applications}
-PORTVERSION?=		${KDE_APPLICATIONS_VERSION}
-# Decide where the file lies on KDE's servers: Everything < 16.00 lies in Attic
+PORTVERSION?=           ${KDE_APPLICATIONS_VERSION}
+.      if ${_KDE_VERSION:M4}
+CONFLICTS_INSTALL?=     ${PORTNAME}-[0-9][0-9].[0-9]*
+PKGNAMESUFFIX?=		-kde4
+.      else
+CONFLICTS_INSTALL?=     kde4-${PORTNAME}-* ${PORTNAME}-kde4-*
+.      endif
+# Decide where the file lies on KDE's servers: Check whether the file lies in  Attic
 .      if ${KDE_APPLICATIONS_VERSION:R:R} <= ${_KDE_APPLICATIONS_ATTIC_VERSION:R:R}
-MASTER_SITES?=		KDE/Attic/applications/${KDE_APPLICATIONS_VERSION}/src
+MASTER_SITES?=          KDE/Attic/applications/${KDE_APPLICATIONS_VERSION}/src
 .      else
 MASTER_SITES?=		KDE/${KDE_APPLICATIONS_BRANCH}/applications/${KDE_APPLICATIONS_VERSION}/src
 # Let bsd.port.mk create the plist-entries for the documentation.
@@ -133,7 +146,7 @@ PORTDOCS?=		HTML/*
 # Further pass along a SHLIB_VER PLIST_SUB
 PLIST_SUB+=		KDE_APPLICATIONS_SHLIB_VER=${KDE_APPLICATIONS_SHLIB_VER}
 .      endif
-DIST_SUBDIR?=		KDE/applications/${KDE_APPLICATIONS_VERSION}
+DIST_SUBDIR?=           KDE/applications/${KDE_APPLICATIONS_VERSION}
 .    elif ${_KDE_CATEGORY:Mkde-plasma}
 PORTVERSION?=		${KDE_PLASMA_VERSION}
 PKGNAMEPREFIX?=		plasma5-
@@ -155,6 +168,7 @@ DIST_SUBDIR?=		KDE/frameworks/${KDE_FRAMEWORKS_VERSION}
 IGNORE?=		unknown CATEGORY value '${_KDE_CATEGORY}' #'
 .    endif
 .  endif #defined(_KDE_CATEGORY)
+
 # ==============================================================================
 
 # ==== SETUP CMAKE ENVIRONMENT =================================================
@@ -166,16 +180,10 @@ CMAKE_ARGS+=	-DKDE4_BUILD_TESTS:BOOL=OFF
 .  elif ${_KDE_VERSION:M*5*}
 # We set KDE_INSTALL_USE_QT_SYS_PATHS to install mkspecs files, plugins and
 # imports to the Qt 5 install directory.
-CMAKE_ARGS+=	-DCMAKE_MODULE_PATH="${LOCALBASE};${KDE_PREFIX}" \
-		-DCMAKE_INSTALL_PREFIX="${KDE_PREFIX}" \
-		-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=TRUE
-.    if defined(KDE_BUILD_TESTS)
-CMAKE_ARGS+=	-DBUILD_TESTING:BOOL=ON
-TEST_TARGET?=	test
-TEST_WRKSRC?=	${BUILD_WRKSRC}
-.    else
-CMAKE_ARGS+=	-DBUILD_TESTING:BOOL=OFF
-.    endif
+CMAKE_ARGS+=   -DBUILD_TESTING:BOOL=OFF \
+               -DCMAKE_MODULE_PATH="${LOCALBASE};${KDE_PREFIX}" \
+               -DCMAKE_INSTALL_PREFIX="${KDE_PREFIX}" \
+               -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=TRUE
 .  endif
 
 # Set man-page installation prefix.
@@ -188,11 +196,13 @@ CMAKE_ARGS+=	-DKDE_INSTALL_MANDIR:PATH="${KDE_PREFIX}/man" \
 PLIST_SUB+=		KDE_PREFIX="${KDE_PREFIX}"
 # KDE Applications version.
 PLIST_SUB+=		KDE_APPLICATIONS_VERSION="${KDE_APPLICATIONS_VERSION}"
-# For KDE4 applications provide KDE4 version numbers, and similar for KDE5.
+# For KDE4 applications provide KDE4 version numbers.
 .  if ${_KDE_VERSION:M*4*}
 PLIST_SUB+=		KDE4_VERSION="${KDE4_VERSION}" \
 			KDE4_GENERIC_LIB_VERSION=${KDE4_KDELIBS_VERSION} \
-			KDE4_NON_GENERIC_LIB_VERSION=${KDE4_KDELIBS_VERSION:S,^4,5,}
+			KDE4_NON_GENERIC_LIB_VERSION=${KDE4_KDELIBS_VERSION:S,^4,5,} \
+			KDE4_KDELIBS_VERSION=${KDE4_KDELIBS_VERSION} \
+			KDE4_NG_KDELIBS_VERSION=${KDE4_KDELIBS_VERSION:S,^4,5,}
 .  elif ${_KDE_VERSION:M*5*}
 PLIST_SUB+=		KDE_PLASMA_VERSION="${KDE_PLASMA_VERSION}" \
 			KDE_FRAMEWORKS_VERSION="${KDE_FRAMEWORKS_VERSION}"
@@ -213,29 +223,26 @@ PLIST_SUB+=		PYCACHE="" \
 .  endif
 # ==============================================================================
 
-_USE_KDE_BOTH=	akonadi attica libkcddb libkcompactdisc libkdcraw libkdegames \
-		libkexiv2 libkface libkipi libksane \
-		baloo baloo-widgets
+_USE_KDE_BOTH=		akonadi attica libkcddb libkcompactdisc libkdcraw libkdegames \
+			libkeduvocdocument libkexiv2 libkface libkipi libksane \
+			baloo baloo-widgets kate marble
 
-_USE_KDE4_ALL=	baseapps kactivities kdelibs \
-		kfilemetadata korundum  \
-		libkdeedu libkonq \
-		nepomuk-core nepomuk-widgets perlkde perlqt \
-		pimlibs pykde4 pykdeuic4 qtruby runtime smokegen smokekde \
-		smokeqt workspace \
-		oxygen-icons5
-_USE_KDE4_EOL=	workspace
+_USE_KDE4_ALL=		baloo baloo-widgets baseapps kactivities kdelibs \
+			kfilemetadata korundum \
+			libkonq  nepomuk-core nepomuk-widgets \
+			okular oxygen-icons5 perlkde perlqt pimlibs pykde4 \
+			pykdeuic4 qtruby runtime smokegen smokekde smokeqt \
+			workspace
 # These components are not part of the Software Compilation.
-_USE_KDE4_ALL+=	automoc4 ontologies qimageblitz soprano strigi
-_USE_KDE4_ALL+=	${_USE_KDE_BOTH}
+_USE_KDE4_ALL+=		akonadi attica automoc4 ontologies qimageblitz soprano \
+			strigi
 
-_USE_KDE5_ALL=	baseapps kate
-
+_USE_KDE4_ALL+= 	${_USE_KDE_BOTH}
 
 # List of components of the KDE Frameworks distribution.
 # The *_TIER<n> variables are internal, primarily for checking
 # that our list of frameworks matches the structure offered upstream.
-_USE_FRAMEWORKS_TIER1=	apidox archive bluez-qt breeze-icons codecs config \
+_USE_FRAMEWORKS_TIER1=	apidox archive attica5 breeze-icons codecs config \
 			coreaddons dbusaddons dnssd i18n idletime itemmodels \
 			itemviews kirigami2 oxygen-icons5 plotting prison solid \
 			sonnet syntaxhighlighting threadweaver wayland \
@@ -246,7 +253,7 @@ _USE_FRAMEWORKS_TIER2=	activities-stats auth completion crash doctools \
 			filemetadata kimageformats jobwidgets notifications \
 			package pty unitconversion
 
-_USE_FRAMEWORKS_TIER3=	activities bookmarks configwidgets \
+_USE_FRAMEWORKS_TIER3=	activities baloo5 bookmarks configwidgets \
 			designerplugin emoticons globalaccel guiaddons \
 			iconthemes init kcmutils kdeclarative \
 			kded kdesu kdewebkit kio newstuff notifyconfig parts \
@@ -269,7 +276,7 @@ _USE_FRAMEWORKS_ALL=	ecm \
 			${_USE_FRAMEWORKS_EXTRA}
 
 # List of components of the KDE Plasma distribution.
-_USE_PLASMA_ALL=	activitymanagerd bluedevil breeze breeze-gtk \
+_USE_PLASMA_ALL=	activitymanagerd breeze breeze-gtk \
 			breeze-kde4 decoration discover drkonqi hotkeys \
 			infocenter kde-cli-tools kde-gtk-config \
 			kdeplasma-addons kgamma5 kmenuedit kscreen \
@@ -289,91 +296,84 @@ _USE_KDEPIM5_ALL=	akonadicontacts akonadimime akonadinotes \
 			gravatar holidays identitymanagement imap \
 			incidenceeditor kdepim-addons kdepim-apps-libs \
 			kdepim-runtime5 kdepim5 kontactinterface kpimdav \
-			ldap libkdepim libkleo libksieve mailcommon \
+			ksmtp ldap libkdepim libkleo libksieve mailcommon \
 			mailimporter mailtransport mbox messagelib \
 			mime pimcommon pimtextedit syndication tnef
 
-_USE_KDE5_ALL+=		kio-extras		\
-			libkeduvocdocument		\
-			marble 					\
-			${_USE_FRAMEWORKS_ALL} 		\
-			${_USE_PLASMA_ALL}		\
-			${_USE_APPLICATIONS_ALL}	\
-			${_USE_KDEPIM5_ALL}		\
+_USE_KDE5_ALL=		${_USE_FRAMEWORKS_ALL} \
+			${_USE_PLASMA_ALL} \
+			${_USE_KDEPIM5_ALL} \
 			${_USE_KDE_BOTH}
 
 # ====================== kde4 components =======================================
-baseapps_PORT=		x11/kde-baseapps
+
+baseapps_PORT=		x11/kde-baseapps-kde4
 baseapps_PATH=		${KDE_PREFIX}/bin/kfmclient
 baseapps_TYPE=		run
 
-kactivities_PORT=	x11/kactivities
+kactivities_PORT=	x11/kactivities-kde4
 kactivities_LIB=	libkactivities.so
 
-kate4_PORT=		editors/kate
-kate4_LIB=		libkateinterfaces.so
-
-kdelibs_PORT=		x11/kdelibs4
+kdelibs_PORT=		x11/kdelibs-kde4
 kdelibs_LIB=		libkdecore.so
 
-kfilemetadata_PORT=	sysutils/kfilemetadata
+kfilemetadata_PORT=	sysutils/kfilemetadata-kde4
 kfilemetadata_LIB=	libkfilemetadata.so
 
-korundum_PORT=		devel/ruby-korundum
+korundum_PORT=		devel/ruby-korundum-kde4
 korundum_PATH=		${KDE_PREFIX}/lib/kde4/krubypluginfactory.so
 korundum_TYPE=		run
 
-libkdeedu_PORT=		misc/libkdeedu
-libkdeedu_LIB=		libkeduvocdocument.so
-
-libkonq_PORT=		x11/libkonq
+libkonq_PORT=		x11/libkonq-kde4
 libkonq_LIB=		libkonq.so
 
-nepomuk-core_PORT=	sysutils/nepomuk-core
+nepomuk-core_PORT=	sysutils/nepomuk-core-kde4
 nepomuk-core_LIB=	libnepomukcore.so
 
-nepomuk-widgets_PORT=	sysutils/nepomuk-widgets
+nepomuk-widgets_PORT=	sysutils/nepomuk-widgets-kde4
 nepomuk-widgets_LIB=	libnepomukwidgets.so
 
-okular_PORT=		graphics/okular
+okular_PORT=		graphics/okular-kde4
 okular_LIB=		libokularcore.so
 
-perlkde_PORT=		devel/p5-perlkde
+perlkde_PORT=		devel/p5-perlkde-kde4
 perlkde_PATH=		${KDE_PREFIX}/lib/kde4/kperlpluginfactory.so
 perlkde_TYPE=		run
 
-perlqt_PORT=		devel/p5-perlqt
+perlqt_PORT=		devel/p5-perlqt-kde4
 perlqt_PATH=		${KDE_PREFIX}/bin/puic4
 
-pimlibs_PORT=		deskutils/kdepimlibs4
+pimlibs_PORT=		deskutils/kdepimlibs-kde4
 pimlibs_LIB=		libkpimutils.so
 
-pykde4_PORT=		devel/py-pykde4
+pykde4_PORT=		devel/py-pykde4-kde4
 pykde4_PATH=		${KDE_PREFIX}/lib/kde4/kpythonpluginfactory.so
 pykde4_TYPE=		run
 
-pykdeuic4_PORT=		devel/py-pykdeuic4
+pykdeuic4_PORT=		devel/py-pykdeuic4-kde4
 pykdeuic4_PATH=		${LOCALBASE}/bin/pykdeuic4
 pykdeuic4_TYPE=		run
 
-qtruby_PORT=		devel/ruby-qtruby
+qtruby_PORT=		devel/ruby-qtruby-kde4
 qtruby_LIB=		libqtruby4shared.so
 
-runtime_PORT=		x11/kde-runtime
+runtime_PORT=		x11/kde-runtime-kde4
 runtime_PATH=		${KDE_PREFIX}/bin/knotify4
 runtime_TYPE=		run
 
-smokegen_PORT=		devel/smokegen
+smokegen_PORT=		devel/smokegen-kde4
 smokegen_LIB=		libsmokebase.so
 
-smokekde_PORT=		devel/smokekde
+smokekde_PORT=		devel/smokekde-kde4
 smokekde_LIB=		libsmokekdecore.so
 
-smokeqt_PORT=		devel/smokeqt
+smokeqt_PORT=		devel/smokeqt-kde4
 smokeqt_LIB=		libsmokeqtcore.so
 
-# Non-Software Compilation components
+workspace_PORT=		x11/kde-workspace-kde4
+workspace_LIB=		libkworkspace.so
 
+# Non-Software Compilation components
 automoc4_PORT=		devel/automoc4
 automoc4_PATH=		${LOCALBASE}/bin/automoc4
 automoc4_TYPE=		build
@@ -413,9 +413,6 @@ auth_LIB=		libKF5Auth.so
 
 baloo5_PORT=		sysutils/kf5-baloo
 baloo5_LIB=		libKF5Baloo.so
-
-bluez-qt_PORT=		sysutils/kf5-bluez-qt
-bluez-qt_LIB=		libKF5BluezQt.so
 
 bookmarks_PORT=		devel/kf5-kbookmarks
 bookmarks_LIB=		libKF5Bookmarks.so
@@ -523,6 +520,7 @@ khtml_LIB=		libKF5KHtml.so
 
 kimageformats_PORT=	graphics/kf5-kimageformats
 kimageformats_PATH=	${QT_PLUGINDIR}/imageformats/kimg_xcf.so
+kimageformats_TYPE=	run
 
 kio_PORT=		devel/kf5-kio
 kio_LIB=		libKF5KIOCore.so
@@ -563,14 +561,8 @@ people_LIB=		libKF5People.so
 plasma-framework_PORT=	x11/kf5-plasma-framework
 plasma-framework_LIB=	libKF5Plasma.so
 
-plasma-pa_PORT=		audio/plasma5-plasma-pa
-plasma-pa_PATH=		${QT_PLUGINDIR}/kcms/kcm_pulseaudio.so
-
 plotting_PORT=		graphics/kf5-kplotting
 plotting_LIB=		libKF5Plotting.so
-
-polkit-kde-agent-1_PORT=	sysutils/plasma5-polkit-kde-agent-1
-polkit-kde-agent-1_PATH=	${KDE_PREFIX}/lib/libexec/polkit-kde-authentication-agent-1
 
 prison_PORT=		graphics/kf5-prison
 prison_LIB=		libKF5Prison.so
@@ -590,6 +582,9 @@ solid_LIB=		libKF5Solid.so
 sonnet_PORT=		textproc/kf5-sonnet
 sonnet_LIB=		libKF5SonnetCore.so
 
+syntaxhighlighting_PORT=	textproc/kf5-syntax-highlighting
+syntaxhighlighting_LIB=		libKF5SyntaxHighlighting.so
+
 texteditor_PORT=	devel/kf5-ktexteditor
 texteditor_LIB=		libKF5TextEditor.so
 
@@ -601,9 +596,6 @@ threadweaver_LIB=	libKF5ThreadWeaver.so
 
 unitconversion_PORT=	devel/kf5-kunitconversion
 unitconversion_LIB=	libKF5UnitConversion.so
-
-user-manager_PORT=	sysutils/plasma5-user-manager
-user-manager_PATH=	${QT_PLUGINDIR}/user_manager.so
 
 wallet_PORT=		sysutils/kf5-kwallet
 wallet_LIB=		libKF5Wallet.so
@@ -622,15 +614,11 @@ xmlgui_LIB=		libKF5XmlGui.so
 
 xmlrpcclient_PORT=	net/kf5-kxmlrpcclient
 xmlrpcclient_LIB=	libKF5XmlRpcClient.so
-
 # ====================== end of frameworks components ==========================
 
 # ====================== plasma components =====================================
 activitymanagerd_PORT=	x11/plasma5-kactivitymanagerd
 activitymanagerd_LIB=	libkactivitymanagerd_plugin.so
-
-bluedevil_PORT=		sysutils/plasma5-bluedevil
-bluedevil_PATH=		${KDE_PREFIX}/bin/bluedevil-sendfile
 
 breeze_PORT=		x11-themes/plasma5-breeze
 breeze_PATH=		${KDE_PREFIX}/share/QtCurve/Breeze.qtcurve
@@ -735,6 +723,7 @@ systemsettings_PORT=	sysutils/plasma5-systemsettings
 systemsettings_PATH=	${KDE_PREFIX}/bin/systemsettings5
 # ====================== end of plasma components ==============================
 
+
 # ====================== pim5 components =======================================
 akonadicontacts_PORT=	net/akonadi-contacts
 akonadicontacts_LIB=	libKF5AkonadiContact.so
@@ -811,6 +800,9 @@ kontactinterface_LIB=	libKF5KontactInterface.so
 kpimdav_PORT=		net/kdav
 kpimdav_LIB=		libKPimKDAV.so
 
+ksmtp_PORT=			net/ksmtp
+ksmtp_LIB=			libKPimSMTP.so
+
 ldap_PORT=		net/kldap
 ldap_LIB=		libKF5Ldap.so
 
@@ -854,18 +846,6 @@ tnef_PORT=		net/ktnef
 tnef_LIB=		libKF5Tnef.so
 # ====================== end of pim5 components ================================
 
-# ====================== applications kde components ===========================
-kate_PORT=		editors/kate
-kate_PATH=		${QT_PLUGINDIR}/ktexteditor/ktexteditor_lumen.so
-
-kio-extras_PORT=	devel/kio-extras
-kio-extras_LIB=		libmolletnetwork5.so.17
-
-marble_PORT=		astro/marble
-marble_LIB=		libmarblewidget-qt5.so
-
-libkeduvocdocument_PORT=	misc/libkeduvocdocument
-libkeduvocdocument_LIB=		libKEduVocDocument.so
 # ====================== multiversion component ================================
 akonadi4_PORT=		databases/akonadi-kde4
 akonadi4_LIB=		libakonadiprotocolinternals.so
@@ -875,13 +855,19 @@ akonadi5_LIB=		libKF5AkonadiPrivate.so
 attica4_PORT=		x11-toolkits/attica
 attica4_LIB=		libattica.so
 
-baloo4_PORT=		sysutils/baloo
+baloo4_PORT=		sysutils/baloo-kde4
 baloo4_LIB=		libbaloocore.so
 
-baloo-widgets4_PORT=	sysutils/baloo-widgets
+baloo-widgets4_PORT=	sysutils/baloo-widgets-kde4
 baloo-widgets4_LIB=	libbaloowidgets.so
 baloo-widgets5_PORT=	sysutils/baloo-widgets
 baloo-widgets5_LIB=	libKF5BalooWidgets.so
+
+
+kate4_PORT=		editors/kate-kde4
+kate4_LIB=		libkateinterfaces.so
+kate5_PORT=		editors/kate
+kate5_PATH=		${QT_PLUGINDIR}/ktexteditor/katebacktracebrowserplugin.so
 
 libkcddb4_PORT=		audio/libkcddb-kde4
 libkcddb4_LIB=		libkcddb.so
@@ -903,6 +889,11 @@ libkdegames4_LIB=	libkdegames.so
 libkdegames5_PORT=	games/libkdegames
 libkdegames5_LIB=	libKF5KDEGames.so
 
+libkeduvocdocument4_PORT=	misc/libkdeedu-kde4
+libkeduvocdocument4_LIB=	libkeduvocdocument.so
+libkeduvocdocument5_PORT=        misc/libkeduvocdocument
+libkeduvocdocument5_LIB=         libKEduVocDocument.so
+
 libkexiv24_PORT=	graphics/libkexiv2-kde4
 libkexiv24_LIB=		libkexiv2.so
 libkexiv25_PORT=	graphics/libkexiv2
@@ -922,23 +913,32 @@ libkface4_PORT=		graphics/libkface-kde4
 libkface4_LIB=		libkface.so
 libkface5_PORT=		graphics/libkface
 libkface5_LIB=		libKF5KFace.so
+
+marble4_PORT=		astro/marble-kde4
+marble4_LIB=		libmarblewidget.so
+marble5_PORT=		astro/marble
+marble5_LIB=		libmarblewidget-qt5.so
+
 # ====================== select the proper multiversion component ==============
 .  for comp in ${_USE_KDE_BOTH}
 ${comp}_PORT=		${${comp}${_KDE_VERSION}_PORT}
+.    if defined(${comp}${_KDE_VERSION}_LIB)
 ${comp}_LIB=		${${comp}${_KDE_VERSION}_LIB}
-.  endfor
+.    else
+.      if defined(${comp}${_KDE_VERSION}_PATH})
+${comp}_PATH=		${${comp}${_KDE_VERSION}_LIB}
+.      endif
+# If neither is defined, this gets caught below when checking components
+.    endif
+. endfor
+#===============================================================================
 
 # end of component list ########################################################
-
 
 _USE_KDE_ALL=	${_USE_${_KDE_RELNAME}_ALL}
 
 # Iterate through components deprived of suffix.
 .  for component in ${USE_KDE:O:u:C/_.+//}
-  # Check if it is EOL'd
-.    if ${_USE_KDE4_EOL:M${component}}
-IGNORE?=	EOL '${component}' is no longer supported by kde.mk
-.    endif
   # Check that the component is valid.
 .    if ${_USE_KDE_ALL:M${component}} != ""
    # Skip meta-components (currently none).
