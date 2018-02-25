@@ -66,16 +66,15 @@ KDE4_APPLICATIONS_VERSION?=	15.04.3
 KDE4_BRANCH?=			stable
 
 # Current KDE desktop.
-KDE_PLASMA_VERSION?=		5.11.5
+KDE_PLASMA_VERSION?=		5.12.1
 KDE_PLASMA_BRANCH?=		stable
 
-# Current KDE desktop.
-KDE_FRAMEWORKS_VERSION?=	5.41.0
+KDE_FRAMEWORKS_VERSION?=	5.43.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
 # Current KDE applications.
-KDE_APPLICATIONS_VERSION?=	17.12.0
-KDE_APPLICATIONS_SHLIB_VER?=	5.7.0
+KDE_APPLICATIONS_VERSION?=	17.12.2
+KDE_APPLICATIONS_SHLIB_VER?=	5.7.2
 KDE_APPLICATIONS_BRANCH?=	stable
 # Upstream moves old software to Attic/. Specify the newest applications release there.
 # Only the major version is used for the comparison.
@@ -224,13 +223,13 @@ PLIST_SUB+=		PYCACHE="" \
 # ==============================================================================
 
 _USE_KDE_BOTH=		akonadi attica libkcddb libkcompactdisc libkdcraw libkdegames \
-			libkeduvocdocument libkexiv2 libkface libkipi libksane \
+			libkeduvocdocument libkexiv2 libkface libkipi libksane okular \
 			baloo baloo-widgets kate marble
 
 _USE_KDE4_ALL=		baloo baloo-widgets baseapps kactivities kdelibs \
 			kfilemetadata korundum \
 			libkonq  nepomuk-core nepomuk-widgets \
-			okular oxygen-icons5 perlkde perlqt pimlibs pykde4 \
+			oxygen-icons5 perlkde perlqt pimlibs pykde4 \
 			pykdeuic4 qtruby runtime smokegen smokekde smokeqt \
 			workspace
 # These components are not part of the Software Compilation.
@@ -243,7 +242,7 @@ _USE_KDE4_ALL+= 	${_USE_KDE_BOTH}
 # The *_TIER<n> variables are internal, primarily for checking
 # that our list of frameworks matches the structure offered upstream.
 _USE_FRAMEWORKS_TIER1=	apidox archive attica5 breeze-icons codecs config \
-			coreaddons dbusaddons dnssd i18n idletime itemmodels \
+			coreaddons dbusaddons dnssd holidays i18n idletime itemmodels \
 			itemviews kirigami2 oxygen-icons5 plotting prison solid \
 			sonnet syntaxhighlighting threadweaver wayland \
 			widgetsaddons windowsystem
@@ -257,7 +256,7 @@ _USE_FRAMEWORKS_TIER3=	activities baloo5 bookmarks configwidgets \
 			designerplugin emoticons globalaccel guiaddons \
 			iconthemes init kcmutils kdeclarative \
 			kded kdesu kdewebkit kio newstuff notifyconfig parts \
-			people plasma-framework runner service texteditor \
+			people plasma-framework purpose runner service texteditor \
 			textwidgets wallet xmlgui xmlrpcclient
 
 _USE_FRAMEWORKS_TIER4= 	frameworkintegration
@@ -289,11 +288,11 @@ _USE_PLASMA_ALL=	activitymanagerd breeze breeze-gtk \
 			user-manager
 
 # List of components of the KDE PIM distribution (part of applications).
-_USE_KDEPIM5_ALL=	akonadicontacts akonadimime akonadinotes \
+_USE_KDEPIM5_ALL=	akonadicontacts akonadiimportwizard akonadimime akonadinotes \
 			akonadicalendar akonadisearch alarmcalendar \
 			blog calendarcore calendarsupport calendarutils \
 			contacts eventviews gapi grantleetheme \
-			gravatar holidays identitymanagement imap \
+			gravatar identitymanagement imap \
 			incidenceeditor kdepim-addons kdepim-apps-libs \
 			kdepim-runtime5 kdepim5 kontactinterface kpimdav \
 			ksmtp ldap libkdepim libkleo libksieve mailcommon \
@@ -332,9 +331,6 @@ nepomuk-core_LIB=	libnepomukcore.so
 
 nepomuk-widgets_PORT=	sysutils/nepomuk-widgets-kde4
 nepomuk-widgets_LIB=	libnepomukwidgets.so
-
-okular_PORT=		graphics/okular-kde4
-okular_LIB=		libokularcore.so
 
 perlkde_PORT=		devel/p5-perlkde-kde4
 perlkde_PATH=		${KDE_PREFIX}/lib/kde4/kperlpluginfactory.so
@@ -470,6 +466,9 @@ globalaccel_LIB=	libKF5GlobalAccel.so
 guiaddons_PORT=		x11-toolkits/kf5-kguiaddons
 guiaddons_LIB=		libKF5GuiAddons.so
 
+holidays_PORT=		net/kf5-kholidays
+holidays_LIB=		libKF5Holidays.so
+
 i18n_PORT=		devel/kf5-ki18n
 i18n_LIB=		libKF5I18n.so
 
@@ -569,6 +568,9 @@ prison_LIB=		libKF5Prison.so
 
 pty_PORT=		devel/kf5-kpty
 pty_LIB=		libKF5Pty.so
+
+purpose_PORT=		misc/kf5-purpose
+purpose_LIB=		libKF5Purpose.so
 
 runner_PORT=		x11/kf5-krunner
 runner_LIB=		libKF5Runner.so
@@ -704,6 +706,9 @@ plasma-integration_PATH=	${QT_PLUGINDIR}/platformthemes/KDEPlasmaPlatformTheme.s
 plasma-mediacenter_PORT=	multimedia/plasma5-plasma-mediacenter
 plasma-mediacenter_LIB=		libplasmamediacenter.so.5
 
+plasma-pa_PORT=		audio/plasma5-plasma-pa
+plasma-pa_LIB=		kcm_pulseaudio.so
+
 plasma-sdk_PORT=	devel/plasma5-plasma-sdk
 plasma-sdk_PATH=	${KDE_PREFIX}/bin/plasmoidviewer
 
@@ -713,6 +718,9 @@ plasma-workspace_LIB=	libkdeinit5_kcminit.so
 plasma-workspace-wallpapers_PORT=	x11-themes/plasma5-plasma-workspace-wallpapers
 plasma-workspace-wallpapers_PATH=	${KDE_PREFIX}/share/wallpapers/Autumn/contents/images/1280x1024.jpg
 
+polkit-kde-agent-1_PORT=	sysutils/plasma5-polkit-kde-agent-1
+polkit-kde-agent-1_PATH=	${KDE_PREFIX}/lib/libexec/polkit-kde-authentication-agent-1
+
 powerdevil_PORT=	sysutils/plasma5-powerdevil
 powerdevil_LIB=		libpowerdevilcore.so
 
@@ -721,12 +729,18 @@ syntaxhighlighting_LIB=		libKF5SyntaxHighlighting.so
 
 systemsettings_PORT=	sysutils/plasma5-systemsettings
 systemsettings_PATH=	${KDE_PREFIX}/bin/systemsettings5
+
+user-manager_PORT=	sysutils/plasma5-user-manager
+user-manager_PATH=	${QT_PLUGINDIR}/user_manager.so
 # ====================== end of plasma components ==============================
 
 
 # ====================== pim5 components =======================================
 akonadicontacts_PORT=	net/akonadi-contacts
 akonadicontacts_LIB=	libKF5AkonadiContact.so
+
+akonadiimportwizard_PORT=	deskutils/akonadi-import-wizard
+akonadiimportwizard_LIB=	libKPimImportWizard.so
 
 akonadimime_PORT=	net/akonadi-mime
 akonadimime_LIB=	libKF5AkonadiMime.so
@@ -769,9 +783,6 @@ grantleetheme_LIB=	libKF5GrantleeTheme.so
 
 gravatar_PORT=		net/libgravatar
 gravatar_LIB=		libKF5Gravatar.so
-
-holidays_PORT=		net/kholidays
-holidays_LIB=		libKF5Holidays.so
 
 identitymanagement_PORT=	net/kidentitymanagement
 identitymanagement_LIB=		libKF5IdentityManagement.so
@@ -918,6 +929,11 @@ marble4_PORT=		astro/marble-kde4
 marble4_LIB=		libmarblewidget.so
 marble5_PORT=		astro/marble
 marble5_LIB=		libmarblewidget-qt5.so
+
+okular4_PORT=		graphics/okular-kde4
+okular4_LIB=		libokularcore.so
+okular5_PORT=		graphics/okular
+okular5_LIB=		libOkular5Core.so
 
 # ====================== select the proper multiversion component ==============
 .  for comp in ${_USE_KDE_BOTH}
