@@ -12,7 +12,7 @@ COMMENT=	Panel for the LXQt desktop
 LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libmenu-cache.so:x11/menu-cache \
-	libdbusmenu-qt5.so:devel/libdbusmenu-qt5 \
+	libdbusmenu-qt5.so:devel/libdbusmenu-qt@qt5 \
 	libxkbcommon.so:x11/libxkbcommon \
 	libxcb-util.so:x11/xcb-util \
 	libsysstat-qt5.so:sysutils/libsysstat

@@ -11,7 +11,7 @@ COMMENT=	PolicyKit authentication agent
 
 LICENSE=	LGPL21+
 
-LIB_DEPENDS=	libpolkit-qt5-agent-1.so:sysutils/polkit-qt5 \
+LIB_DEPENDS=	libpolkit-qt5-agent-1.so:sysutils/polkit-qt@qt5 \
 	libpolkit-agent-1.so:sysutils/polkit
 
 USES=	cmake:outsource compiler:c++11-lib gettext-runtime kde:5 \
