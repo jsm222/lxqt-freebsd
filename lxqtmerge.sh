@@ -27,9 +27,9 @@
 #
 
 # Local repository
-LOCAL_REPO="lxqt"
+LOCAL_REPO="lxqt-import"
 # Version supported
-BRANCH="0.12"
+BRANCH="lxqt-freebsd-import"
 # The ports tree
 PORTSDIR="/usr/ports"
 
