@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-sudo
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	security
 MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	GUI frontend to su/sudo for LXQt desktop
 
 LICENSE=	LGPL21+

@@ -2,12 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-panel-l10n
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	x11-wm
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-panel//}-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lxqt-panel
 
 LICENSE=	LGPL21+

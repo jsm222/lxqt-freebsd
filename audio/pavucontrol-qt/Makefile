@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	pavucontrol-qt
-PORTVERSION=	0.3.0
+PORTVERSION=	0.4.0
 CATEGORIES=	audio
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	PulseAudio mixer in Qt
 
 LICENSE=	GPLv2

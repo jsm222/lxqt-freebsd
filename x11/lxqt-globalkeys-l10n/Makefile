@@ -2,12 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-globalkeys-l10n
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	x11
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-globalkeys//}-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lxqt-globalkeys
 
 LICENSE=	LGPL21+

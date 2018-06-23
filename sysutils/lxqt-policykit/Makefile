@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-policykit
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	PolicyKit authentication agent
 
 LICENSE=	LGPL21+

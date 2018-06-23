@@ -3,9 +3,6 @@ bin/lxqt-leave
 bin/lxqt-session
 bin/startlxqt
 etc/xdg/autostart/lxqt-xscreensaver-autostart.desktop
-etc/xdg/lxqt/lxqt.conf
-etc/xdg/lxqt/session.conf
-etc/xdg/lxqt/windowmanagers.conf
 etc/xdg/openbox/lxqt-rc.xml
 man/man1/lxqt-config-session.1.gz
 man/man1/lxqt-leave.1.gz
@@ -20,4 +17,7 @@ share/applications/lxqt-reboot.desktop
 share/applications/lxqt-shutdown.desktop
 share/applications/lxqt-suspend.desktop
 share/kdm/sessions/lxqt.desktop
+%%LXQT_SHAREDIR%%/lxqt.conf
+%%LXQT_SHAREDIR%%/session.conf
+%%LXQT_SHAREDIR%%/windowmanagers.conf
 share/xsessions/lxqt.desktop

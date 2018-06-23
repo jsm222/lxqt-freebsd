@@ -2,12 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-notificationd-l10n
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	deskutils
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	${PORTNAME:S/-notificationd//}-${DISTVERSION}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lxqt-notificationd
 
 LICENSE=	LGPL21+
@@ -40,6 +40,7 @@ CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_OBCONF_QT:BOOL=OFF \
 	-DWITH_PCMANFM_QT:BOOL=OFF \
 	-DWITH_QTERMINAL:BOOL=OFF \
+	-DWITH_QTERMWIDGET:BOOL=OFF \
 	-DWITH_PAVUCONTROL_QT:BOOL=OFF
 
 .include <bsd.port.mk>

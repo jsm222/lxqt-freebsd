@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	obconf-qt
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	x11-wm
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Qt port of preferences manager for the Openbox
 
 LICENSE=	GPLv2

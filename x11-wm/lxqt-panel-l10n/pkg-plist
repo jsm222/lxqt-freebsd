@@ -111,11 +111,13 @@
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_da.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_de.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_el.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_es.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_fr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_hr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_hu.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_id.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_it.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_ja.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_lt.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_nl.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_pl.qm
@@ -123,12 +125,14 @@
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_ru.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_tr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_uk.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/directorymenu/directorymenu_zh_CN.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_ar.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_ca.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_cs.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_da.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_de.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_el.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_es.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_fr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_hr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_hu.qm
@@ -142,12 +146,14 @@
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_ru.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_tr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_uk.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/dom/dom_zh_CN.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_ar.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_ca.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_cs.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_da.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_de.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_el.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_es.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_fr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_hr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_hu.qm
@@ -161,6 +167,7 @@
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_ru.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_tr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_uk.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/kbindicator/kbindicator_zh_CN.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/lxqt-panel_ar.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/lxqt-panel_ca.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/lxqt-panel_cs.qm
@@ -349,11 +356,13 @@
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_da.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_de.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_el.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_es.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_fr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_hr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_hu.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_id.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_it.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_ja.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_lt.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_nl.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_pl.qm
@@ -362,6 +371,7 @@
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_sk.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_tr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_uk.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/spacer/spacer_zh_CN.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_da.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_pl.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_tr.qm
@@ -439,6 +449,7 @@
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_da.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_de.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_el.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_es.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_fr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_hu.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_id.qm
@@ -451,3 +462,4 @@
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_ru.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_tr.qm
 %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_uk.qm
+%%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_zh_CN.qm

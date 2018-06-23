@@ -132,7 +132,7 @@
      bool ok;
  
      uint min = readAllFile(qPrintable(QString("/sys/devices/system/cpu/%1/cpufreq/scaling_min_freq").arg(source))).toUInt(&ok);
-@@ -56,12 +155,26 @@ void CpuStatPrivate::addSource(const QSt
+@@ -56,11 +155,26 @@ void CpuStatPrivate::addSource(const QSt
          if (ok)
              mBounds[source] = qMakePair(min, max);
      }
@@ -144,7 +144,7 @@
      mSources.clear();
 +#ifdef HAVE_SYSCTL_H
 +    int cpu;
- 
++
 +    cpu = GetCpu();
 +    for (int i =0;i<cpu;i++)
 +    {
@@ -156,10 +156,10 @@
 +    }
 +    mBounds.clear();
 +#else
+ 
      foreach (const QString &row, readAllFile("/proc/stat").split(QChar('\n'), QString::SkipEmptyParts))
      {
-         QStringList tokens = row.split(QChar(' '), QString::SkipEmptyParts);
-@@ -97,6 +210,7 @@ void CpuStatPrivate::updateSources()
+@@ -97,6 +211,7 @@ void CpuStatPrivate::updateSources()
                  addSource(QString("cpu%1").arg(number));
          }
      }
@@ -167,7 +167,7 @@
  }
  
  CpuStatPrivate::~CpuStatPrivate()
-@@ -117,14 +231,98 @@ void CpuStatPrivate::recalculateMinMax()
+@@ -117,14 +232,98 @@ void CpuStatPrivate::recalculateMinMax()
  {
      int cores = 1;
      if (mSource == "cpu")
@@ -267,7 +267,7 @@
      if ( (mMonitoring == CpuStat::LoadOnly)
        || (mMonitoring == CpuStat::LoadAndFrequency) )
      {
-@@ -258,6 +456,7 @@ void CpuStatPrivate::timeout()
+@@ -258,6 +457,7 @@ void CpuStatPrivate::timeout()
          }
          emit update(freq);
      }
@@ -275,7 +275,7 @@
  }
  
  QString CpuStatPrivate::defaultSource()
-@@ -301,10 +500,15 @@ CpuStat::CpuStat(QObject *parent)
+@@ -301,10 +501,15 @@ CpuStat::CpuStat(QObject *parent)
  {
      impl = new CpuStatPrivate(this);
      baseimpl = impl;

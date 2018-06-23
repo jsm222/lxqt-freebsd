@@ -1,4 +1,14 @@
 bin/featherpad
+bin/fpad
 share/applications/featherpad.desktop
 %%DATADIR%%/help
-share/icons/hicolor/scalable/apps/featherpad.svg
+%%DATADIR%%/translations/featherpad_da.qm
+%%DATADIR%%/translations/featherpad_de.qm
+%%DATADIR%%/translations/featherpad_eo.qm
+%%DATADIR%%/translations/featherpad_es_ES.qm
+%%DATADIR%%/translations/featherpad_fr.qm
+%%DATADIR%%/translations/featherpad_pl.qm
+%%DATADIR%%/translations/featherpad_ru.qm
+%%DATADIR%%/translations/featherpad_tr.qm
+%%DATADIR%%/translations/featherpad_zh_CN.qm
+

@@ -15,7 +15,7 @@
 # lxqt		- LXQt core library
 # qtxdg		- Qt implementation of freedesktop.org xdg specs
 #
-# MAINTAINER: portmgr@FreeBSD.org
+# MAINTAINER: ports@FreeBSD.org
 
 .if !defined(_INCLUDE_USES_LXQT_MK)
 _INCLUDE_USES_LXQT_MK=	yes
@@ -27,7 +27,7 @@ IGNORE=	Incorrect 'USES+=lxqt:${lxqt_ARGS} takes no arguments
 _LXQT_PROJECT=	${DISTNAME:S/-${DISTVERSION}//:tl}
 
 MASTER_SITE_LXQT+= \
-	https://github.com/lxde/%SUBDIR%/releases/download/${PORTVERSION}/ \
+	https://github.com/lxqt/%SUBDIR%/releases/download/${PORTVERSION}/ \
 	https://downloads.lxqt.org/downloads/%SUBDIR%/${PORTVERSION}/
 MASTER_SITE_LXQT_SUBDIR=	${_LXQT_PROJECT}
 

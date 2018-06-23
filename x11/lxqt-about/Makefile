@@ -2,12 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-about
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	x11
 MASTER_SITES=	LXQT
 DIST_SUBDIR=	lxqt
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	About dialog of LXQt
 
 LICENSE=	LGPL21+

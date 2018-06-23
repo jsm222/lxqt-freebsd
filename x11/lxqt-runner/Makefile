@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-runner
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	x11
 MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	LXQt tool used to launch programs quickly
 
 LICENSE=	LGPL21+

@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-openssh-askpass
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	security
 MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	LXQt GUI dialog for OpenSSH authentication
 
 LICENSE=	LGPL21+

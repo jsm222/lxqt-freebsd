@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt-notificationd
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	deskutils
 MASTER_SITES=	LXQT
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jesper@schmitz.computer
 COMMENT=	LXQt notification daemon
 
 LICENSE=	LGPL21+

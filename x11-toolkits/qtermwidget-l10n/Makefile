@@ -1,30 +1,30 @@
 # Created by: Olivier Duchateau
-# $FreeBSD: head/graphics/lximageqt-l10n/Makefile 436494 2017-03-19 14:02:23Z rene $
+# $FreeBSD: head/x11-toolkits/qtermwidget-l10n/Makefile 453004 2017-10-27 15:48:10Z swills $
 
-PORTNAME=	lximageqt-l10n
-PORTVERSION=	0.12.0
-CATEGORIES=	graphics
+PORTNAME=	qtermwidget-l10n
+PORTVERSION=	0.13.0
+CATEGORIES=	x11-toolkits
 MASTER_SITES=	LXQT/lxqt-l10n
 DISTNAME=	lxqt-l10n-${DISTVERSION}
 
-MAINTAINER=	ports@FreeBSD.org
-COMMENT=	Translations of lximage-qt
+MAINTAINER=	jesper@schmitz.computer
+COMMENT=	Translations of Qtermwidget
 
 LICENSE=	LGPL21+
 
 MASTERDIR=	${.CURDIR}/../../x11/lxqt-l10n
 DISTINFO_FILE=	${MASTERDIR}/distinfo
-DESCR=	${MASTERDIR}/pkg-descr
-PLIST=	${.CURDIR}/pkg-plist
+DESCR=		${MASTERDIR}/pkg-descr
+PLIST=		${.CURDIR}/pkg-plist
 
-USES=	cmake:outsource lxqt pkgconfig tar:xz
+USES=		cmake:outsource lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build linguisttools
 USE_LXQT=	buildtools
 
 CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_LIBFM_QT:BOOL=OFF \
 	-DWITH_LIBLXQT:BOOL=OFF \
-	-DWITH_LXIMAGE_QT:BOOL=ON \
+	-DWITH_LXIMAGE_QT:BOOL=OFF \
 	-DWITH_LXQT_ABOUT:BOOL=OFF \
 	-DWITH_LXQT_ADMIN:BOOL=OFF \
 	-DWITH_LXQT_CONFIG:BOOL=OFF \
@@ -40,7 +40,7 @@ CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \
 	-DWITH_OBCONF_QT:BOOL=OFF \
 	-DWITH_PCMANFM_QT:BOOL=OFF \
 	-DWITH_QTERMINAL:BOOL=OFF \
-	-DWITH_QTERMWIDGET:BOOL=OFF \
+	-DWITH_QTERMWIDGET:BOOL=ON \
 	-DWITH_PAVUCONTROL_QT:BOOL=OFF
 
 .include <bsd.port.mk>

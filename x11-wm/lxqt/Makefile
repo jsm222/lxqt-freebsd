@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lxqt
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 CATEGORIES=	x11-wm
 
 MAINTAINER=	jesper@schmitz.computer

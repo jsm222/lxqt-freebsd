@@ -1,6 +1,5 @@
 bin/lxqt-panel
 etc/xdg/autostart/lxqt-panel.desktop
-etc/xdg/lxqt/panel.conf
 etc/xdg/menus/lxqt-applications.menu
 %%LXQT_INCLUDEDIR%%/ilxqtpanel.h
 %%LXQT_INCLUDEDIR%%/ilxqtpanelplugin.h
@@ -33,3 +32,4 @@ share/desktop-directories/lxqt-settings.directory
 %%LXQT_SHAREDIR%%/lxqt-panel/tray.desktop
 %%SOUND%%%%LXQT_SHAREDIR%%/lxqt-panel/volume.desktop
 %%LXQT_SHAREDIR%%/lxqt-panel/worldclock.desktop
+%%LXQT_SHAREDIR%%/panel.conf
