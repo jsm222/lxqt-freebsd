@@ -1,21 +1,18 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	lxqt-about-l10n
+PORTNAME=	about
 PORTVERSION=	0.13.0
 CATEGORIES=	x11
 MASTER_SITES=	LXQT/lxqt-l10n
-DISTNAME=	${PORTNAME:S/-about//}-${DISTVERSION}
+PKGNAMEPREFIX=	lxqt-
+PKGNAMESUFFIX=	-l10n
+DISTNAME=	${PKGNAMEPREFIX:S/-//}${PKGNAMESUFFIX}-${DISTVERSION}
 
 MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lxqt-about
 
 LICENSE=	LGPL21+
-
-MASTERDIR=	${.CURDIR}/../../x11/lxqt-l10n
-DISTINFO_FILE=	${MASTERDIR}/distinfo
-DESCR=	${MASTERDIR}/pkg-descr
-PLIST=	${.CURDIR}/pkg-plist
 
 USES=	cmake:outsource lxqt pkgconfig tar:xz
 USE_QT5=	buildtools_build qmake_build linguisttools

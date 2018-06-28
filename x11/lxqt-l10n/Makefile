@@ -1,5 +1,5 @@
 # Created by: Olivier Duchateau
-# $FreeBSD: head/x11/lxqt-l10n/Makefile 473087 2018-06-22 21:40:57Z swills $
+# $FreeBSD$
 
 PORTNAME=	lxqt-l10n
 PORTVERSION=	0.13.0
@@ -23,7 +23,8 @@ RUN_DEPENDS=	liblxqt-l10n>=0.13:devel/liblxqt-l10n \
 		obconfqt-l10n>=0.13:x11-wm/obconfqt-l10n \
 		lxqt-panel-l10n>=0.13:x11-wm/lxqt-panel-l10n \
 		lxqt-session-l10n>=0.13:x11-wm/lxqt-session-l10n \
-		lxqt-admin-l10n>=0.13:sysutils/lxqt-admin-l10n
+		lxqt-admin-l10n>=0.13:sysutils/lxqt-admin-l10n \
+		lxqt-notificationd-l10n>=0.13:deskutils/lxqt-notificationd-l10n
 
 USES=		metaport
 
