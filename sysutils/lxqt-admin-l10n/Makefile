@@ -1,21 +1,18 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	lxqt-admin-l10n
+PORTNAME=	admin
 PORTVERSION=	0.13.0
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT/lxqt-l10n
-DISTNAME=	${PORTNAME:S/-admin//}-${DISTVERSION}
+PKGNAMEPREFIX=	lxqt-
+PKGNAMESUFFIX=	-l10n
+DISTNAME=	${PKGNAMEPREFIX:S/-//}${PKGNAMESUFFIX}-${DISTVERSION}
 
 MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of lxqt-admin
 
 LICENSE=	LGPL21+
-
-MASTERDIR=	${.CURDIR}/../../x11/lxqt-l10n
-DISTINFO_FILE=	${MASTERDIR}/distinfo
-DESCR=	${MASTERDIR}/pkg-descr
-PLIST=	${.CURDIR}/pkg-plist
 
 USES=	cmake:outsource lxqt pkgconfig tar:xz qt:5
 USE_QT=	buildtools_build qmake_build linguisttools

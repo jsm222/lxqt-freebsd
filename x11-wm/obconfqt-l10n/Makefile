@@ -1,21 +1,17 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	obconfqt-l10n
+PORTNAME=	obconfqt
 PORTVERSION=	0.13.0
 CATEGORIES=	x11-wm
 MASTER_SITES=	LXQT/lxqt-l10n
-DISTNAME=	lxqt-l10n-${DISTVERSION}
+PKGNAMESUFFIX=	-l10n
+DISTNAME=	lxqt${PKGNAMESUFFIX}-${DISTVERSION}
 
 MAINTAINER=	jesper@schmitz.computer
 COMMENT=	Translations of obconf-qt
 
 LICENSE=	LGPL21+
-
-MASTERDIR=	${.CURDIR}/../../x11/lxqt-l10n
-DISTINFO_FILE=	${MASTERDIR}/distinfo
-DESCR=	${MASTERDIR}/pkg-descr
-PLIST=	${.CURDIR}/pkg-plist
 
 USES=	cmake:outsource lxqt pkgconfig tar:xz qt:5
 USE_QT=	buildtools_build qmake_build linguisttools
