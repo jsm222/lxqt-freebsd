@@ -14,8 +14,8 @@ COMMENT=	Translations of lxqt-panel
 
 LICENSE=	LGPL21+
 
-USES=	cmake:outsource lxqt pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build linguisttools
+USES=	cmake:outsource lxqt pkgconfig tar:xz qt:5
+USE_QT=	buildtools_build qmake_build linguisttools
 USE_LXQT=	buildtools
 
 CMAKE_ARGS+=	-DWITH_COMPTON_CONF:BOOL=OFF \

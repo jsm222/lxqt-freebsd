@@ -14,9 +14,9 @@ LICENSE=	LGPL21+
 LIB_DEPENDS=	libconfig.so:devel/libconfig
 RUN_DEPENDS=	compton:x11-wm/compton
 
-USES=	cmake:outsource compiler:c++11-lib localbase:ldflags lxqt \
+USES=	cmake:outsource compiler:c++11-lib localbase:ldflags lxqt qt:5 \
 	pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build core dbus gui linguisttools \
+USE_QT=	buildtools_build qmake_build core dbus gui linguisttools \
 	widgets
 USE_LXQT=	buildtools
 SUB_FILES=	pkg-message

@@ -14,9 +14,9 @@ LICENSE=	LGPL21+
 LIB_DEPENDS=	libmenu-cache.so:x11/menu-cache \
 	libmuparser.so:math/muparser
 
-USES=	cmake:outsource compiler:c++11-lib gettext-runtime kde:5 \
+USES=	cmake:outsource compiler:c++11-lib gettext-runtime kde:5 qt:5 \
 	localbase lxqt pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build core dbus gui linguisttools \
+USE_QT=	buildtools_build qmake_build core dbus gui linguisttools \
 	script svg widgets x11extras xml
 USE_KDE=	windowsystem
 USE_GNOME=	glib20

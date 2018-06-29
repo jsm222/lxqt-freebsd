@@ -13,9 +13,9 @@ COMMENT=	LXQt system settings center
 LICENSE=	GPLv2 LGPL21+
 LICENSE_COMB=	multi
 
-USES=	cmake:outsource compiler:c++11-lib kde:5 localbase:ldflags lxqt \
+USES=	cmake:outsource compiler:c++11-lib kde:5 localbase:ldflags lxqt qt:5 \
 	pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build concurrent core dbus \
+USE_QT=	buildtools_build qmake_build concurrent core dbus \
 	gui linguisttools svg widgets x11extras xml
 USE_KDE=	libkscreen windowsystem
 USE_LXQT=	buildtools lxqt

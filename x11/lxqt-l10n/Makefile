@@ -26,6 +26,6 @@ RUN_DEPENDS=	liblxqt-l10n>=0.13:devel/liblxqt-l10n \
 		lxqt-admin-l10n>=0.13:sysutils/lxqt-admin-l10n \
 		lxqt-notificationd-l10n>=0.13:deskutils/lxqt-notificationd-l10n
 
-USES=		metaport
+USES=		metaport qt:5
 
 .include <bsd.port.mk>

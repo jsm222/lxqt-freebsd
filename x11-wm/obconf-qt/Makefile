@@ -16,9 +16,9 @@ LIB_DEPENDS=	libobt.so:x11-wm/openbox \
 	libfreetype.so:print/freetype2 \
 	libImlib2.so:graphics/imlib2
 
-USES=	cmake:outsource compiler:c++11-lang gettext-runtime localbase \
+USES=	cmake:outsource compiler:c++11-lang gettext-runtime localbase qt:5 \
 	lxqt pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build core gui linguisttools \
+USE_QT=	buildtools_build qmake_build core gui linguisttools \
 	widgets x11extras
 USE_LXQT=	buildtools
 USE_GNOME=	glib20 pango librsvg2 gdkpixbuf2 libxml2 cairo

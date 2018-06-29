@@ -31,7 +31,7 @@ RUN_DEPENDS=	startlxqt:x11-wm/lxqt-session \
 	qlipper:deskutils/qlipper \
 	openbox:x11-wm/openbox
 
-USES=	metaport
+USES=	metaport qt:5
 
 OPTIONS_DEFINE=	EDITOR SSH SUDO
 OPTIONS_DEFAULT=	SUDO

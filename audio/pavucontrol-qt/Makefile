@@ -15,9 +15,9 @@ BUILD_DEPENDS=	xdg-user-dirs-update:devel/xdg-user-dirs
 LIB_DEPENDS=	libpulse.so:audio/pulseaudio
 RUN_DEPENDS=	xdg-user-dir:devel/xdg-user-dirs
 
-USES=	cmake:outsource compiler:c++0x gettext-runtime localbase:ldflags \
+USES=	cmake:outsource compiler:c++0x gettext-runtime localbase:ldflags qt:5 \
 	lxqt pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build core dbus gui linguisttools \
+USE_QT=	buildtools_build qmake_build core dbus gui linguisttools \
 	widgets
 USE_LXQT=	buildtools
 USE_GNOME=	glib20

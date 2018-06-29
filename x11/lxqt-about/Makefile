@@ -12,8 +12,8 @@ COMMENT=	About dialog of LXQt
 
 LICENSE=	LGPL21+
 
-USES=	cmake:outsource kde:5 lxqt pkgconfig tar:xz
-USE_QT5=	buildtools_build qmake_build core dbus gui svg widgets \
+USES=	cmake:outsource kde:5 lxqt pkgconfig tar:xz qt:5
+USE_QT=	buildtools_build qmake_build core dbus gui svg widgets \
 	x11extras xml
 USE_KDE=	windowsystem
 USE_LXQT=	buildtools lxqt
