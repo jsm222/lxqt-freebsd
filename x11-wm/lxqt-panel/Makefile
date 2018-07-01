@@ -26,7 +26,7 @@ USE_KDE=	windowsystem
 USE_LXQT=	buildtools lxqt globalkeys qtxdg
 USE_XORG=	ice sm x11 xcb xcomposite xdamage xext xfixes xrender
 USE_GNOME=	glib20
-
+USE_LDCONFIG=	yes
 OPTIONS_RADIO=	SOUND
 OPTIONS_RADIO_SOUND=	ALSA PULSEAUDIO
 OPTIONS_DEFINE=	CPULOAD MOUNT

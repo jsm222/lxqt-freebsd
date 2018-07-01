@@ -11,11 +11,12 @@ COMMENT=	Lightweight Qt5 plain-text editor
 
 LICENSE=	GPLv3
 
+USES=	compiler:c++11-lang desktop-file-utils pkgconfig qmake:outsource qt:5
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	tsujan
 GH_PROJECT=	FeatherPad
 
-USES=	compiler:c++11-lang desktop-file-utils pkgconfig qmake:outsource qt:5
 USE_QT=	buildtools_build core gui printsupport network \
 	svg widgets x11extras
 USE_XORG=	x11

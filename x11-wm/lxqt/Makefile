@@ -6,10 +6,9 @@ PORTVERSION=	0.13.0
 CATEGORIES=	x11-wm
 
 MAINTAINER=	jesper@schmitz.computer
+COMMENT=	Meta-port for the LXQt Desktop
 
 LICENSE=	LGPL21+
-
-COMMENT=	meta-port for the LXQt Desktop
 
 RUN_DEPENDS=	startlxqt:x11-wm/lxqt-session \
 	lxqt-about:x11/lxqt-about \
@@ -31,7 +30,7 @@ RUN_DEPENDS=	startlxqt:x11-wm/lxqt-session \
 	qlipper:deskutils/qlipper \
 	openbox:x11-wm/openbox
 
-USES=	metaport qt:5
+USES=	metaport
 
 OPTIONS_DEFINE=	EDITOR SSH SUDO
 OPTIONS_DEFAULT=	SUDO

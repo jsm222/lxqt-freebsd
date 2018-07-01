@@ -19,4 +19,9 @@ USE_GNOME=	glib20
 USE_LXQT=	buildtools lxqt
 SUB_FILES=	pkg-message
 
+PLIST_FILES=	bin/lxqt-admin-user \
+		bin/lxqt-admin-user-helper \
+		share/applications/lxqt-admin-user.desktop \
+		share/polkit-1/actions/org.lxqt.lxqt-admin-user.policy
+
 .include <bsd.port.mk>

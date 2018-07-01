@@ -20,5 +20,6 @@ USE_QT=	buildtools_build qmake_build concurrent core dbus \
 USE_KDE=	libkscreen windowsystem
 USE_LXQT=	buildtools lxqt
 USE_XORG=	ice sm x11 xcb xcursor xext xfixes xrandr
-
+USE_LDCONFIG=	yes
+INSTALLS_ICONS=	yes
 .include <bsd.port.mk>

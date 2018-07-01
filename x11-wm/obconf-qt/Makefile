@@ -23,5 +23,8 @@ USE_QT=	buildtools_build qmake_build core gui linguisttools \
 USE_LXQT=	buildtools
 USE_GNOME=	glib20 pango librsvg2 gdkpixbuf2 libxml2 cairo
 USE_XORG=	ice sm x11 xft
-
+INSTALLS_ICONS=	yes
+PLIST_FILES=	bin/obconf-qt \
+		share/applications/obconf-qt.desktop \
+		share/icons/hicolor/48x48/apps/obconf-qt.png
 .include <bsd.port.mk>
