@@ -18,7 +18,7 @@ GH_ACCOUNT=	tsujan
 GH_PROJECT=	FeatherPad
 
 USE_QT=	buildtools_build core gui printsupport network \
-	svg widgets x11extras
+	svg widgets x11extras linguisttools
 USE_XORG=	x11
 USE_GL=	gl
 
