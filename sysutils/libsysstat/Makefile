@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	libsysstat
-PORTVERSION=	0.4.0
+PORTVERSION=	0.4.1
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	jesper@schmitz.computer
+MAINTAINER=	jsm@FreeBSD.org
 COMMENT=	Library used to query system info and statistics
 
 LICENSE=	LGPL21

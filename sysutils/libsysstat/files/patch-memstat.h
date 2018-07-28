@@ -1,4 +1,4 @@
---- memstat.h.orig	2016-12-10 23:50:29 UTC
+--- memstat.h.orig	2018-07-28 14:33:10 UTC
 +++ memstat.h
 @@ -27,6 +27,9 @@
  #ifndef LIBSYSSTAT__MEM_STAT__INCLUDED
