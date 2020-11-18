@@ -1,0 +1,31 @@
+# Created by: Olivier Duchateau
+# $FreeBSD: head/x11-wm/obconf-qt/Makefile 554733 2020-11-09 17:08:12Z tcberner $
+
+PORTNAME=	obconf-qt
+PORTVERSION=	0.16.0
+CATEGORIES=	x11-wm
+MASTER_SITES=	LXQT/${PORTNAME}
+
+MAINTAINER=	jsm@FreeBSD.org
+COMMENT=	Qt port of preferences manager for Openbox
+
+LICENSE=	GPLv2
+
+LIB_DEPENDS=	libobt.so:x11-wm/openbox \
+		libfontconfig.so:x11-fonts/fontconfig \
+		libfreetype.so:print/freetype2 \
+		libImlib2.so:graphics/imlib2
+
+USES=		cmake compiler:c++11-lang gettext-runtime localbase qt:5 \
+		gnome lxqt pkgconfig tar:xz xorg
+
+USE_QT=		buildtools_build qmake_build core gui linguisttools \
+		widgets x11extras
+
+USE_LXQT=	buildtools
+
+USE_GNOME=	glib20 pango librsvg2 gdkpixbuf2 libxml2 cairo
+
+USE_XORG=	ice sm x11 xft
+
+.include <bsd.port.mk>

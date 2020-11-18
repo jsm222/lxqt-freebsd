@@ -1,0 +1,1365 @@
+Index: audio/pavucontrol-qt/Makefile
+===================================================================
+--- audio/pavucontrol-qt/Makefile	(revision 554848)
++++ audio/pavucontrol-qt/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	pavucontrol-qt
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	audio
+ MASTER_SITES=	LXQT/${PORTNAME}
+ 
+Index: audio/pavucontrol-qt/distinfo
+===================================================================
+--- audio/pavucontrol-qt/distinfo	(revision 554848)
++++ audio/pavucontrol-qt/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588439693
+-SHA256 (lxqt/pavucontrol-qt-0.15.0.tar.xz) = c6148fabec2140a9b6e70620e1956c42617054373872525dc98018b22ab79397
+-SIZE (lxqt/pavucontrol-qt-0.15.0.tar.xz) = 97480
++TIMESTAMP = 1605292469
++SHA256 (lxqt/pavucontrol-qt-0.16.0.tar.xz) = 12a9b9965c3cfaf2335a741a6727b2decf7fec7c9a44817a28d66c8b3caa89d4
++SIZE (lxqt/pavucontrol-qt-0.16.0.tar.xz) = 99952
+Index: audio/pavucontrol-qt/pkg-plist
+===================================================================
+--- audio/pavucontrol-qt/pkg-plist	(revision 554848)
++++ audio/pavucontrol-qt/pkg-plist	(working copy)
+@@ -17,6 +17,7 @@
+ %%DATADIR%%/translations/pavucontrol-qt_gu.qm
+ %%DATADIR%%/translations/pavucontrol-qt_he.qm
+ %%DATADIR%%/translations/pavucontrol-qt_hi.qm
++%%DATADIR%%/translations/pavucontrol-qt_hr.qm
+ %%DATADIR%%/translations/pavucontrol-qt_hu.qm
+ %%DATADIR%%/translations/pavucontrol-qt_id.qm
+ %%DATADIR%%/translations/pavucontrol-qt_it.qm
+Index: deskutils/lxqt-notificationd/Makefile
+===================================================================
+--- deskutils/lxqt-notificationd/Makefile	(revision 554848)
++++ deskutils/lxqt-notificationd/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-notificationd
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	deskutils
+ MASTER_SITES=	LXQT
+ 
+Index: deskutils/lxqt-notificationd/distinfo
+===================================================================
+--- deskutils/lxqt-notificationd/distinfo	(revision 554848)
++++ deskutils/lxqt-notificationd/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588435707
+-SHA256 (lxqt/lxqt-notificationd-0.15.0.tar.xz) = bc20642f6f7bea9586c81e7c58396be08fb5a996a0be5e55760aac2db051db05
+-SIZE (lxqt/lxqt-notificationd-0.15.0.tar.xz) = 49068
++TIMESTAMP = 1605364994
++SHA256 (lxqt/lxqt-notificationd-0.16.0.tar.xz) = 78d6a75e3cbe7aa436134de6fda87024c4d54b2c4368230a35d031918d2c1920
++SIZE (lxqt/lxqt-notificationd-0.16.0.tar.xz) = 50696
+Index: deskutils/lxqt-notificationd/pkg-plist
+===================================================================
+--- deskutils/lxqt-notificationd/pkg-plist	(revision 554848)
++++ deskutils/lxqt-notificationd/pkg-plist	(working copy)
+@@ -46,6 +46,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_id.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_it.qm
+@@ -58,7 +59,6 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_pt.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_pt_BR.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_ru.qm
+-%%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_ru_RU.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_sk_SK.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_sv.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-notificationd/lxqt-notificationd_tr.qm
+Index: devel/liblxqt/Makefile
+===================================================================
+--- devel/liblxqt/Makefile	(revision 554848)
++++ devel/liblxqt/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	liblxqt
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	devel
+ MASTER_SITES=	LXQT
+ 
+Index: devel/liblxqt/distinfo
+===================================================================
+--- devel/liblxqt/distinfo	(revision 554848)
++++ devel/liblxqt/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588433714
+-SHA256 (lxqt/liblxqt-0.15.0.tar.xz) = 48e72ed15e7ac0badbd132d17ff2c9d95f2c9652a807dfe1d3f4ff00c8b7cb44
+-SIZE (lxqt/liblxqt-0.15.0.tar.xz) = 80624
++TIMESTAMP = 1605107782
++SHA256 (lxqt/liblxqt-0.16.0.tar.xz) = 8dcf423978a22fc9bc43ca5fee31586632b0fd48e650ecdc863ac19114c7b318
++SIZE (lxqt/liblxqt-0.16.0.tar.xz) = 81032
+Index: devel/liblxqt/pkg-plist
+===================================================================
+--- devel/liblxqt/pkg-plist	(revision 554848)
++++ devel/liblxqt/pkg-plist	(working copy)
+@@ -65,6 +65,7 @@
+ %%LXQT_TRANSLATIONS%%/liblxqt/liblxqt_fr.qm
+ %%LXQT_TRANSLATIONS%%/liblxqt/liblxqt_gl.qm
+ %%LXQT_TRANSLATIONS%%/liblxqt/liblxqt_he.qm
++%%LXQT_TRANSLATIONS%%/liblxqt/liblxqt_hr.qm
+ %%LXQT_TRANSLATIONS%%/liblxqt/liblxqt_hu.qm
+ %%LXQT_TRANSLATIONS%%/liblxqt/liblxqt_ia.qm
+ %%LXQT_TRANSLATIONS%%/liblxqt/liblxqt_id.qm
+Index: devel/libqtxdg/Makefile
+===================================================================
+--- devel/libqtxdg/Makefile	(revision 554848)
++++ devel/libqtxdg/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	libqtxdg
+-PORTVERSION=	3.5.0
++PORTVERSION=	3.6.0
+ CATEGORIES=	devel
+ MASTER_SITES=	LXQT/${PORTNAME}
+ 
+Index: devel/libqtxdg/distinfo
+===================================================================
+--- devel/libqtxdg/distinfo	(revision 554848)
++++ devel/libqtxdg/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588433112
+-SHA256 (lxqt/libqtxdg-3.5.0.tar.xz) = 41a99b36302f5391321ed1469a05dcba9033778fb27afca03ce320fa6ee4553c
+-SIZE (lxqt/libqtxdg-3.5.0.tar.xz) = 73248
++TIMESTAMP = 1605032304
++SHA256 (lxqt/libqtxdg-3.6.0.tar.xz) = 0fefb362eac9120fccd401202f15d092a59fd1aaacfc4b885a33578cdd41cf42
++SIZE (lxqt/libqtxdg-3.6.0.tar.xz) = 76028
+Index: devel/libqtxdg/pkg-plist
+===================================================================
+--- devel/libqtxdg/pkg-plist	(revision 554848)
++++ devel/libqtxdg/pkg-plist	(working copy)
+@@ -1,6 +1,7 @@
+ bin/qtxdg-mat
+ %%QT_INCDIR%%xdg/XdgAction
+ %%QT_INCDIR%%xdg/XdgAutoStart
++%%QT_INCDIR%%xdg/XdgDefaultApps
+ %%QT_INCDIR%%xdg/XdgDesktopFile
+ %%QT_INCDIR%%xdg/XdgDirs
+ %%QT_INCDIR%%xdg/XdgIcon
+@@ -11,6 +12,7 @@
+ %%QT_INCDIR%%xdg/XmlHelper
+ %%QT_INCDIR%%xdg/xdgaction.h
+ %%QT_INCDIR%%xdg/xdgautostart.h
++%%QT_INCDIR%%xdg/xdgdefaultapps.h
+ %%QT_INCDIR%%xdg/xdgdesktopfile.h
+ %%QT_INCDIR%%xdg/xdgdirs.h
+ %%QT_INCDIR%%xdg/xdgicon.h
+Index: devel/lxqt-build-tools/Makefile
+===================================================================
+--- devel/lxqt-build-tools/Makefile	(revision 554848)
++++ devel/lxqt-build-tools/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-build-tools
+-PORTVERSION=	0.7.0
++PORTVERSION=	0.8.0
+ CATEGORIES=	devel
+ MASTER_SITES=	LXQT/${PORTNAME}
+ 
+Index: devel/lxqt-build-tools/distinfo
+===================================================================
+--- devel/lxqt-build-tools/distinfo	(revision 554848)
++++ devel/lxqt-build-tools/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588432864
+-SHA256 (lxqt/lxqt-build-tools-0.7.0.tar.xz) = 85fe1946a92731f22585c30eda8bea923f5221ffbea0e31dc834d722d86cfb90
+-SIZE (lxqt/lxqt-build-tools-0.7.0.tar.xz) = 24436
++TIMESTAMP = 1605030252
++SHA256 (lxqt/lxqt-build-tools-0.8.0.tar.xz) = 8cad73636e3a1f09baab0d82a2e76f3e171ce2adacade03ccc0a6cf0a51d69a9
++SIZE (lxqt/lxqt-build-tools-0.8.0.tar.xz) = 25340
+Index: devel/lxqt-build-tools/pkg-plist
+===================================================================
+--- devel/lxqt-build-tools/pkg-plist	(revision 554848)
++++ devel/lxqt-build-tools/pkg-plist	(working copy)
+@@ -1,6 +1,7 @@
+ bin/lxqt-transupdate
+ share/cmake/lxqt-build-tools/find-modules/FindClazy.cmake
+ share/cmake/lxqt-build-tools/find-modules/FindExif.cmake
++share/cmake/lxqt-build-tools/find-modules/FindFontconfig.cmake
+ share/cmake/lxqt-build-tools/find-modules/FindGLIB.cmake
+ share/cmake/lxqt-build-tools/find-modules/FindMenuCache.cmake
+ share/cmake/lxqt-build-tools/find-modules/FindUDev.cmake
+@@ -9,6 +10,7 @@
+ share/cmake/lxqt-build-tools/find-modules/FindXdgEmail.cmake
+ share/cmake/lxqt-build-tools/find-modules/FindXdgMime.cmake
+ share/cmake/lxqt-build-tools/find-modules/FindXdgOpen.cmake
++share/cmake/lxqt-build-tools/find-modules/FindXdgScreensaver.cmake
+ share/cmake/lxqt-build-tools/find-modules/FindXdgSettings.cmake
+ share/cmake/lxqt-build-tools/find-modules/FindXdgUserDirs.cmake
+ share/cmake/lxqt-build-tools/lxqt-build-tools-config-version.cmake
+Index: editors/featherpad/Makefile
+===================================================================
+--- editors/featherpad/Makefile	(revision 554848)
++++ editors/featherpad/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=		featherpad
+-PORTVERSION=		0.14.2
++PORTVERSION=		0.16.0
+ DISTVERSIONPREFIX=	V
+ CATEGORIES=		editors
+ 
+Index: editors/featherpad/distinfo
+===================================================================
+--- editors/featherpad/distinfo	(revision 554848)
++++ editors/featherpad/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1597572210
+-SHA256 (tsujan-FeatherPad-V0.14.2_GH0.tar.gz) = a646a7e84de7515ba26dde828fbdcf5c5a26841559f5d2d8bde330d7a5e182d1
+-SIZE (tsujan-FeatherPad-V0.14.2_GH0.tar.gz) = 828977
++TIMESTAMP = 1605369608
++SHA256 (tsujan-FeatherPad-V0.16.0_GH0.tar.gz) = 781f092611cd330bd365df68b3b8793cfef8ae13b59f10494e4d0813832a0a2f
++SIZE (tsujan-FeatherPad-V0.16.0_GH0.tar.gz) = 873986
+Index: editors/featherpad/pkg-plist
+===================================================================
+--- editors/featherpad/pkg-plist	(revision 554848)
++++ editors/featherpad/pkg-plist	(working copy)
+@@ -3,6 +3,7 @@
+ share/applications/featherpad.desktop
+ %%DATADIR%%/help
+ %%DATADIR%%/help_ja
++%%DATADIR%%/help_pt_BR
+ %%DATADIR%%/translations/featherpad_ar_DZ.qm
+ %%DATADIR%%/translations/featherpad_cs.qm
+ %%DATADIR%%/translations/featherpad_cy.qm
+@@ -13,10 +14,12 @@
+ %%DATADIR%%/translations/featherpad_es.qm
+ %%DATADIR%%/translations/featherpad_fa.qm
+ %%DATADIR%%/translations/featherpad_fr.qm
++%%DATADIR%%/translations/featherpad_he.qm
+ %%DATADIR%%/translations/featherpad_hu.qm
+ %%DATADIR%%/translations/featherpad_id.qm
+ %%DATADIR%%/translations/featherpad_it.qm
+ %%DATADIR%%/translations/featherpad_ja.qm
++%%DATADIR%%/translations/featherpad_ko.qm
+ %%DATADIR%%/translations/featherpad_lt.qm
+ %%DATADIR%%/translations/featherpad_nb_NO.qm
+ %%DATADIR%%/translations/featherpad_nl.qm
+Index: graphics/lximage-qt/Makefile
+===================================================================
+--- graphics/lximage-qt/Makefile	(revision 554848)
++++ graphics/lximage-qt/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lximage-qt
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	graphics
+ MASTER_SITES=	LXQT
+ 
+Index: graphics/lximage-qt/distinfo
+===================================================================
+--- graphics/lximage-qt/distinfo	(revision 554848)
++++ graphics/lximage-qt/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588433227
+-SHA256 (lxqt/lximage-qt-0.15.0.tar.xz) = 33cb2ce4cde14acb66c11f1bfed1d904ceb30c52453d9accde9f728f56f53e0a
+-SIZE (lxqt/lximage-qt-0.15.0.tar.xz) = 91444
++TIMESTAMP = 1605362382
++SHA256 (lxqt/lximage-qt-0.16.0.tar.xz) = d83a8c1bbbaaa8f211731b790773c3f73c638740cf42d7b215b1594de03dbc90
++SIZE (lxqt/lximage-qt-0.16.0.tar.xz) = 100920
+Index: security/lxqt-openssh-askpass/Makefile
+===================================================================
+--- security/lxqt-openssh-askpass/Makefile	(revision 554848)
++++ security/lxqt-openssh-askpass/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-openssh-askpass
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	security
+ MASTER_SITES=	LXQT
+ 
+Index: security/lxqt-openssh-askpass/distinfo
+===================================================================
+--- security/lxqt-openssh-askpass/distinfo	(revision 554848)
++++ security/lxqt-openssh-askpass/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588435842
+-SHA256 (lxqt/lxqt-openssh-askpass-0.15.0.tar.xz) = 5371e955b18494eaa342c9ccfc7ef64b38af4c78514bdcdc4c81a017898416c1
+-SIZE (lxqt/lxqt-openssh-askpass-0.15.0.tar.xz) = 17032
++TIMESTAMP = 1605365246
++SHA256 (lxqt/lxqt-openssh-askpass-0.16.0.tar.xz) = 99f686302e2be457b82ba3444ef36613361a32335f0c44e894835a11a5d22046
++SIZE (lxqt/lxqt-openssh-askpass-0.16.0.tar.xz) = 17160
+Index: security/lxqt-openssh-askpass/pkg-plist
+===================================================================
+--- security/lxqt-openssh-askpass/pkg-plist	(revision 554848)
++++ security/lxqt-openssh-askpass/pkg-plist	(working copy)
+@@ -13,6 +13,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-openssh-askpass/lxqt-openssh-askpass_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-openssh-askpass/lxqt-openssh-askpass_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-openssh-askpass/lxqt-openssh-askpass_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-openssh-askpass/lxqt-openssh-askpass_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-openssh-askpass/lxqt-openssh-askpass_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-openssh-askpass/lxqt-openssh-askpass_id.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-openssh-askpass/lxqt-openssh-askpass_it.qm
+Index: security/lxqt-sudo/Makefile
+===================================================================
+--- security/lxqt-sudo/Makefile	(revision 554848)
++++ security/lxqt-sudo/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-sudo
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	security
+ MASTER_SITES=	LXQT
+ 
+Index: security/lxqt-sudo/distinfo
+===================================================================
+--- security/lxqt-sudo/distinfo	(revision 554848)
++++ security/lxqt-sudo/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588437993
+-SHA256 (lxqt/lxqt-sudo-0.15.0.tar.xz) = bc148b2aa80c3dc6fea200a848e25b5c0684295a70f876931f11ffd168fd8fec
+-SIZE (lxqt/lxqt-sudo-0.15.0.tar.xz) = 34528
++TIMESTAMP = 1605366107
++SHA256 (lxqt/lxqt-sudo-0.16.0.tar.xz) = f4950ff7c53c64b03859801e0b317dae29cdc2ae8b093c85d91a3891d2611092
++SIZE (lxqt/lxqt-sudo-0.16.0.tar.xz) = 35088
+Index: security/lxqt-sudo/pkg-plist
+===================================================================
+--- security/lxqt-sudo/pkg-plist	(revision 554848)
++++ security/lxqt-sudo/pkg-plist	(working copy)
+@@ -15,6 +15,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-sudo/lxqt-sudo_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-sudo/lxqt-sudo_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-sudo/lxqt-sudo_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-sudo/lxqt-sudo_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-sudo/lxqt-sudo_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-sudo/lxqt-sudo_id.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-sudo/lxqt-sudo_it.qm
+Index: sysutils/libsysstat/Makefile
+===================================================================
+--- sysutils/libsysstat/Makefile	(revision 554848)
++++ sysutils/libsysstat/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	libsysstat
+-PORTVERSION=	0.4.3
++PORTVERSION=	0.4.4
+ CATEGORIES=	sysutils
+ MASTER_SITES=	LXQT/${PORTNAME}
+ 
+Index: sysutils/libsysstat/distinfo
+===================================================================
+--- sysutils/libsysstat/distinfo	(revision 554848)
++++ sysutils/libsysstat/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588434445
+-SHA256 (lxqt/libsysstat-0.4.3.tar.xz) = 67dc786a4aca4b6ce142a2355ac6dd4c873c1e03f978676926500fffa73ebae8
+-SIZE (lxqt/libsysstat-0.4.3.tar.xz) = 17520
++TIMESTAMP = 1605119504
++SHA256 (lxqt/libsysstat-0.4.4.tar.xz) = 3997d17692d2ea467d384517aedb8fcc4050f2f66114a1405d42cef0adaafa6b
++SIZE (lxqt/libsysstat-0.4.4.tar.xz) = 17532
+Index: sysutils/libsysstat/files/patch-cpustat.cpp
+===================================================================
+--- sysutils/libsysstat/files/patch-cpustat.cpp	(revision 554848)
++++ sysutils/libsysstat/files/patch-cpustat.cpp	(working copy)
+@@ -1,6 +1,6 @@
+---- cpustat.cpp.orig	2019-01-24 21:43:32 UTC
++--- cpustat.cpp.orig	2020-11-03 14:45:02 UTC
+ +++ cpustat.cpp
+-@@ -27,11 +27,62 @@
++@@ -27,11 +27,64 @@
+  #include <unistd.h>
+  
+  #include "cpustat.h"
+@@ -48,13 +48,15 @@
+ +}
+ +
+ +/* Frequence is in MHz */
+-+ulong CurrentFreq(void)
+++ulong CpuStatPrivate::CurrentFreq(void)
+ +{
+ +    ulong freq=0;
+ +    size_t len = sizeof(freq);
+ +
+-+    if (sysctlbyname("dev.cpu.0.freq", &freq, &len, NULL, 0) < 0) // man cpufreq BUGS section all cores have the same frequency.
+++    if (sysctl(mib2,4,&freq, &len, NULL, 0) < 0) { // man cpufreq BUGS section all cores have the same frequency.
+++	perror("sysctl");
+ +        return 0;
+++}
+ +    else
+ +        return freq;
+ +
+@@ -63,7 +65,7 @@
+  CpuStatPrivate::CpuStatPrivate(CpuStat *parent)
+      : BaseStatPrivate(parent)
+      , mMonitoring(CpuStat::LoadAndFrequency)
+-@@ -39,7 +90,11 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *parent)
++@@ -39,7 +92,13 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *parent)
+      mSource = defaultSource();
+  
+      connect(mTimer, SIGNAL(timeout()), SLOT(timeout()));
+@@ -70,13 +72,15 @@
+ -
+ +#ifdef HAVE_SYSCTL_H
+ +    size_t flen=2;
+++    size_t alen=4;
+ +    sysctlnametomib("kern.cp_times",mib0,&flen);
+ +    sysctlnametomib("kern.cp_time",mib1,&flen);
+++    sysctlnametomib("dev.cpu.0.freq",mib2,&alen);
+ +#endif
+      mUserHz = sysconf(_SC_CLK_TCK);
+  
+      updateSources();
+-@@ -47,6 +102,49 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *parent)
++@@ -47,6 +106,51 @@ CpuStatPrivate::CpuStatPrivate(CpuStat *parent)
+  
+  void CpuStatPrivate::addSource(const QString &source)
+  {
+@@ -98,7 +102,6 @@
+ +                free(t);
+ +                return;
+ +            }
+-+
+ +            while ((tokens = strsep(&t, " ")) != NULL)
+ +            {
+ +                char *freq;
+@@ -117,7 +120,10 @@
+ +                        if ((min == 0) || (res < min))
+ +                            min = res;
+ +                    }
+-+                }
+++               	if (res + 1 == max)
+++			max--;
+++		}
+++
+ +            }
+ +
+ +            free(t);
+@@ -126,7 +132,7 @@
+      bool ok;
+  
+      uint min = readAllFile(qPrintable(QString::fromLatin1("/sys/devices/system/cpu/%1/cpufreq/scaling_min_freq").arg(source))).toUInt(&ok);
+-@@ -56,12 +154,27 @@ void CpuStatPrivate::addSource(const QString &source)
++@@ -56,12 +160,27 @@ void CpuStatPrivate::addSource(const QString &source)
+          if (ok)
+              mBounds[source] = qMakePair(min, max);
+      }
+@@ -154,7 +160,7 @@
+      const QStringList rows = readAllFile("/proc/stat").split(QLatin1Char('\n'), QString::SkipEmptyParts);
+      for (const QString &row : rows)
+      {
+-@@ -99,6 +212,7 @@ void CpuStatPrivate::updateSources()
++@@ -99,6 +218,7 @@ void CpuStatPrivate::updateSources()
+                  addSource(QString::fromLatin1("cpu%1").arg(number));
+          }
+      }
+@@ -162,7 +168,7 @@
+  }
+  
+  CpuStatPrivate::~CpuStatPrivate()
+-@@ -127,6 +241,88 @@ void CpuStatPrivate::recalculateMinMax()
++@@ -127,6 +247,107 @@ void CpuStatPrivate::recalculateMinMax()
+  
+  void CpuStatPrivate::timeout()
+  {
+@@ -193,28 +199,47 @@
+ +                current.total = current.user + current.nice + current.system+current.idle+current.other;
+ +
+ +                float sumDelta = static_cast<float>(current.total - mPrevious.total);
+-+
+ +                if ((mPrevious.total != 0) && ((sumDelta < mIntervalMin) || (sumDelta > mIntervalMax)))
+ +                {
+-+                    if (mMonitoring == CpuStat::LoadAndFrequency)
+-+                        emit update(0.0, 0.0, 0.0, 0.0, 0.0, 0);
+-+                    else
+++                    if (mMonitoring == CpuStat::LoadAndFrequency) 
+++		    {
+++                        float freqRate = 1.0;
+++                        ulong freq = CurrentFreq();
+++				
+++                        if (freq > 0)
+++                       	{
+++			if (mSource == QLatin1String("cpu"))
+++				mSource = QLatin1String("cpu0");
+++			//do not report more than 100%
+++                	if (freq > mBounds[mSource].second) {
+++				freq = mBounds[mSource].second;
+++			}
+++                        freqRate = static_cast<float>(freq) / static_cast<float>(mBounds[mSource].second);
+++                        emit update(0.0, 0.0, 0.0, 0.0, static_cast<float>(freqRate), freq);
+++			}
+++	            }
+++                    else {
+ +                        emit update(0.0, 0.0, 0.0, 0.0);
+-+
+++			 }
+ +                    mPrevious.clear();
+ +                }
+ +                else
+++
+ +                {
+ +                    if (mMonitoring == CpuStat::LoadAndFrequency)
+ +                    {
+ +                        float freqRate = 1.0;
+ +                        ulong freq = CurrentFreq();
+++				
+ +                        if (freq > 0)
+ +                        {
+-+                            if(mSource==QLatin1String("cpu"))
+-+                                freqRate = static_cast<float>(freq) / static_cast<float>(mBounds[QStringLiteral("cpu0")].second);// use max cpu0 for this case
+-+                            else
+-+                                freqRate = static_cast<float>(freq) / static_cast<float>(mBounds[mSource].second);
+++			if (mSource == QLatin1String("cpu"))
+++				mSource = QLatin1String("cpu0");
+++			//do not report more than 100%
+++                	if (freq > mBounds[mSource].second) {
+++				freq = mBounds[mSource].second;
+++			}
+++                        freqRate = static_cast<float>(freq) / static_cast<float>(mBounds[mSource].second);
+ +                           emit update(
+ +                               static_cast<float>(current.user   - mPrevious.user  ) / sumDelta,
+ +                               static_cast<float>(current.nice   - mPrevious.nice  ) / sumDelta,
+@@ -251,7 +276,16 @@
+      if ( (mMonitoring == CpuStat::LoadOnly)
+        || (mMonitoring == CpuStat::LoadAndFrequency) )
+      {
+-@@ -261,6 +457,7 @@ void CpuStatPrivate::timeout()
++@@ -229,7 +450,7 @@ void CpuStatPrivate::timeout()
++                     mPrevious = current;
++                 }
++             }
++-        }
+++        //}
++     }
++     else
++     {
++@@ -261,6 +482,7 @@ void CpuStatPrivate::timeout()
+          }
+          emit update(freq);
+      }
+Index: sysutils/libsysstat/files/patch-cpustat.h
+===================================================================
+--- sysutils/libsysstat/files/patch-cpustat.h	(revision 554848)
++++ sysutils/libsysstat/files/patch-cpustat.h	(working copy)
+@@ -1,6 +1,6 @@
+---- cpustat.h.orig	2019-01-30 19:27:42 UTC
++--- cpustat.h.orig	2020-11-03 14:45:02 UTC
+ +++ cpustat.h
+-@@ -27,14 +27,20 @@
++@@ -27,14 +27,19 @@
+  #ifndef LIBSYSSTAT__CPU_STAT__INCLUDED
+  #define LIBSYSSTAT__CPU_STAT__INCLUDED
+  
+@@ -18,8 +18,15 @@
+ +#ifdef HAVE_SYSCTL_H
+ +    char *GetFirstFragment(char *string, const char *delim);
+ +    int GetCpu(void);
+-+    ulong CurrentFreq(void);
+ +#endif
+  class CpuStatPrivate;
+  
+  class SYSSTATSHARED_EXPORT CpuStat : public BaseStat
++@@ -54,7 +59,6 @@ class SYSSTATSHARED_EXPORT CpuStat : public BaseStat (
++ 
++     uint minFreq(const QString &source) const;
++     uint maxFreq(const QString &source) const;
++-
++ signals:
++     void update(float user, float nice, float system, float other, float frequencyRate, uint frequency);
++     void update(float user, float nice, float system, float other);
+Index: sysutils/libsysstat/files/patch-cpustat__p.h
+===================================================================
+--- sysutils/libsysstat/files/patch-cpustat__p.h	(revision 554848)
++++ sysutils/libsysstat/files/patch-cpustat__p.h	(working copy)
+@@ -1,4 +1,4 @@
+---- cpustat_p.h.orig	2019-01-30 19:24:29 UTC
++--- cpustat_p.h.orig	2020-11-03 14:45:02 UTC
+ +++ cpustat_p.h
+ @@ -27,6 +27,9 @@
+  #ifndef LIBSYSSTAT__CPU_STAT__PRIVATE__INCLUDED
+@@ -10,7 +10,7 @@
+  
+  #include <QtCore/QObject>
+  #include <QtCore/QtGlobal>
+-@@ -52,8 +55,13 @@ class CpuStatPrivate : public BaseStatPrivate (public)
++@@ -52,8 +55,15 @@ class CpuStatPrivate : public BaseStatPrivate (public)
+      CpuStat::Monitoring monitoring() const;
+      void setMonitoring(CpuStat::Monitoring value);
+  
+@@ -17,6 +17,8 @@
+ +#ifdef HAVE_SYSCTL_H
+ +    ulong minFreq(const QString &source) const;
+ +    ulong maxFreq(const QString &source) const;
+++    ulong CurrentFreq(void);
+++
+ +#else
+      uint minFreq(const QString &source) const;
+      uint maxFreq(const QString &source) const;
+@@ -24,7 +26,7 @@
+  
+  signals:
+      void update(float user, float nice, float system, float other);
+-@@ -74,12 +82,21 @@ private slots: (private)
++@@ -74,12 +84,21 @@ private slots: (private)
+      {
+          Values();
+  
+@@ -46,7 +48,7 @@
+  
+          void sum();
+  
+-@@ -89,7 +106,13 @@ private slots: (private)
++@@ -89,7 +108,14 @@ private slots: (private)
+  
+      CpuStat::Monitoring mMonitoring;
+  
+@@ -54,6 +56,7 @@
+ +    typedef QMap<QString, QPair<ulong, ulong> > Bounds;
+ +    int mib0[2];
+ +    int mib1[2];
+++    int mib2[4];
+ +#else
+      typedef QMap<QString, QPair<uint, uint> > Bounds;
+ +#endif
+Index: sysutils/lxqt-admin/Makefile
+===================================================================
+--- sysutils/lxqt-admin/Makefile	(revision 554848)
++++ sysutils/lxqt-admin/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-admin
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	sysutils
+ MASTER_SITES=	LXQT
+ 
+Index: sysutils/lxqt-admin/distinfo
+===================================================================
+--- sysutils/lxqt-admin/distinfo	(revision 554848)
++++ sysutils/lxqt-admin/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588435138
+-SHA256 (lxqt/lxqt-admin-0.15.0.tar.xz) = ccdd6e86607f529fd8524893724679e8e0186c097cc45abde635e2efe11954fd
+-SIZE (lxqt/lxqt-admin-0.15.0.tar.xz) = 143456
++TIMESTAMP = 1605363162
++SHA256 (lxqt/lxqt-admin-0.16.0.tar.xz) = 1ea928c83a04d59db27274e300215d9bc8159b0cfc5bdae11ce78f05caa450dc
++SIZE (lxqt/lxqt-admin-0.16.0.tar.xz) = 143724
+Index: sysutils/lxqt-config/Makefile
+===================================================================
+--- sysutils/lxqt-config/Makefile	(revision 554848)
++++ sysutils/lxqt-config/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-config
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.1
+ CATEGORIES=	sysutils
+ MASTER_SITES=	LXQT
+ DIST_SUBDIR=	lxqt
+Index: sysutils/lxqt-config/distinfo
+===================================================================
+--- sysutils/lxqt-config/distinfo	(revision 554848)
++++ sysutils/lxqt-config/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588433630
+-SHA256 (lxqt/lxqt-config-0.15.0.tar.xz) = ebe26f1d5b9392e6363d7269468d45419b3dac7873ca0b3826a757eb4d7bcaa1
+-SIZE (lxqt/lxqt-config-0.15.0.tar.xz) = 312468
++TIMESTAMP = 1605363496
++SHA256 (lxqt/lxqt-config-0.16.1.tar.xz) = 4b24ab2428e7def98e4a6485b8d2b035877f769c2e5de7f7d09624e8c79641fe
++SIZE (lxqt/lxqt-config-0.16.1.tar.xz) = 327652
+Index: sysutils/lxqt-config/files/patch-lxqt-config-input_touchpaddevice.cpp
+===================================================================
+--- sysutils/lxqt-config/files/patch-lxqt-config-input_touchpaddevice.cpp	(revision 554848)
++++ sysutils/lxqt-config/files/patch-lxqt-config-input_touchpaddevice.cpp	(nonexistent)
+@@ -1,10 +0,0 @@
+---- lxqt-config-input/touchpaddevice.cpp.orig	2020-04-11 10:19:56 UTC
+-+++ lxqt-config-input/touchpaddevice.cpp
+-@@ -20,6 +20,7 @@
+- 
+- #include <cmath>
+- #include <QDebug>
+-+#include <QUrl>
+- #include <QX11Info>
+- #include <libudev.h>
+- #include <LXQt/Settings>
+
+Property changes on: sysutils/lxqt-config/files/patch-lxqt-config-input_touchpaddevice.cpp
+___________________________________________________________________
+Deleted: fbsd:nokeywords
+## -1 +0,0 ##
+-yes
+\ No newline at end of property
+Deleted: svn:eol-style
+## -1 +0,0 ##
+-native
+\ No newline at end of property
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain
+\ No newline at end of property
+Index: sysutils/lxqt-policykit/Makefile
+===================================================================
+--- sysutils/lxqt-policykit/Makefile	(revision 554848)
++++ sysutils/lxqt-policykit/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-policykit
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	sysutils
+ MASTER_SITES=	LXQT
+ 
+Index: sysutils/lxqt-policykit/distinfo
+===================================================================
+--- sysutils/lxqt-policykit/distinfo	(revision 554848)
++++ sysutils/lxqt-policykit/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588437493
+-SHA256 (lxqt/lxqt-policykit-0.15.0.tar.xz) = e2e6b27ce0e3611937c2ecc8525a18541ed8758a9dccea62357f1d427b4dec4f
+-SIZE (lxqt/lxqt-policykit-0.15.0.tar.xz) = 37712
++TIMESTAMP = 1605365643
++SHA256 (lxqt/lxqt-policykit-0.16.0.tar.xz) = 973a03b187d8844f738ea510e42ea8061c349ef12b162856161ee9c9bad4c6cf
++SIZE (lxqt/lxqt-policykit-0.16.0.tar.xz) = 38016
+Index: sysutils/lxqt-policykit/pkg-plist
+===================================================================
+--- sysutils/lxqt-policykit/pkg-plist	(revision 554848)
++++ sysutils/lxqt-policykit/pkg-plist	(working copy)
+@@ -13,6 +13,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_id.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-policykit-agent/lxqt-policykit-agent_it.qm
+Index: sysutils/lxqt-qtplugin/Makefile
+===================================================================
+--- sysutils/lxqt-qtplugin/Makefile	(revision 554848)
++++ sysutils/lxqt-qtplugin/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-qtplugin
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	sysutils
+ MASTER_SITES=	LXQT
+ 
+Index: sysutils/lxqt-qtplugin/distinfo
+===================================================================
+--- sysutils/lxqt-qtplugin/distinfo	(revision 554848)
++++ sysutils/lxqt-qtplugin/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588437575
+-SHA256 (lxqt/lxqt-qtplugin-0.15.0.tar.xz) = 43595276881f8e00d689d0c16cf6238a33f0c0a0bba97cc5ebff513457eb86ee
+-SIZE (lxqt/lxqt-qtplugin-0.15.0.tar.xz) = 22776
++TIMESTAMP = 1605289059
++SHA256 (lxqt/lxqt-qtplugin-0.16.0.tar.xz) = 4920add017ec6805d50ae653c09ffd9623314aaa2a606054e01a4b9e6498ea90
++SIZE (lxqt/lxqt-qtplugin-0.16.0.tar.xz) = 23640
+Index: x11/compton-conf/Makefile
+===================================================================
+--- x11/compton-conf/Makefile	(revision 554848)
++++ x11/compton-conf/Makefile	(working copy)
+@@ -1,7 +1,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	compton-conf
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11
+ MASTER_SITES=	LXQT/${PORTNAME}
+ 
+Index: x11/compton-conf/distinfo
+===================================================================
+--- x11/compton-conf/distinfo	(revision 554848)
++++ x11/compton-conf/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588434999
+-SHA256 (lxqt/compton-conf-0.15.0.tar.xz) = 09077799b7a3aebae815c94da42e908c34352e6e7af79a5375aaf1a3ad5a21c6
+-SIZE (lxqt/compton-conf-0.15.0.tar.xz) = 42828
++TIMESTAMP = 1605130509
++SHA256 (lxqt/compton-conf-0.16.0.tar.xz) = 7d5354d88ad8cd3342ce237f0cf8b0ed422ee837be31e89ae5e0ca66e1cf4a41
++SIZE (lxqt/compton-conf-0.16.0.tar.xz) = 42944
+Index: x11/libfm-qt/Makefile
+===================================================================
+--- x11/libfm-qt/Makefile	(revision 554848)
++++ x11/libfm-qt/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	libfm-qt
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11
+ MASTER_SITES=	LXQT
+ 
+Index: x11/libfm-qt/distinfo
+===================================================================
+--- x11/libfm-qt/distinfo	(revision 554848)
++++ x11/libfm-qt/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588433301
+-SHA256 (lxqt/libfm-qt-0.15.0.tar.xz) = 99e18587be7f75c1af478e178960e9cb5b03d89c7a5ad05981bad79b90aa462f
+-SIZE (lxqt/libfm-qt-0.15.0.tar.xz) = 339036
++TIMESTAMP = 1605288072
++SHA256 (lxqt/libfm-qt-0.16.0.tar.xz) = 7796e74cf372d7ae3289f5d584f2e0d7bd29020b4e0d79308a157c970860f7b4
++SIZE (lxqt/libfm-qt-0.16.0.tar.xz) = 348548
+Index: x11/libfm-qt/pkg-plist
+===================================================================
+--- x11/libfm-qt/pkg-plist	(revision 554848)
++++ x11/libfm-qt/pkg-plist	(working copy)
+@@ -59,6 +59,7 @@
+ include/libfm-qt/editbookmarksdialog.h
+ include/libfm-qt/execfiledialog_p.h
+ include/libfm-qt/filedialog.h
++include/libfm-qt/filedialog_p.h
+ include/libfm-qt/filedialoghelper.h
+ include/libfm-qt/filelauncher.h
+ include/libfm-qt/filemenu.h
+@@ -96,8 +97,8 @@
+ include/libfm-qt/utilities_p.h
+ include/libfm-qt/xdndworkaround.h
+ lib/libfm-qt.so
+-lib/libfm-qt.so.7
+-lib/libfm-qt.so.7.0.0
++lib/libfm-qt.so.8
++lib/libfm-qt.so.8.0.0
+ libdata/pkgconfig/libfm-qt.pc
+ share/cmake/fm-qt/fm-qt-config-version.cmake
+ share/cmake/fm-qt/fm-qt-config.cmake
+@@ -119,10 +120,12 @@
+ %%DATADIR%%/translations/libfm-qt_fr.qm
+ %%DATADIR%%/translations/libfm-qt_gl.qm
+ %%DATADIR%%/translations/libfm-qt_he.qm
++%%DATADIR%%/translations/libfm-qt_hr.qm
+ %%DATADIR%%/translations/libfm-qt_hu.qm
+ %%DATADIR%%/translations/libfm-qt_id.qm
+ %%DATADIR%%/translations/libfm-qt_it.qm
+ %%DATADIR%%/translations/libfm-qt_ja.qm
++%%DATADIR%%/translations/libfm-qt_ko.qm
+ %%DATADIR%%/translations/libfm-qt_lt.qm
+ %%DATADIR%%/translations/libfm-qt_nb_NO.qm
+ %%DATADIR%%/translations/libfm-qt_nl.qm
+Index: x11/lxqt-about/Makefile
+===================================================================
+--- x11/lxqt-about/Makefile	(revision 554848)
++++ x11/lxqt-about/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-about
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11
+ MASTER_SITES=	LXQT
+ DIST_SUBDIR=	lxqt
+Index: x11/lxqt-about/distinfo
+===================================================================
+--- x11/lxqt-about/distinfo	(revision 554848)
++++ x11/lxqt-about/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588433585
+-SHA256 (lxqt/lxqt-about-0.15.0.tar.xz) = 50d7156b5d8691ced72e85312b54da1e94503824b177c5e16ce8fae977f8445c
+-SIZE (lxqt/lxqt-about-0.15.0.tar.xz) = 39048
++TIMESTAMP = 1605362892
++SHA256 (lxqt/lxqt-about-0.16.0.tar.xz) = b7aaeb2a677b049f7df59fc27eab61721afc066d6064ca333ce55dd698247b6c
++SIZE (lxqt/lxqt-about-0.16.0.tar.xz) = 38660
+Index: x11/lxqt-about/pkg-plist
+===================================================================
+--- x11/lxqt-about/pkg-plist	(revision 554848)
++++ x11/lxqt-about/pkg-plist	(working copy)
+@@ -20,6 +20,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-about/lxqt-about_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-about/lxqt-about_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-about/lxqt-about_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-about/lxqt-about_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-about/lxqt-about_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-about/lxqt-about_ia.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-about/lxqt-about_id.qm
+Index: x11/lxqt-globalkeys/Makefile
+===================================================================
+--- x11/lxqt-globalkeys/Makefile	(revision 554848)
++++ x11/lxqt-globalkeys/Makefile	(working copy)
+@@ -1,7 +1,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-globalkeys
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11
+ MASTER_SITES=	LXQT
+ 
+Index: x11/lxqt-globalkeys/distinfo
+===================================================================
+--- x11/lxqt-globalkeys/distinfo	(revision 554848)
++++ x11/lxqt-globalkeys/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588435327
+-SHA256 (lxqt/lxqt-globalkeys-0.15.0.tar.xz) = ce54a1f62a3ec8a5ae0db5639df14141f4fea70643b915fb91c05c31fcbedbf1
+-SIZE (lxqt/lxqt-globalkeys-0.15.0.tar.xz) = 68932
++TIMESTAMP = 1605364643
++SHA256 (lxqt/lxqt-globalkeys-0.16.0.tar.xz) = 9245d93a98960eee655f87ee9c3bb839580a7e6589c8540d0af73489eff1d1ed
++SIZE (lxqt/lxqt-globalkeys-0.16.0.tar.xz) = 69812
+Index: x11/lxqt-globalkeys/pkg-plist
+===================================================================
+--- x11/lxqt-globalkeys/pkg-plist	(revision 554848)
++++ x11/lxqt-globalkeys/pkg-plist	(working copy)
+@@ -47,6 +47,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-config-globalkeyshortcuts/lxqt-config-globalkeyshortcuts_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-globalkeyshortcuts/lxqt-config-globalkeyshortcuts_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-globalkeyshortcuts/lxqt-config-globalkeyshortcuts_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-config-globalkeyshortcuts/lxqt-config-globalkeyshortcuts_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-globalkeyshortcuts/lxqt-config-globalkeyshortcuts_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-globalkeyshortcuts/lxqt-config-globalkeyshortcuts_id.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-globalkeyshortcuts/lxqt-config-globalkeyshortcuts_it.qm
+Index: x11/lxqt-runner/Makefile
+===================================================================
+--- x11/lxqt-runner/Makefile	(revision 554848)
++++ x11/lxqt-runner/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-runner
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11
+ MASTER_SITES=	LXQT
+ 
+Index: x11/lxqt-runner/distinfo
+===================================================================
+--- x11/lxqt-runner/distinfo	(revision 554848)
++++ x11/lxqt-runner/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588437666
+-SHA256 (lxqt/lxqt-runner-0.15.0.tar.xz) = 614a3c6f4662835a2d9219b81a442ff4cf7800cdb55028edc5481908a9bbbd0b
+-SIZE (lxqt/lxqt-runner-0.15.0.tar.xz) = 223996
++TIMESTAMP = 1605367675
++SHA256 (lxqt/lxqt-runner-0.16.0.tar.xz) = 0f36a6c54fcd850fb6589503cf41bc9da32617efef448940c0386036950f020a
++SIZE (lxqt/lxqt-runner-0.16.0.tar.xz) = 224496
+Index: x11/lxqt-runner/pkg-plist
+===================================================================
+--- x11/lxqt-runner/pkg-plist	(revision 554848)
++++ x11/lxqt-runner/pkg-plist	(working copy)
+@@ -17,6 +17,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_ia.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_id.qm
+@@ -31,7 +32,6 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_pt_BR.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_ro_RO.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_ru.qm
+-%%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_ru_RU.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_sk.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_sk_SK.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-runner/lxqt-runner_sl.qm
+Index: x11/qterminal/Makefile
+===================================================================
+--- x11/qterminal/Makefile	(revision 554848)
++++ x11/qterminal/Makefile	(working copy)
+@@ -1,7 +1,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	qterminal
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11
+ MASTER_SITES=	LXQT
+ 
+Index: x11/qterminal/distinfo
+===================================================================
+--- x11/qterminal/distinfo	(revision 554848)
++++ x11/qterminal/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588440071
+-SHA256 (lxqt/qterminal-0.15.0.tar.xz) = 557f74a946d009bb6e598c5d0c6de9356cda325f674876a457874c7525affd64
+-SIZE (lxqt/qterminal-0.15.0.tar.xz) = 179608
++TIMESTAMP = 1605366626
++SHA256 (lxqt/qterminal-0.16.0.tar.xz) = 871d7b3ed8d6e815b6feccf6a603781c1794ac6bc20c6a52f067ee7fa192ed24
++SIZE (lxqt/qterminal-0.16.0.tar.xz) = 183832
+Index: x11/qterminal/pkg-plist
+===================================================================
+--- x11/qterminal/pkg-plist	(revision 554848)
++++ x11/qterminal/pkg-plist	(working copy)
+@@ -19,6 +19,7 @@
+ %%DATADIR%%/translations/qterminal_fr.qm
+ %%DATADIR%%/translations/qterminal_gl.qm
+ %%DATADIR%%/translations/qterminal_he.qm
++%%DATADIR%%/translations/qterminal_hr.qm
+ %%DATADIR%%/translations/qterminal_hu.qm
+ %%DATADIR%%/translations/qterminal_id.qm
+ %%DATADIR%%/translations/qterminal_it.qm
+Index: x11-fm/pcmanfm-qt/Makefile
+===================================================================
+--- x11-fm/pcmanfm-qt/Makefile	(revision 554848)
++++ x11-fm/pcmanfm-qt/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	pcmanfm-qt
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11-fm
+ MASTER_SITES=	LXQT
+ 
+Index: x11-fm/pcmanfm-qt/distinfo
+===================================================================
+--- x11-fm/pcmanfm-qt/distinfo	(revision 554848)
++++ x11-fm/pcmanfm-qt/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588439782
+-SHA256 (lxqt/pcmanfm-qt-0.15.0.tar.xz) = 69d60ac9b1ee73ad73280ce544680c6f7fe72fd69eba9c9b7a03e6c80576c105
+-SIZE (lxqt/pcmanfm-qt-0.15.0.tar.xz) = 254536
++TIMESTAMP = 1605366291
++SHA256 (lxqt/pcmanfm-qt-0.16.0.tar.xz) = fc08bb6050543d862bf3594d6bd414c427b7998e36177e5e62611ce3e7effab6
++SIZE (lxqt/pcmanfm-qt-0.16.0.tar.xz) = 275792
+Index: x11-fm/pcmanfm-qt/pkg-plist
+===================================================================
+--- x11-fm/pcmanfm-qt/pkg-plist	(revision 554848)
++++ x11-fm/pcmanfm-qt/pkg-plist	(working copy)
+@@ -21,10 +21,12 @@
+ %%DATADIR%%/translations/pcmanfm-qt_gl.qm
+ %%DATADIR%%/translations/pcmanfm-qt_he.qm
+ %%DATADIR%%/translations/pcmanfm-qt_hi.qm
++%%DATADIR%%/translations/pcmanfm-qt_hr.qm
+ %%DATADIR%%/translations/pcmanfm-qt_hu.qm
+ %%DATADIR%%/translations/pcmanfm-qt_id.qm
+ %%DATADIR%%/translations/pcmanfm-qt_it.qm
+ %%DATADIR%%/translations/pcmanfm-qt_ja.qm
++%%DATADIR%%/translations/pcmanfm-qt_ko.qm
+ %%DATADIR%%/translations/pcmanfm-qt_lt.qm
+ %%DATADIR%%/translations/pcmanfm-qt_nb_NO.qm
+ %%DATADIR%%/translations/pcmanfm-qt_nl.qm
+Index: x11-themes/lxqt-themes/Makefile
+===================================================================
+--- x11-themes/lxqt-themes/Makefile	(revision 554848)
++++ x11-themes/lxqt-themes/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-themes
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11-themes
+ MASTER_SITES=	LXQT
+ 
+Index: x11-themes/lxqt-themes/distinfo
+===================================================================
+--- x11-themes/lxqt-themes/distinfo	(revision 554848)
++++ x11-themes/lxqt-themes/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588438469
+-SHA256 (lxqt/lxqt-themes-0.15.0.tar.xz) = a10137fa839bffc4fca2dbf72ae82e70f97167d5280828953126c2163030fbb7
+-SIZE (lxqt/lxqt-themes-0.15.0.tar.xz) = 3203876
++TIMESTAMP = 1605288522
++SHA256 (lxqt/lxqt-themes-0.16.0.tar.xz) = ae7bdcc86fcd0d492a24e6deb13a629edb05c4c44ffebe73eb21903bd8fa25eb
++SIZE (lxqt/lxqt-themes-0.16.0.tar.xz) = 3220864
+Index: x11-themes/lxqt-themes/pkg-plist
+===================================================================
+--- x11-themes/lxqt-themes/pkg-plist	(revision 554848)
++++ x11-themes/lxqt-themes/pkg-plist	(working copy)
+@@ -12,6 +12,33 @@
+ %%LXQT_SHAREDIR%%/graphics/spacer-dark-line.svg
+ %%LXQT_SHAREDIR%%/graphics/spacer-light-dots.svg
+ %%LXQT_SHAREDIR%%/graphics/spacer-light-line.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/arrow-right-selected.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/arrow-right.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/calendar-popup/left-arrow.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/calendar-popup/right-arrow.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/lxqt-notificationd.qss
++%%LXQT_SHAREDIR%%/themes/Clearlooks/lxqt-notificationd/cancel.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/lxqt-panel.qss
++%%LXQT_SHAREDIR%%/themes/Clearlooks/lxqt-runner.qss
++%%LXQT_SHAREDIR%%/themes/Clearlooks/lxqt-runner/close.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/lxqt-runner/down-arrow.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/mainmenu.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/preview.png
++%%LXQT_SHAREDIR%%/themes/Clearlooks/spacer-plugin/spacer-dots.svg
++%%LXQT_SHAREDIR%%/themes/Clearlooks/spacer-plugin/spacer-line.svg
++%%LXQT_SHAREDIR%%/themes/Leech/arrow-right.svg
++%%LXQT_SHAREDIR%%/themes/Leech/calendar-popup/left-arrow.svg
++%%LXQT_SHAREDIR%%/themes/Leech/calendar-popup/right-arrow.svg
++%%LXQT_SHAREDIR%%/themes/Leech/lxqt-notificationd.qss
++%%LXQT_SHAREDIR%%/themes/Leech/lxqt-notificationd/cancel.svg
++%%LXQT_SHAREDIR%%/themes/Leech/lxqt-panel.qss
++%%LXQT_SHAREDIR%%/themes/Leech/lxqt-runner.qss
++%%LXQT_SHAREDIR%%/themes/Leech/lxqt-runner/close.svg
++%%LXQT_SHAREDIR%%/themes/Leech/lxqt-runner/down-arrow.svg
++%%LXQT_SHAREDIR%%/themes/Leech/mainmenu.svg
++%%LXQT_SHAREDIR%%/themes/Leech/preview.png
++%%LXQT_SHAREDIR%%/themes/Leech/spacer-plugin/spacer-dots.svg
++%%LXQT_SHAREDIR%%/themes/Leech/spacer-plugin/spacer-line.svg
+ %%LXQT_SHAREDIR%%/themes/ambiance/Butterfly-Kenneth-Wimer.jpg
+ %%LXQT_SHAREDIR%%/themes/ambiance/arrow-left.svg
+ %%LXQT_SHAREDIR%%/themes/ambiance/arrow-right.svg
+@@ -76,6 +103,26 @@
+ %%LXQT_SHAREDIR%%/themes/kde-plasma/spacer-plugin/spacer-dots.svg
+ %%LXQT_SHAREDIR%%/themes/kde-plasma/spacer-plugin/spacer-line.svg
+ %%LXQT_SHAREDIR%%/themes/kde-plasma/wallpaper.cfg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-config.qss
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-notificationd.qss
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel.qss
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/arrow-left-selected.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/arrow-left.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/arrow-right-selected.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/arrow-right.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/checked.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/mainmenu.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/plugin-handle-horizontal.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/plugin-handle-vertical.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/radio-checked.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/radio-unchecked.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-panel/unchecked.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-runner.qss
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-runner/close.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/lxqt-runner/down.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/preview.png
++%%LXQT_SHAREDIR%%/themes/kvantum/spacer-plugin/spacer-dots.svg
++%%LXQT_SHAREDIR%%/themes/kvantum/spacer-plugin/spacer-line.svg
+ %%LXQT_SHAREDIR%%/themes/light/96640-simple_blue_widescreen.svg
+ %%LXQT_SHAREDIR%%/themes/light/lxqt-lightdm-greeter/dropdown.svg
+ %%LXQT_SHAREDIR%%/themes/light/lxqt-lightdm-greeter/leaveIcon.svg
+Index: x11-toolkits/qtermwidget/Makefile
+===================================================================
+--- x11-toolkits/qtermwidget/Makefile	(revision 554848)
++++ x11-toolkits/qtermwidget/Makefile	(working copy)
+@@ -1,7 +1,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	qtermwidget
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11-toolkits
+ MASTER_SITES=	LXQT
+ 
+Index: x11-toolkits/qtermwidget/distinfo
+===================================================================
+--- x11-toolkits/qtermwidget/distinfo	(revision 554848)
++++ x11-toolkits/qtermwidget/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588439990
+-SHA256 (lxqt/qtermwidget-0.15.0.tar.xz) = 6ecaf7c91be282c5e34937a853fe649729966c38d7e8f4cf54c0df94d85ac3ee
+-SIZE (lxqt/qtermwidget-0.15.0.tar.xz) = 181284
++TIMESTAMP = 1605292914
++SHA256 (lxqt/qtermwidget-0.16.0.tar.xz) = 739fcc97581d1fca441914d67808ea5eb2a051300488be319bb7afe30a01fdf2
++SIZE (lxqt/qtermwidget-0.16.0.tar.xz) = 182460
+Index: x11-toolkits/qtermwidget/pkg-plist
+===================================================================
+--- x11-toolkits/qtermwidget/pkg-plist	(revision 554848)
++++ x11-toolkits/qtermwidget/pkg-plist	(working copy)
+@@ -1,5 +1,6 @@
+ include/qtermwidget5/Emulation.h
+ include/qtermwidget5/Filter.h
++include/qtermwidget5/KeyboardTranslator.h
+ include/qtermwidget5/qtermwidget.h
+ include/qtermwidget5/qtermwidget_export.h
+ include/qtermwidget5/qtermwidget_version.h
+@@ -56,7 +57,9 @@
+ %%DATADIR%%5/translations/qtermwidget_fr.qm
+ %%DATADIR%%5/translations/qtermwidget_gl.qm
+ %%DATADIR%%5/translations/qtermwidget_he.qm
++%%DATADIR%%5/translations/qtermwidget_hr.qm
+ %%DATADIR%%5/translations/qtermwidget_hu.qm
++%%DATADIR%%5/translations/qtermwidget_it.qm
+ %%DATADIR%%5/translations/qtermwidget_ja.qm
+ %%DATADIR%%5/translations/qtermwidget_lt.qm
+ %%DATADIR%%5/translations/qtermwidget_nb_NO.qm
+Index: x11-wm/lxqt/Makefile
+===================================================================
+--- x11-wm/lxqt/Makefile	(revision 554848)
++++ x11-wm/lxqt/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11-wm
+ 
+ MAINTAINER=	jsm@FreeBSD.org
+@@ -14,7 +14,7 @@
+ 	lxqt-about:x11/lxqt-about \
+ 	lxqt-admin-user:sysutils/lxqt-admin \
+ 	lxqt-config:sysutils/lxqt-config \
+-	lxqt-qtplugin>=0.15.0:sysutils/lxqt-qtplugin \
++	lxqt-qtplugin>=0.16.0:sysutils/lxqt-qtplugin \
+ 	qterminal:x11/qterminal \
+ 	obconf-qt:x11-wm/obconf-qt \
+ 	lximage-qt:graphics/lximage-qt \
+Index: x11-wm/lxqt-panel/Makefile
+===================================================================
+--- x11-wm/lxqt-panel/Makefile	(revision 554848)
++++ x11-wm/lxqt-panel/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-panel
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11-wm
+ MASTER_SITES=	LXQT
+ 
+Index: x11-wm/lxqt-panel/distinfo
+===================================================================
+--- x11-wm/lxqt-panel/distinfo	(revision 554848)
++++ x11-wm/lxqt-panel/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588436011
+-SHA256 (lxqt/lxqt-panel-0.15.0.tar.xz) = 64f802644cdc0e8744aa631798b0b05e8df8d2eceb53b530dbfe392324b5d9a0
+-SIZE (lxqt/lxqt-panel-0.15.0.tar.xz) = 473968
++TIMESTAMP = 1605367801
++SHA256 (lxqt/lxqt-panel-0.16.0.tar.xz) = cade0427fcd969e325798040e08061ac9510670106b63f993c2ee75e381bd658
++SIZE (lxqt/lxqt-panel-0.16.0.tar.xz) = 473508
+Index: x11-wm/lxqt-panel/pkg-plist
+===================================================================
+--- x11-wm/lxqt-panel/pkg-plist	(revision 554848)
++++ x11-wm/lxqt-panel/pkg-plist	(working copy)
+@@ -44,6 +44,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/colorpicker/colorpicker_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/colorpicker/colorpicker_ja.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/colorpicker/colorpicker_nb_NO.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/colorpicker/colorpicker_nl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/colorpicker/colorpicker_pl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/colorpicker/colorpicker_pt_BR.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/colorpicker/colorpicker_ru.qm
+@@ -339,6 +340,8 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/quicklaunch/quicklaunch_fi.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/quicklaunch/quicklaunch_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/quicklaunch/quicklaunch_gl.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/quicklaunch/quicklaunch_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/quicklaunch/quicklaunch_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/quicklaunch/quicklaunch_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/quicklaunch/quicklaunch_ia.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/quicklaunch/quicklaunch_id.qm
+@@ -442,9 +445,12 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_da.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_de.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_gl.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_he.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_hu.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_it.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_ja.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_nb_NO.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_nl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_pl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_sk_SK.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/statusnotifier/statusnotifier_tr.qm
+@@ -460,6 +466,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/sysstat/sysstat_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/sysstat/sysstat_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/sysstat/sysstat_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/sysstat/sysstat_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/sysstat/sysstat_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/sysstat/sysstat_id.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/sysstat/sysstat_it.qm
+@@ -526,10 +533,14 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_de.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_es.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_gl.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_id.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_it.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_ja.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_nb_NO.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_nl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_pl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_pt_BR.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/tray/tray_ru_RU.qm
+@@ -586,6 +597,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_id.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-panel/worldclock/worldclock_it.qm
+Index: x11-wm/lxqt-session/Makefile
+===================================================================
+--- x11-wm/lxqt-session/Makefile	(revision 554848)
++++ x11-wm/lxqt-session/Makefile	(working copy)
+@@ -2,7 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	lxqt-session
+-PORTVERSION=	0.15.0
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11-wm
+ MASTER_SITES=	LXQT
+ 
+Index: x11-wm/lxqt-session/distinfo
+===================================================================
+--- x11-wm/lxqt-session/distinfo	(revision 554848)
++++ x11-wm/lxqt-session/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1588437746
+-SHA256 (lxqt/lxqt-session-0.15.0.tar.xz) = e44fcc0ba10165713a35729fe4a7e227af466d8f8b9fbc3fed1f8a2a68a0c69f
+-SIZE (lxqt/lxqt-session-0.15.0.tar.xz) = 181900
++TIMESTAMP = 1605365870
++SHA256 (lxqt/lxqt-session-0.16.0.tar.xz) = 547e01e173921357245fb938718bd2401b38e73245cdcbecf195130e856d4959
++SIZE (lxqt/lxqt-session-0.16.0.tar.xz) = 180084
+Index: x11-wm/lxqt-session/pkg-plist
+===================================================================
+--- x11-wm/lxqt-session/pkg-plist	(revision 554848)
++++ x11-wm/lxqt-session/pkg-plist	(working copy)
+@@ -33,6 +33,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-config-session/lxqt-config-session_fr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-session/lxqt-config-session_gl.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-session/lxqt-config-session_he.qm
++%%LXQT_TRANSLATIONS%%/lxqt-config-session/lxqt-config-session_hr.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-session/lxqt-config-session_hu.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-session/lxqt-config-session_ia.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-config-session/lxqt-config-session_id.qm
+@@ -75,6 +76,7 @@
+ %%LXQT_TRANSLATIONS%%/lxqt-leave/lxqt-leave_id.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-leave/lxqt-leave_it.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-leave/lxqt-leave_ja.qm
++%%LXQT_TRANSLATIONS%%/lxqt-leave/lxqt-leave_ko.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-leave/lxqt-leave_lt.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-leave/lxqt-leave_nb_NO.qm
+ %%LXQT_TRANSLATIONS%%/lxqt-leave/lxqt-leave_nl.qm
+Index: x11-wm/obconf-qt/Makefile
+===================================================================
+--- x11-wm/obconf-qt/Makefile	(revision 554848)
++++ x11-wm/obconf-qt/Makefile	(working copy)
+@@ -2,8 +2,7 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	obconf-qt
+-PORTVERSION=	0.15.0
+-PORTREVISION=	1
++PORTVERSION=	0.16.0
+ CATEGORIES=	x11-wm
+ MASTER_SITES=	LXQT/${PORTNAME}
+ 
+Index: x11-wm/obconf-qt/distinfo
+===================================================================
+--- x11-wm/obconf-qt/distinfo	(revision 554848)
++++ x11-wm/obconf-qt/distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1592605793
+-SHA256 (lxqt/obconf-qt-0.15.0.tar.xz) = d8c05ce9d1497f1aaec903874ef6f8bb4a35c530e59ccccc71ac3f488a179bed
+-SIZE (lxqt/obconf-qt-0.15.0.tar.xz) = 99976
++TIMESTAMP = 1605291666
++SHA256 (lxqt/obconf-qt-0.16.0.tar.xz) = 64c6cf341a5cb9249d531c6bb109e59bf9eb01bb65fcad1638c32839c4f0b0a4
++SIZE (lxqt/obconf-qt-0.16.0.tar.xz) = 101588

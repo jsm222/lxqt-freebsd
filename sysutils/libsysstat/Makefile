@@ -1,21 +1,23 @@
 # Created by: Olivier Duchateau
-# $FreeBSD$
+# $FreeBSD: head/sysutils/libsysstat/Makefile 539701 2020-06-20 08:05:22Z jsm $
 
 PORTNAME=	libsysstat
-PORTVERSION=	0.3.3
+PORTVERSION=	0.4.4
 CATEGORIES=	sysutils
 MASTER_SITES=	LXQT/${PORTNAME}
 
-MAINTAINER=	olivierd@FreeBSD.org
+MAINTAINER=	jsm@FreeBSD.org
 COMMENT=	Library used to query system info and statistics
 
-LICENSE=	LGPL21
+LICENSE=	LGPL21+
+LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=	cmake:outsource lxqt pkgconfig tar:xz
-USE_QT5=	qmake_build buildtools_build core
+USES=		cmake compiler:c++11-lang lxqt pkgconfig tar:xz qt:5
+USE_QT=		qmake_build buildtools_build core
 USE_LXQT=	buildtools
+USE_LDCONFIG=	yes
 
 post-extract:
-	@${CP} ${FILESDIR}/config.h.in ${WRKSRC};
+	@${CP} ${FILESDIR}/config.h.in ${WRKSRC}
 
 .include <bsd.port.mk>

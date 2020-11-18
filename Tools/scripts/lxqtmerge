@@ -1,6 +1,7 @@
 #!/bin/sh -eu
 #
 # Copyright (c) 2015, 2017 Olivier Duchateau <olivierd@FreeBSD.org>
+# Copyright (c) 2017 Jesper Schmitz Mouridsen <jesper@schmitz.computer>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -26,19 +27,14 @@
 #
 
 # Local repository
-LOCAL_REPO="lxqt"
+LOCAL_REPO="lxqt-freebsd"
 # Version supported
-BRANCH="0.11"
+BRANCH="master"
 # The ports tree
 PORTSDIR="/usr/ports"
 
-# Subversion repository
-: ${SVNHOST:="https://subversion.assembla.com/svn/lxqt"}
-if [ "${BRANCH}" != "trunk" ] && [ "x${BRANCH}" != "x" ]; then
-		SVNURL="${SVNHOST}/tags/${BRANCH}"
-elif [ "${BRANCH}" = "trunk" ]; then
-		SVNURL="${SVNHOST}/${BRANCH}"
-fi
+# Git repository
+GITURL="https://github.com/jsm222/lxqt-freebsd";
 
 #### Don't change anything below
 
@@ -63,19 +59,18 @@ options:
   -c    clone remote repository
   -m    merge into the ports tree
   -u    update local repository
-  -r    revert changes
+  -r    revert changes (only if PORTSDIR is svn working copy)
 EOF
 		exit 0
 }
 
-_svn()
+_git()
 {
-		if [ -x $(which svn 2>/dev/null) ]; then
-				echo $(which svn);
-		elif [ -x $(which svnlite 2>/dev/null) ]; then
-				echo $(which svnlite);
+		which -s git
+		if [ $? -eq 0 ]; then
+				echo $(which git);
 		else
-				err "ERROR: Neither svn(1) nor svnlite(1) found.";
+				err "ERROR: git not found.";
 		fi
 		
 }
@@ -83,32 +78,35 @@ _svn()
 update()
 {
 		cd ${LOCAL_REPO}
-		${1} up
+		${1} pull
 }
 
 checkout()
 {
-		svn_cmd=$(_svn)
+		git_cmd=$(_git)
 		
-		if [ ! -d "${LOCAL_REPO}/.svn" ]; then
-				${svn_cmd} co ${SVNURL} ${LOCAL_REPO};
-		else
-				update ${svn_cmd};
+		if [ ! -d "${LOCAL_REPO}/.git" ]; then
+                
+				${git_cmd} clone ${GITURL} $LOCAL_REPO;
+                cd  ${LOCAL_REPO};
+                ${git_cmd} checkout ${BRANCH};
+		elif [ $git_cmd  ]; then
+				update ${git_cmd};
 		fi
 		exit 0
 }
 
 revert()
 {
-		svn_cmd=$(_svn)
+		git_cmd=$(_git)
 
-		if [ ! -d "${LOCAL_REPO}/.svn" ]; then
+		if [ ! -d "${LOCAL_REPO}/.git" ]; then
 				err "ERROR: You must clone repository first!"
 		else
 				if [ -n "${PORTSDIR}" ]; then
 						cd ${LOCAL_REPO};
 						dirs=$(find . -type d -depth 2 \
-												! -path './.svn*' ! -path './Tools*' ! -path './Mk*');
+												! -path './.git*' ! -path './Tools*' ! -path './Mk*');
 						for d in ${dirs}; do
 								if [ -d "${PORTSDIR}/${d#./}" ]; then
 										rm -Rf "${PORTSDIR}/${d#./}";
@@ -116,7 +114,7 @@ revert()
 						done
 						
 						cd ${PORTSDIR};
-						${svn_cmd} revert -R .;
+						svn revert -R .;
 						
 						cd ${CWD};
 						exit 0
@@ -128,13 +126,13 @@ revert()
 
 merge()
 {
-		if [ ! -d "${LOCAL_REPO}/.svn" ]; then
+		if [ ! -d "${LOCAL_REPO}/.git" ]; then
 				err "ERROR: You must clone repository first!";
 		else
 				if [ -n "${PORTSDIR}" ]; then
 						cd ${LOCAL_REPO};
 						dirs=$(find . -type d -depth 2 \
-												! -path './.svn*' ! -path './Tools*');
+												! -path './.git*' ! -path './Tools*');
 						for d in ${dirs}; do
 								echo "Updating '${d#./}'"
 
@@ -174,7 +172,6 @@ set -- ${opts}
 if [ ${#} -eq 1 ]; then
 		usage;
 else
-		while true; do
 				case "${1}" in
 						-h)
 								usage;
@@ -200,5 +197,5 @@ else
 								shift ; break
 								;;
 				esac
-		done
 fi
+

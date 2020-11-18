@@ -1,7 +1,6 @@
 # lxqt-freebsd
-FreeBSD port of LXQt
-Work in progress. Branch [0.11](https://github.com/jsm222/lxqt-freebsd/tree/0.11). 
-
-Work in progress. Branch [0.12](https://github.com/jsm222/lxqt-freebsd/tree/0.12) see [wiki.FreeBSD.org/LXQt](https://wiki.FreeBSD.org/LXQt)
-
-[lxqt-freebsd-import](https://github.com/jsm222/lxqt-freebsd/tree/lxqt-freebsd-import) Ports ready to import. (LXQt 0.13)
+FreeBSD port of LXQt currently 0.16 is ported (not committed to ports tree as of 2020-11-18)
+either clone this and use lxqt-freebsd/Tools/lxqtmerge*, or apply the patch in this repo lxqt-allports.0.16.diff (against ports head)
+see [wiki.FreeBSD.org/LXQt](https://wiki.FreeBSD.org/LXQt)
+*Note that using lxqt-freebsd/Tools/lxqtmerge should be called in the parent dir of the checked out repo.
+ 
